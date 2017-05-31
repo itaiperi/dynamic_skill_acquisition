@@ -1,0 +1,891 @@
+****************************
+ Powered By MCP:             
+ http://modcoderpack.com/    
+ Searge, ProfMobius, Fesh0r, 
+ R4wk, ZeuX, IngisKahn, bspkrs
+ MCP Data version : 9.10
+****************************
+:deobfCompileDummyTask
+:deobfProvidedDummyTask
+:compileApiJava UP-TO-DATE
+:processApiResources UP-TO-DATE
+:apiClasses UP-TO-DATE
+:copyModToClient
+:copyModToServer
+:deleteSchemas
+:copySchemas
+:jaxb UP-TO-DATE
+:sourceMainJava UP-TO-DATE
+:compileJava UP-TO-DATE
+:processResources UP-TO-DATE
+:classes UP-TO-DATE
+:jar
+:getVersionJson
+:extractNatives SKIPPED
+:extractUserdev UP-TO-DATE
+:getAssetIndex UP-TO-DATE
+:getAssets
+Current status: 505/734   68%
+:makeStart SKIPPED
+:runClient
+[11:14:50] [main/INFO] [GradleStart]: Extra: []
+[11:14:50] [main/INFO] [GradleStart]: Running with arguments: [--userProperties, {}, --assetsDir, /home/itai/.gradle/caches/minecraft/assets, --assetIndex, 1.8, --accessToken{REDACTED}, --version, 1.8, --tweakClass, net.minecraftforge.fml.common.launcher.FMLTweaker]
+[11:14:50] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[11:14:50] [main/INFO] [LaunchWrapper]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[11:14:50] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLTweaker
+[11:14:50] [main/INFO] [FML]: Forge Mod Loader version 11.14.3.1543 for Minecraft 1.8 loading
+[11:14:50] [main/INFO] [FML]: Java is OpenJDK 64-Bit Server VM, version 1.8.0_121, running on Linux:amd64:4.8.0-51-generic, installed at /usr/lib/jvm/java-8-openjdk-amd64/jre
+[11:14:50] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[11:14:50] [main/INFO] [FML]: Found a command line coremod : com.microsoft.Malmo.OverclockingPlugin
+[11:14:50] [main/WARN] [FML]: The coremod com.microsoft.Malmo.OverclockingPlugin does not have a MCVersion annotation, it may cause issues with this version of Minecraft
+[11:14:50] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[11:14:50] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[11:14:50] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[11:14:50] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[11:14:50] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[11:14:50] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[11:14:51] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[11:14:51] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[11:14:51] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[11:14:51] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[11:14:51] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
+[11:14:51] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
+[11:14:51] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[11:14:51] [main/INFO] [STDOUT]: [com.microsoft.Malmo.OverclockingClassTransformer:transform:52]: MALMO: Attempting to transform MinecraftServer
+[11:14:51] [main/INFO] [STDOUT]: [com.microsoft.Malmo.OverclockingClassTransformer:overclockRenderer:147]: MALMO: Found Minecraft, attempting to transform it
+[11:14:51] [main/INFO] [STDOUT]: [com.microsoft.Malmo.OverclockingClassTransformer:overclockRenderer:153]: MALMO: Found Minecraft.runGameLoop() method, attempting to transform it
+[11:14:51] [main/INFO] [STDOUT]: [com.microsoft.Malmo.OverclockingClassTransformer:overclockRenderer:168]: MALMO: Hooked into call to Minecraft.updateDisplay()
+[11:14:52] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.OverclockingClassTransformer:transform:52]: MALMO: Attempting to transform MinecraftServer
+[11:14:52] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.OverclockingClassTransformer:overclockServer:112]: MALMO: Found MinecraftServer, attempting to transform it
+[11:14:52] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.OverclockingClassTransformer:overclockServer:118]: MALMO: Found MinecraftServer.run() method, attempting to transform it
+[11:14:52] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.OverclockingClassTransformer:overclockServer:126]: MALMO: Transforming LDC
+[11:14:52] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.OverclockingClassTransformer:overclockServer:126]: MALMO: Transforming LDC
+[11:14:52] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.OverclockingClassTransformer:overclockServer:126]: MALMO: Transforming LDC
+[11:14:52] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.OverclockingClassTransformer:overclockServer:126]: MALMO: Transforming LDC
+[11:14:52] [Client thread/INFO]: Setting user: Player265
+[11:14:54] [Client thread/INFO]: LWJGL Version: 2.9.1
+[11:14:55] [Client thread/INFO] [STDOUT]: [net.minecraftforge.fml.client.SplashProgress:start:-1]: ---- Minecraft Crash Report ----
+// Daisy, daisy...
+
+Time: 5/10/17 11:14 AM
+Description: Loading screen debug info
+
+This is just a prompt for computer specs to be printed. THIS IS NOT A ERROR
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8
+	Operating System: Linux (amd64) version 4.8.0-51-generic
+	Java Version: 1.8.0_121, Oracle Corporation
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 321868592 bytes (306 MB) / 466092032 bytes (444 MB) up to 1908932608 bytes (1820 MB)
+	JVM Flags: 1 total; -Xmx2G
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: 
+	Loaded coremods (and transformers): 
+OverclockingPlugin (unknown)
+  com.microsoft.Malmo.OverclockingClassTransformer
+	GL info: ' Vendor: 'NVIDIA Corporation' Version: '4.5.0 NVIDIA 381.09' Renderer: 'GeForce 840M/PCIe/SSE2'
+[11:14:55] [Client thread/INFO] [MinecraftForge]: Attempting early MinecraftForge initialization
+[11:14:55] [Client thread/INFO] [FML]: MinecraftForge v11.14.3.1543 Initialized
+[11:14:55] [Client thread/INFO] [FML]: Replaced 204 ore recipies
+[11:14:55] [Client thread/INFO] [MinecraftForge]: Completed early MinecraftForge initialization
+[11:14:55] [Client thread/INFO] [FML]: Found 0 mods from the command line. Injecting into mod discoverer
+[11:14:55] [Client thread/INFO] [FML]: Searching /media/Data/Dropbox/Technion/Courses/ProjectA/project/malmo/Minecraft/run/mods for mods
+[11:14:57] [Client thread/INFO] [FML]: Forge Mod Loader has identified 4 mods to load
+[11:14:57] [Client thread/INFO] [FML]: Attempting connection with missing mods [mcp, FML, Forge, malmomod] at CLIENT
+[11:14:57] [Client thread/INFO] [FML]: Attempting connection with missing mods [mcp, FML, Forge, malmomod] at SERVER
+[11:14:57] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Microsoft Malmo Mod
+[11:14:57] [Client thread/WARN]: ResourcePack: ignored non-lowercase namespace: MalmoMod in /media/Data/Dropbox/Technion/Courses/ProjectA/project/malmo/Minecraft/build/libs/MalmoMod-0.21.0.jar
+[11:14:57] [Client thread/WARN]: ResourcePack: ignored non-lowercase namespace: MalmoMod in /media/Data/Dropbox/Technion/Courses/ProjectA/project/malmo/Minecraft/build/libs/MalmoMod-0.21.0.jar
+[11:14:57] [Client thread/WARN]: ResourcePack: ignored non-lowercase namespace: MalmoMod in /media/Data/Dropbox/Technion/Courses/ProjectA/project/malmo/Minecraft/build/libs/MalmoMod-0.21.0.jar
+[11:14:57] [Client thread/INFO] [FML]: Processing ObjectHolder annotations
+[11:14:57] [Client thread/INFO] [FML]: Found 384 ObjectHolder annotations
+[11:14:57] [Client thread/INFO] [FML]: Identifying ItemStackHolder annotations
+[11:14:57] [Client thread/INFO] [FML]: Found 0 ItemStackHolder annotations
+[11:14:58] [Client thread/INFO] [FML]: Configured a dormant chunk cache size of 0
+[11:14:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.SchemaHelper:testSchemaVersionNumbers:157]: Testing schemas against internal version number: 0.21
+[11:14:58] [Client thread/INFO] [FML]: Applying holder lookups
+[11:14:58] [Client thread/INFO] [FML]: Holder lookups applied
+[11:14:58] [Client thread/INFO] [FML]: Injecting itemstacks
+[11:14:58] [Client thread/INFO] [FML]: Itemstack injection complete
+[11:14:58] [Client thread/INFO] [STDOUT]: [tv.twitch.StandardCoreAPI:<init>:16]: If on Windows, make sure to provide all of the necessary dll's as specified in the twitchsdk README. Also, make sure to set the PATH environment variable to point to the directory containing the dll's.
+[11:14:58] [Client thread/ERROR]: Couldn't initialize twitch stream
+[11:14:58] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[11:14:58] [Thread-8/INFO]: Initializing LWJGL OpenAL
+[11:14:58] [Thread-8/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[11:14:58] [Thread-8/INFO]: OpenAL initialized.
+[11:14:58] [Sound Library Loader/INFO]: Sound engine started
+[11:15:00] [Client thread/INFO] [FML]: Max texture size: 16384
+[11:15:00] [Client thread/INFO]: Created: 16x16 textures-atlas
+[11:15:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_MOD_READY
+[11:15:01] [Client thread/INFO] [FML]: Injecting itemstacks
+[11:15:01] [Client thread/INFO] [FML]: Itemstack injection complete
+[11:15:01] [Client thread/INFO] [FML]: Forge Mod Loader has successfully loaded 4 mods
+[11:15:01] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Microsoft Malmo Mod
+[11:15:01] [Client thread/WARN]: ResourcePack: ignored non-lowercase namespace: MalmoMod in /media/Data/Dropbox/Technion/Courses/ProjectA/project/malmo/Minecraft/build/libs/MalmoMod-0.21.0.jar
+[11:15:01] [Client thread/WARN]: ResourcePack: ignored non-lowercase namespace: MalmoMod in /media/Data/Dropbox/Technion/Courses/ProjectA/project/malmo/Minecraft/build/libs/MalmoMod-0.21.0.jar
+[11:15:01] [Client thread/WARN]: ResourcePack: ignored non-lowercase namespace: MalmoMod in /media/Data/Dropbox/Technion/Courses/ProjectA/project/malmo/Minecraft/build/libs/MalmoMod-0.21.0.jar
+[11:15:01] [Client thread/INFO]: SoundSystem shutting down...
+[11:15:01] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[11:15:01] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[11:15:01] [Thread-10/INFO]: Initializing LWJGL OpenAL
+[11:15:01] [Thread-10/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[11:15:01] [Thread-10/INFO]: OpenAL initialized.
+[11:15:02] [Sound Library Loader/INFO]: Sound engine started
+[11:15:02] [Client thread/INFO] [FML]: Max texture size: 16384
+[11:15:02] [Client thread/INFO]: Created: 512x512 textures-atlas
+[11:15:03] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_MOD_READY
+[11:15:03] [Thread-12/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPInputPoller:run:191]: Listening for messages on port 10000
+[11:15:03] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: DORMANT
+[11:15:03] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: DORMANT
+[11:18:06] [Thread-14/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:443]: Received from 127.0.0.1:
+[11:18:06] [Thread-14/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:444]: <?xml version="1.0" encoding="UTF-8" standalone="no" ?><MissionInit xmlns="http://ProjectMalmo.microsoft.com" PlatformVersion="0.21.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ProjectMalmo.microsoft.com MissionInit.xsd"><Mission><About><Summary>Cliff walking mission based on Sutton and Barto.</Summary></About><ServerSection><ServerInitialConditions><Time><StartTime>6000</StartTime><AllowPassageOfTime>false</AllowPassageOfTime></Time><Weather>clear</Weather></ServerInitialConditions><ServerHandlers><FlatWorldGenerator destroyAfterUse="true" forceReset="false" generatorString="3;7,220*1,5*3,2;3;,biome_1" seed=""/><DrawingDecorator><DrawCuboid type="stone" x1="-7" x2="7" y1="226" y2="231" z1="-7" z2="7"/><DrawCuboid type="air" x1="-6" x2="6" y1="227" y2="230" z1="-6" z2="6"/><DrawCuboid type="planks" x1="-7" x2="7" y1="226" y2="226" z1="-7" z2="7"/><DrawLine type="planks" x1="0" x2="0" y1="226" y2="231" z1="0" z2="0"/><DrawBlock face="EAST" type="torch" x="-6" y="229" z="-
+[11:18:07] [Thread-14/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:reply:428]: REPLYING WITH: MALMOOK
+[11:18:07] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$DormantEpisode:checkForMissionCommand:764]: Mission received: Cliff walking mission based on Sutton and Barto.
+[11:18:07] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: CREATING_HANDLERS
+[11:18:07] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: CREATING_HANDLERS
+[11:18:07] [Thread-15/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPInputPoller:run:191]: Listening for messages on port 10993
+[11:18:07] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: EVALUATING_WORLD_REQUIREMENTS
+[11:18:07] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: EVALUATING_WORLD_REQUIREMENTS
+[11:18:07] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: CREATING_NEW_WORLD
+[11:18:07] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: CREATING_NEW_WORLD
+[11:18:07] [Server thread/INFO]: Starting integrated minecraft server version 1.8
+[11:18:07] [Server thread/INFO]: Generating keypair
+[11:18:08] [Server thread/INFO]: Converting map!
+[11:18:08] [Server thread/INFO]: Scanning folders...
+[11:18:08] [Server thread/INFO]: Total conversion count is 0
+[11:18:08] [Server thread/INFO] [FML]: Injecting existing block and item data into this server instance
+[11:18:08] [Server thread/INFO] [FML]: Applying holder lookups
+[11:18:08] [Server thread/INFO] [FML]: Holder lookups applied
+[11:18:08] [Server thread/INFO] [FML]: Loading dimension 0 (TEMP_10000_6b5f46e0-b4a2-49ae-b9eb-f0b4cb7a69b0) (net.minecraft.server.integrated.IntegratedServer@56cba552)
+[11:18:08] [Server thread/WARN]: Unable to find spawn biome
+[11:18:08] [Server thread/INFO] [FML]: Loading dimension 1 (TEMP_10000_6b5f46e0-b4a2-49ae-b9eb-f0b4cb7a69b0) (net.minecraft.server.integrated.IntegratedServer@56cba552)
+[11:18:08] [Server thread/INFO] [FML]: Loading dimension -1 (TEMP_10000_6b5f46e0-b4a2-49ae-b9eb-f0b4cb7a69b0) (net.minecraft.server.integrated.IntegratedServer@56cba552)
+[11:18:08] [Server thread/INFO]: Preparing start region for level 0
+[11:18:09] [Server thread/INFO]: Preparing spawn area: 19%
+[11:18:10] [Server thread/INFO]: Preparing spawn area: 49%
+[11:18:11] [Server thread/INFO]: Preparing spawn area: 90%
+[11:18:11] [Server thread/INFO]: Changing view distance to 6, from 10
+[11:18:13] [Client thread/WARN]: Couldn't look up profile properties for com.mojang.authlib.GameProfile@25cc6b0[id=74081299-957c-3527-bfcf-af380dabd280,name=Cristina,properties={},legacy=false]
+com.mojang.authlib.exceptions.AuthenticationUnavailableException: Cannot contact authentication server
+	at com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService.makeRequest(YggdrasilAuthenticationService.java:71) ~[YggdrasilAuthenticationService.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillGameProfile(YggdrasilMinecraftSessionService.java:158) [YggdrasilMinecraftSessionService.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillProfileProperties(YggdrasilMinecraftSessionService.java:151) [YggdrasilMinecraftSessionService.class:?]
+	at net.minecraft.client.Minecraft.launchIntegratedServer(Unknown Source) [Minecraft.class:?]
+	at com.microsoft.Malmo.Utils.MapFileHelper.createAndLaunchWorld(MapFileHelper.java:109) [MapFileHelper.class:?]
+	at com.microsoft.Malmo.MissionHandlers.FlatWorldGeneratorImplementation.createWorld(FlatWorldGeneratorImplementation.java:59) [FlatWorldGeneratorImplementation.class:?]
+	at com.microsoft.Malmo.Client.ClientStateMachine$CreateWorldEpisode.execute(ClientStateMachine.java:1384) [ClientStateMachine$CreateWorldEpisode.class:?]
+	at com.microsoft.Malmo.StateEpisode.start(StateEpisode.java:57) [StateEpisode.class:?]
+	at com.microsoft.Malmo.StateMachine.onStateChange(StateMachine.java:188) [StateMachine.class:?]
+	at com.microsoft.Malmo.StateMachine.setState(StateMachine.java:104) [StateMachine.class:?]
+	at com.microsoft.Malmo.StateMachine.updateState(StateMachine.java:160) [StateMachine.class:?]
+	at com.microsoft.Malmo.Client.ClientStateMachine.onClientTick(ClientStateMachine.java:214) [ClientStateMachine.class:?]
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_17_ClientStateMachine_onClientTick_ClientTickEvent.invoke(.dynamic) [?:?]
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(Unknown Source) [ASMEventHandler.class:?]
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(Unknown Source) [EventBus.class:?]
+	at net.minecraftforge.fml.common.FMLCommonHandler.onPreClientTick(Unknown Source) [FMLCommonHandler.class:?]
+	at net.minecraft.client.Minecraft.runTick(Unknown Source) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.runGameLoop(Unknown Source) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Unknown Source) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Unknown Source) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_121]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_121]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_121]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_121]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_121]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_121]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_121]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_121]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source) [start/:?]
+	at GradleStart.main(Unknown Source) [start/:?]
+Caused by: java.io.IOException: Server returned HTTP response code: 503 for URL: https://sessionserver.mojang.com/session/minecraft/profile/74081299957c3527bfcfaf380dabd280?unsigned=false
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1876) ~[?:1.8.0_121]
+	at sun.net.www.protocol.http.HttpURLConnection.access$200(HttpURLConnection.java:91) ~[?:1.8.0_121]
+	at sun.net.www.protocol.http.HttpURLConnection$9.run(HttpURLConnection.java:1466) ~[?:1.8.0_121]
+	at sun.net.www.protocol.http.HttpURLConnection$9.run(HttpURLConnection.java:1464) ~[?:1.8.0_121]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_121]
+	at java.security.AccessController.doPrivilegedWithCombiner(AccessController.java:782) ~[?:1.8.0_121]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1463) ~[?:1.8.0_121]
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:254) ~[?:1.8.0_121]
+	at com.mojang.authlib.HttpAuthenticationService.performGetRequest(HttpAuthenticationService.java:126) ~[HttpAuthenticationService.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService.makeRequest(YggdrasilAuthenticationService.java:54) ~[YggdrasilAuthenticationService.class:?]
+	... 31 more
+[11:18:13] [Client thread/INFO]: Deleting level TEMP_10000_97ec0bdc-6af6-4045-af14-d2e8bf98eb1e
+[11:18:13] [Client thread/INFO]: Attempt 1...
+[11:18:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_MOD_READY
+[11:18:13] [Netty Local Client IO #0/INFO] [FML]: Server protocol version 2
+[11:18:13] [Netty Server IO #1/INFO] [FML]: Client protocol version 2
+[11:18:13] [Netty Server IO #1/INFO] [FML]: Client attempting to join with 4 mods : FML@8.0.99.99,malmomod@0.21.0,Forge@11.14.3.1543,mcp@9.05
+[11:18:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_READY
+[11:18:13] [Netty Local Client IO #0/INFO] [FML]: [Netty Local Client IO #0] Client side modded connection established
+[11:18:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_READY
+[11:18:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_MOD_READY
+[11:18:13] [Server thread/INFO] [FML]: [Server thread] Server side modded connection established
+[11:18:13] [Server thread/INFO]: Cristina[local:E:8659361f] logged in with entity id 0 at (-8.5, 227.0, -6.5)
+[11:18:13] [Server thread/INFO]: Cristina joined the game
+[11:18:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: DORMANT
+[11:18:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: DORMANT
+[11:18:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:execute:468]: INCOMING MISSION: Received MissionInit directly through ServerStateMachine constructor.
+[11:18:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:onReceiveMissionInit:499]: Mission received: Cliff walking mission based on Sutton and Barto.
+[11:18:13] [Server thread/INFO]: Received mission: §9Cliff walking mission based on Sutton and Barto.
+[11:18:13] [Server thread/INFO]: Source: §a127.0.0.1
+[11:18:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: BUILDING_WORLD
+[11:18:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: BUILDING_WORLD
+[11:18:14] [Client thread/INFO]: [CHAT] Received mission: §9Cliff walking mission based on Sutton and Barto.
+[11:18:14] [Client thread/INFO]: [CHAT] Source: §a127.0.0.1
+[11:18:14] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[11:18:14] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[11:18:14] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:878]: Experiment requires: 
+[11:18:14] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:881]: >>>> Cristina
+[11:18:14] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[11:18:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: RUNNING
+[11:18:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: RUNNING
+[11:18:15] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: RUNNING
+[11:18:15] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: RUNNING
+[11:18:15] [Client thread/INFO]: [CHAT] §l20...
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10950.
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10950.
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10950.
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10251.
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionRunningEpisode:onClientTick:1585]: Error - agent is not responding to pings.
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: IDLING
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: IDLING
+[11:18:16] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_QUIT
+[11:18:16] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_QUIT
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: MISSION_ENDED
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: MISSION_ENDED
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionEndedEpisode:sendMissionEnded:1915]: Sending mission ended message to 127.0.0.1:10251.
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10251.
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_MISSION_END
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_MISSION_END
+[11:18:16] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: CLEAN_UP
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: DORMANT
+[11:18:16] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: CLEAN_UP
+[11:18:16] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: DORMANT
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: DORMANT
+[11:18:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPInputPoller:clearCommands:127]: JETTISONING 0 COMMANDS
+[11:18:17] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: DORMANT
+[11:18:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[11:18:35] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[11:29:13] [Thread-20/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:443]: Received from 127.0.0.1:
+[11:29:13] [Thread-20/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:444]: <?xml version="1.0" encoding="UTF-8" standalone="no" ?><MissionInit xmlns="http://ProjectMalmo.microsoft.com" PlatformVersion="0.21.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ProjectMalmo.microsoft.com MissionInit.xsd"><Mission><About><Summary>Cliff walking mission based on Sutton and Barto.</Summary></About><ServerSection><ServerInitialConditions><Time><StartTime>6000</StartTime><AllowPassageOfTime>false</AllowPassageOfTime></Time><Weather>clear</Weather></ServerInitialConditions><ServerHandlers><FlatWorldGenerator destroyAfterUse="true" forceReset="false" generatorString="3;7,220*1,5*3,2;3;,biome_1" seed=""/><DrawingDecorator><DrawCuboid type="stone" x1="-7" x2="7" y1="226" y2="231" z1="-7" z2="7"/><DrawCuboid type="air" x1="-6" x2="6" y1="227" y2="230" z1="-6" z2="6"/><DrawCuboid type="planks" x1="-7" x2="7" y1="226" y2="226" z1="-7" z2="7"/><DrawLine type="planks" x1="0" x2="0" y1="226" y2="231" z1="0" z2="0"/><DrawBlock face="EAST" type="torch" x="-6" y="229" z="-
+[11:29:13] [Thread-20/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:reply:428]: REPLYING WITH: MALMOOK
+[11:29:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$DormantEpisode:checkForMissionCommand:764]: Mission received: Cliff walking mission based on Sutton and Barto.
+[11:29:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: CREATING_HANDLERS
+[11:29:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: CREATING_HANDLERS
+[11:29:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: EVALUATING_WORLD_REQUIREMENTS
+[11:29:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: EVALUATING_WORLD_REQUIREMENTS
+[11:29:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_READY
+[11:29:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_READY
+[11:29:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[11:29:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:checkForMissionCommand:492]: INCOMING MISSION: Received MissionInit directly through queue.
+[11:29:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:onReceiveMissionInit:499]: Mission received: Cliff walking mission based on Sutton and Barto.
+[11:29:13] [Server thread/INFO]: Received mission: §9Cliff walking mission based on Sutton and Barto.
+[11:29:13] [Server thread/INFO]: Source: §a127.0.0.1
+[11:29:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: BUILDING_WORLD
+[11:29:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: BUILDING_WORLD
+[11:29:13] [Client thread/INFO]: [CHAT] Received mission: §9Cliff walking mission based on Sutton and Barto.
+[11:29:13] [Client thread/INFO]: [CHAT] Source: §a127.0.0.1
+[11:29:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[11:29:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[11:29:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[11:29:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:878]: Experiment requires: 
+[11:29:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:881]: >>>> Cristina
+[11:29:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[11:29:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: RUNNING
+[11:29:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: RUNNING
+[11:29:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: RUNNING
+[11:29:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: RUNNING
+[11:29:13] [Client thread/INFO]: [CHAT] §l20...
+[11:29:14] [Client thread/INFO]: [CHAT] §l19...
+[11:29:15] [Client thread/INFO]: [CHAT] §l18...
+[11:29:16] [Client thread/INFO]: [CHAT] §l17...
+[11:29:17] [Client thread/INFO]: [CHAT] §l16...
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10972.
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10972.
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10972.
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10972.
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionRunningEpisode:sendData:1727]: ERROR: TCP video frames are not getting through - quitting mission.
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: IDLING
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: IDLING
+[11:29:18] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_QUIT
+[11:29:18] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_QUIT
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: MISSION_ENDED
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: MISSION_ENDED
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionEndedEpisode:sendMissionEnded:1915]: Sending mission ended message to 127.0.0.1:10821.
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10821.
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_MISSION_END
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_MISSION_END
+[11:29:18] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: CLEAN_UP
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: DORMANT
+[11:29:18] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: CLEAN_UP
+[11:29:18] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: DORMANT
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: DORMANT
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPInputPoller:clearCommands:127]: JETTISONING 0 COMMANDS
+[11:29:18] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: DORMANT
+[11:29:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[11:29:27] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[11:29:40] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[11:29:49] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[11:30:04] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[11:39:36] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[11:39:40] [Thread-24/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:443]: Received from 127.0.0.1:
+[11:39:40] [Thread-24/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:444]: <?xml version="1.0" encoding="UTF-8" standalone="no" ?><MissionInit xmlns="http://ProjectMalmo.microsoft.com" PlatformVersion="0.21.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ProjectMalmo.microsoft.com MissionInit.xsd"><Mission><About><Summary>Cliff walking mission based on Sutton and Barto.</Summary></About><ServerSection><ServerInitialConditions><Time><StartTime>6000</StartTime><AllowPassageOfTime>false</AllowPassageOfTime></Time><Weather>clear</Weather></ServerInitialConditions><ServerHandlers><FlatWorldGenerator destroyAfterUse="true" forceReset="false" generatorString="3;7,220*1,5*3,2;3;,biome_1" seed=""/><DrawingDecorator><DrawCuboid type="stone" x1="-7" x2="7" y1="226" y2="231" z1="-7" z2="7"/><DrawCuboid type="air" x1="-6" x2="6" y1="227" y2="230" z1="-6" z2="6"/><DrawCuboid type="planks" x1="-7" x2="7" y1="226" y2="226" z1="-7" z2="7"/><DrawLine type="planks" x1="0" x2="0" y1="226" y2="231" z1="0" z2="0"/><DrawBlock face="EAST" type="torch" x="-6" y="229" z="-
+[11:39:40] [Thread-24/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:reply:428]: REPLYING WITH: MALMOOK
+[11:39:40] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$DormantEpisode:checkForMissionCommand:764]: Mission received: Cliff walking mission based on Sutton and Barto.
+[11:39:40] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: CREATING_HANDLERS
+[11:39:40] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: CREATING_HANDLERS
+[11:39:40] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: EVALUATING_WORLD_REQUIREMENTS
+[11:39:40] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: EVALUATING_WORLD_REQUIREMENTS
+[11:39:40] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_READY
+[11:39:40] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_READY
+[11:39:40] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[11:39:40] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:checkForMissionCommand:492]: INCOMING MISSION: Received MissionInit directly through queue.
+[11:39:40] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:onReceiveMissionInit:499]: Mission received: Cliff walking mission based on Sutton and Barto.
+[11:39:40] [Server thread/INFO]: Received mission: §9Cliff walking mission based on Sutton and Barto.
+[11:39:40] [Server thread/INFO]: Source: §a127.0.0.1
+[11:39:40] [Client thread/INFO]: [CHAT] Received mission: §9Cliff walking mission based on Sutton and Barto.
+[11:39:40] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: BUILDING_WORLD
+[11:39:40] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: BUILDING_WORLD
+[11:39:40] [Client thread/INFO]: [CHAT] Source: §a127.0.0.1
+[11:39:40] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[11:39:40] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[11:39:40] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[11:39:40] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:878]: Experiment requires: 
+[11:39:40] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:881]: >>>> Cristina
+[11:39:40] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[11:39:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: RUNNING
+[11:39:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: RUNNING
+[11:39:41] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: RUNNING
+[11:39:41] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: RUNNING
+[11:39:41] [Client thread/INFO]: [CHAT] §l20...
+[11:39:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10397.
+[11:39:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:39:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10620.
+[11:39:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:39:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10397.
+[11:39:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:39:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10397.
+[11:39:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:39:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10397.
+[11:39:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:39:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionRunningEpisode:sendData:1727]: ERROR: TCP video frames are not getting through - quitting mission.
+[11:39:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: IDLING
+[11:39:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: IDLING
+[11:39:42] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_QUIT
+[11:39:42] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_QUIT
+[11:39:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: MISSION_ENDED
+[11:39:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: MISSION_ENDED
+[11:39:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionEndedEpisode:sendMissionEnded:1915]: Sending mission ended message to 127.0.0.1:10138.
+[11:39:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10138.
+[11:39:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:39:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_MISSION_END
+[11:39:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_MISSION_END
+[11:39:42] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: CLEAN_UP
+[11:39:42] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: CLEAN_UP
+[11:39:42] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: DORMANT
+[11:39:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: DORMANT
+[11:39:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: DORMANT
+[11:39:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPInputPoller:clearCommands:127]: JETTISONING 0 COMMANDS
+[11:39:42] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: DORMANT
+[11:39:44] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[11:42:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[11:42:20] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[11:43:32] [Server thread/INFO]: Saving and pausing game...
+[11:43:32] [Server thread/INFO]: Saving chunks for level 'TEMP_10000_6b5f46e0-b4a2-49ae-b9eb-f0b4cb7a69b0'/Overworld
+[11:43:32] [Server thread/INFO]: Saving chunks for level 'TEMP_10000_6b5f46e0-b4a2-49ae-b9eb-f0b4cb7a69b0'/Nether
+[11:43:32] [Server thread/INFO]: Saving chunks for level 'TEMP_10000_6b5f46e0-b4a2-49ae-b9eb-f0b4cb7a69b0'/The End
+[11:43:34] [Thread-28/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:443]: Received from 127.0.0.1:
+[11:43:34] [Thread-28/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:444]: <?xml version="1.0" encoding="UTF-8" standalone="no" ?><MissionInit xmlns="http://ProjectMalmo.microsoft.com" PlatformVersion="0.21.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ProjectMalmo.microsoft.com MissionInit.xsd"><Mission><About><Summary>Cliff walking mission based on Sutton and Barto.</Summary></About><ServerSection><ServerInitialConditions><Time><StartTime>6000</StartTime><AllowPassageOfTime>false</AllowPassageOfTime></Time><Weather>clear</Weather></ServerInitialConditions><ServerHandlers><FlatWorldGenerator destroyAfterUse="true" forceReset="false" generatorString="3;7,220*1,5*3,2;3;,biome_1" seed=""/><DrawingDecorator><DrawCuboid type="stone" x1="-7" x2="7" y1="226" y2="231" z1="-7" z2="7"/><DrawCuboid type="air" x1="-6" x2="6" y1="227" y2="230" z1="-6" z2="6"/><DrawCuboid type="planks" x1="-7" x2="7" y1="226" y2="226" z1="-7" z2="7"/><DrawLine type="planks" x1="0" x2="0" y1="226" y2="231" z1="0" z2="0"/><DrawBlock face="EAST" type="torch" x="-6" y="229" z="-
+[11:43:34] [Thread-28/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:reply:428]: REPLYING WITH: MALMOOK
+[11:43:34] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$DormantEpisode:checkForMissionCommand:764]: Mission received: Cliff walking mission based on Sutton and Barto.
+[11:43:34] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: CREATING_HANDLERS
+[11:43:34] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: CREATING_HANDLERS
+[11:43:34] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: EVALUATING_WORLD_REQUIREMENTS
+[11:43:34] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: EVALUATING_WORLD_REQUIREMENTS
+[11:43:34] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_READY
+[11:43:34] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_READY
+[11:43:34] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[11:43:34] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:checkForMissionCommand:492]: INCOMING MISSION: Received MissionInit directly through queue.
+[11:43:34] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:onReceiveMissionInit:499]: Mission received: Cliff walking mission based on Sutton and Barto.
+[11:43:34] [Server thread/INFO]: Received mission: §9Cliff walking mission based on Sutton and Barto.
+[11:43:34] [Server thread/INFO]: Source: §a127.0.0.1
+[11:43:34] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: BUILDING_WORLD
+[11:43:34] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: BUILDING_WORLD
+[11:43:34] [Client thread/INFO]: [CHAT] Received mission: §9Cliff walking mission based on Sutton and Barto.
+[11:43:34] [Client thread/INFO]: [CHAT] Source: §a127.0.0.1
+[11:43:34] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[11:43:34] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[11:43:34] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:878]: Experiment requires: 
+[11:43:34] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:881]: >>>> Cristina
+[11:43:34] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[11:43:34] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: RUNNING
+[11:43:34] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: RUNNING
+[11:43:34] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: RUNNING
+[11:43:34] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: RUNNING
+[11:43:34] [Client thread/INFO]: [CHAT] §l20...
+[11:43:35] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10580.
+[11:43:35] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:43:35] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10720.
+[11:43:35] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:43:35] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionRunningEpisode:onClientTick:1585]: Error - agent is not responding to pings.
+[11:43:35] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: IDLING
+[11:43:35] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: IDLING
+[11:43:35] [Client thread/INFO]: [CHAT] §l19...
+[11:43:35] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_QUIT
+[11:43:35] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_QUIT
+[11:43:36] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: MISSION_ENDED
+[11:43:36] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: MISSION_ENDED
+[11:43:36] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionEndedEpisode:sendMissionEnded:1915]: Sending mission ended message to 127.0.0.1:10720.
+[11:43:36] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10720.
+[11:43:36] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[11:43:36] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_MISSION_END
+[11:43:36] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_MISSION_END
+[11:43:36] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: CLEAN_UP
+[11:43:36] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: CLEAN_UP
+[11:43:36] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: DORMANT
+[11:43:36] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: DORMANT
+[11:43:36] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: DORMANT
+[11:43:36] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPInputPoller:clearCommands:127]: JETTISONING 0 COMMANDS
+[11:43:36] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: DORMANT
+[11:43:37] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[11:44:36] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[11:45:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[11:45:19] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[11:47:06] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[11:47:34] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[11:47:44] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[11:53:05] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[11:54:19] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[11:54:44] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[11:55:04] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[11:55:29] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[11:56:31] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[11:56:38] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[11:58:28] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[11:58:46] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[12:00:10] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[12:00:19] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[12:03:13] [Thread-32/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:443]: Received from 127.0.0.1:
+[12:03:13] [Thread-32/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:444]: <?xml version="1.0" encoding="UTF-8" standalone="no" ?><MissionInit xmlns="http://ProjectMalmo.microsoft.com" PlatformVersion="0.21.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ProjectMalmo.microsoft.com MissionInit.xsd"><Mission><About><Summary>Cliff walking mission based on Sutton and Barto.</Summary></About><ServerSection><ServerInitialConditions><Time><StartTime>6000</StartTime><AllowPassageOfTime>false</AllowPassageOfTime></Time><Weather>clear</Weather></ServerInitialConditions><ServerHandlers><FlatWorldGenerator destroyAfterUse="true" forceReset="false" generatorString="3;7,220*1,5*3,2;3;,biome_1" seed=""/><DrawingDecorator><DrawCuboid type="stone" x1="-7" x2="7" y1="226" y2="231" z1="-7" z2="7"/><DrawCuboid type="air" x1="-6" x2="6" y1="227" y2="230" z1="-6" z2="6"/><DrawCuboid type="planks" x1="-7" x2="7" y1="226" y2="226" z1="-7" z2="7"/><DrawLine type="planks" x1="0" x2="0" y1="226" y2="231" z1="0" z2="0"/><DrawBlock face="EAST" type="torch" x="-6" y="229" z="-
+[12:03:13] [Thread-32/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:reply:428]: REPLYING WITH: MALMOOK
+[12:03:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$DormantEpisode:checkForMissionCommand:764]: Mission received: Cliff walking mission based on Sutton and Barto.
+[12:03:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: CREATING_HANDLERS
+[12:03:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: CREATING_HANDLERS
+[12:03:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: EVALUATING_WORLD_REQUIREMENTS
+[12:03:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: EVALUATING_WORLD_REQUIREMENTS
+[12:03:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_READY
+[12:03:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_READY
+[12:03:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[12:03:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:checkForMissionCommand:492]: INCOMING MISSION: Received MissionInit directly through queue.
+[12:03:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:onReceiveMissionInit:499]: Mission received: Cliff walking mission based on Sutton and Barto.
+[12:03:13] [Server thread/INFO]: Received mission: §9Cliff walking mission based on Sutton and Barto.
+[12:03:13] [Server thread/INFO]: Source: §a127.0.0.1
+[12:03:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: BUILDING_WORLD
+[12:03:13] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: BUILDING_WORLD
+[12:03:13] [Client thread/INFO]: [CHAT] Received mission: §9Cliff walking mission based on Sutton and Barto.
+[12:03:13] [Client thread/INFO]: [CHAT] Source: §a127.0.0.1
+[12:03:14] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[12:03:14] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[12:03:14] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[12:03:14] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:878]: Experiment requires: 
+[12:03:14] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:881]: >>>> Cristina
+[12:03:14] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[12:03:14] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: RUNNING
+[12:03:14] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: RUNNING
+[12:03:14] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: RUNNING
+[12:03:14] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: RUNNING
+[12:03:14] [Client thread/INFO]: [CHAT] §l20...
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10185.
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10185.
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10185.
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10185.
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionRunningEpisode:sendData:1727]: ERROR: TCP video frames are not getting through - quitting mission.
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10468.
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionRunningEpisode:onClientTick:1585]: Error - agent is not responding to pings.
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: IDLING
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: IDLING
+[12:03:15] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_QUIT
+[12:03:15] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_QUIT
+[12:03:15] [Client thread/INFO]: [CHAT] §l19...
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: MISSION_ENDED
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: MISSION_ENDED
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionEndedEpisode:sendMissionEnded:1915]: Sending mission ended message to 127.0.0.1:10468.
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10468.
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_MISSION_END
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_MISSION_END
+[12:03:15] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: CLEAN_UP
+[12:03:15] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: CLEAN_UP
+[12:03:15] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: DORMANT
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: DORMANT
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: DORMANT
+[12:03:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPInputPoller:clearCommands:127]: JETTISONING 0 COMMANDS
+[12:03:16] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: DORMANT
+[12:03:19] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[12:03:55] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[12:04:04] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[12:04:05] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[12:04:59] [Thread-36/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:443]: Received from 127.0.0.1:
+[12:04:59] [Thread-36/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:444]: <?xml version="1.0" encoding="UTF-8" standalone="no" ?><MissionInit xmlns="http://ProjectMalmo.microsoft.com" PlatformVersion="0.21.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ProjectMalmo.microsoft.com MissionInit.xsd"><Mission><About><Summary>Cliff walking mission based on Sutton and Barto.</Summary></About><ServerSection><ServerInitialConditions><Time><StartTime>6000</StartTime><AllowPassageOfTime>false</AllowPassageOfTime></Time><Weather>clear</Weather></ServerInitialConditions><ServerHandlers><FlatWorldGenerator destroyAfterUse="true" forceReset="false" generatorString="3;7,220*1,5*3,2;3;,biome_1" seed=""/><DrawingDecorator><DrawCuboid type="stone" x1="-7" x2="7" y1="226" y2="231" z1="-7" z2="7"/><DrawCuboid type="air" x1="-6" x2="6" y1="227" y2="230" z1="-6" z2="6"/><DrawCuboid type="planks" x1="-7" x2="7" y1="226" y2="226" z1="-7" z2="7"/><DrawLine type="planks" x1="0" x2="0" y1="226" y2="231" z1="0" z2="0"/><DrawBlock face="EAST" type="torch" x="-6" y="229" z="-
+[12:05:00] [Thread-36/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:reply:428]: REPLYING WITH: MALMOOK
+[12:05:00] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$DormantEpisode:checkForMissionCommand:764]: Mission received: Cliff walking mission based on Sutton and Barto.
+[12:05:00] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: CREATING_HANDLERS
+[12:05:00] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: CREATING_HANDLERS
+[12:05:00] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: EVALUATING_WORLD_REQUIREMENTS
+[12:05:00] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: EVALUATING_WORLD_REQUIREMENTS
+[12:05:00] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_READY
+[12:05:00] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_READY
+[12:05:00] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[12:05:00] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:checkForMissionCommand:492]: INCOMING MISSION: Received MissionInit directly through queue.
+[12:05:00] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:onReceiveMissionInit:499]: Mission received: Cliff walking mission based on Sutton and Barto.
+[12:05:00] [Server thread/INFO]: Received mission: §9Cliff walking mission based on Sutton and Barto.
+[12:05:00] [Server thread/INFO]: Source: §a127.0.0.1
+[12:05:00] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: BUILDING_WORLD
+[12:05:00] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: BUILDING_WORLD
+[12:05:00] [Client thread/INFO]: [CHAT] Received mission: §9Cliff walking mission based on Sutton and Barto.
+[12:05:00] [Client thread/INFO]: [CHAT] Source: §a127.0.0.1
+[12:05:00] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[12:05:00] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[12:05:00] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[12:05:00] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:878]: Experiment requires: 
+[12:05:00] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:881]: >>>> Cristina
+[12:05:00] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[12:05:00] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: RUNNING
+[12:05:00] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: RUNNING
+[12:05:00] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: RUNNING
+[12:05:00] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: RUNNING
+[12:05:00] [Client thread/INFO]: [CHAT] §l20...
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10135.
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10764.
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10135.
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10135.
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10135.
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionRunningEpisode:sendData:1727]: ERROR: TCP video frames are not getting through - quitting mission.
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: IDLING
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: IDLING
+[12:05:01] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_QUIT
+[12:05:01] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_QUIT
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: MISSION_ENDED
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: MISSION_ENDED
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionEndedEpisode:sendMissionEnded:1915]: Sending mission ended message to 127.0.0.1:10912.
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10912.
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_MISSION_END
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_MISSION_END
+[12:05:01] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: CLEAN_UP
+[12:05:01] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: CLEAN_UP
+[12:05:01] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: DORMANT
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: DORMANT
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: DORMANT
+[12:05:01] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPInputPoller:clearCommands:127]: JETTISONING 0 COMMANDS
+[12:05:01] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: DORMANT
+[12:05:02] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[12:05:08] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[12:05:15] [Thread-40/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:443]: Received from 127.0.0.1:
+[12:05:15] [Thread-40/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:444]: <?xml version="1.0" encoding="UTF-8" standalone="no" ?><MissionInit xmlns="http://ProjectMalmo.microsoft.com" PlatformVersion="0.21.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ProjectMalmo.microsoft.com MissionInit.xsd"><Mission><About><Summary>Cliff walking mission based on Sutton and Barto.</Summary></About><ServerSection><ServerInitialConditions><Time><StartTime>6000</StartTime><AllowPassageOfTime>false</AllowPassageOfTime></Time><Weather>clear</Weather></ServerInitialConditions><ServerHandlers><FlatWorldGenerator destroyAfterUse="true" forceReset="false" generatorString="3;7,220*1,5*3,2;3;,biome_1" seed=""/><DrawingDecorator><DrawCuboid type="stone" x1="-7" x2="7" y1="226" y2="231" z1="-7" z2="7"/><DrawCuboid type="air" x1="-6" x2="6" y1="227" y2="230" z1="-6" z2="6"/><DrawCuboid type="planks" x1="-7" x2="7" y1="226" y2="226" z1="-7" z2="7"/><DrawLine type="planks" x1="0" x2="0" y1="226" y2="231" z1="0" z2="0"/><DrawBlock face="EAST" type="torch" x="-6" y="229" z="-
+[12:05:15] [Thread-40/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:reply:428]: REPLYING WITH: MALMOOK
+[12:05:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$DormantEpisode:checkForMissionCommand:764]: Mission received: Cliff walking mission based on Sutton and Barto.
+[12:05:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: CREATING_HANDLERS
+[12:05:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: CREATING_HANDLERS
+[12:05:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: EVALUATING_WORLD_REQUIREMENTS
+[12:05:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: EVALUATING_WORLD_REQUIREMENTS
+[12:05:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_READY
+[12:05:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_READY
+[12:05:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[12:05:15] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:checkForMissionCommand:492]: INCOMING MISSION: Received MissionInit directly through queue.
+[12:05:15] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:onReceiveMissionInit:499]: Mission received: Cliff walking mission based on Sutton and Barto.
+[12:05:15] [Server thread/INFO]: Received mission: §9Cliff walking mission based on Sutton and Barto.
+[12:05:15] [Server thread/INFO]: Source: §a127.0.0.1
+[12:05:15] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: BUILDING_WORLD
+[12:05:15] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: BUILDING_WORLD
+[12:05:15] [Client thread/INFO]: [CHAT] Received mission: §9Cliff walking mission based on Sutton and Barto.
+[12:05:15] [Client thread/INFO]: [CHAT] Source: §a127.0.0.1
+[12:05:15] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[12:05:15] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[12:05:15] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:878]: Experiment requires: 
+[12:05:15] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:881]: >>>> Cristina
+[12:05:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[12:05:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: RUNNING
+[12:05:15] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: RUNNING
+[12:05:15] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: RUNNING
+[12:05:15] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: RUNNING
+[12:05:15] [Client thread/INFO]: [CHAT] §l20...
+[12:05:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10737.
+[12:05:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:05:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10686.
+[12:05:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:05:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10737.
+[12:05:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:05:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10737.
+[12:05:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:05:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10120.
+[12:05:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:05:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionRunningEpisode:onClientTick:1585]: Error - agent is not responding to pings.
+[12:05:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: IDLING
+[12:05:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: IDLING
+[12:05:16] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_QUIT
+[12:05:16] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_QUIT
+[12:05:16] [Client thread/INFO]: [CHAT] §l19...
+[12:05:16] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: MISSION_ENDED
+[12:05:17] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: MISSION_ENDED
+[12:05:17] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionEndedEpisode:sendMissionEnded:1915]: Sending mission ended message to 127.0.0.1:10120.
+[12:05:17] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10120.
+[12:05:17] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:05:17] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_MISSION_END
+[12:05:17] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_MISSION_END
+[12:05:17] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: CLEAN_UP
+[12:05:17] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: CLEAN_UP
+[12:05:17] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: DORMANT
+[12:05:17] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: DORMANT
+[12:05:17] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: DORMANT
+[12:05:17] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPInputPoller:clearCommands:127]: JETTISONING 0 COMMANDS
+[12:05:17] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: DORMANT
+[12:05:20] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[12:05:34] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[12:05:57] [Thread-44/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:443]: Received from 127.0.0.1:
+[12:05:57] [Thread-44/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:444]: <?xml version="1.0" encoding="UTF-8" standalone="no" ?><MissionInit xmlns="http://ProjectMalmo.microsoft.com" PlatformVersion="0.21.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ProjectMalmo.microsoft.com MissionInit.xsd"><Mission><About><Summary>Cliff walking mission based on Sutton and Barto.</Summary></About><ServerSection><ServerInitialConditions><Time><StartTime>6000</StartTime><AllowPassageOfTime>false</AllowPassageOfTime></Time><Weather>clear</Weather></ServerInitialConditions><ServerHandlers><FlatWorldGenerator destroyAfterUse="true" forceReset="false" generatorString="3;7,220*1,5*3,2;3;,biome_1" seed=""/><DrawingDecorator><DrawCuboid type="stone" x1="-7" x2="7" y1="226" y2="231" z1="-7" z2="7"/><DrawCuboid type="air" x1="-6" x2="6" y1="227" y2="230" z1="-6" z2="6"/><DrawCuboid type="planks" x1="-7" x2="7" y1="226" y2="226" z1="-7" z2="7"/><DrawLine type="planks" x1="0" x2="0" y1="226" y2="231" z1="0" z2="0"/><DrawBlock face="EAST" type="torch" x="-6" y="229" z="-
+[12:05:57] [Thread-44/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:reply:428]: REPLYING WITH: MALMOOK
+[12:05:57] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$DormantEpisode:checkForMissionCommand:764]: Mission received: Cliff walking mission based on Sutton and Barto.
+[12:05:57] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: CREATING_HANDLERS
+[12:05:57] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: CREATING_HANDLERS
+[12:05:57] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: EVALUATING_WORLD_REQUIREMENTS
+[12:05:57] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: EVALUATING_WORLD_REQUIREMENTS
+[12:05:57] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_READY
+[12:05:57] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_READY
+[12:05:57] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[12:05:57] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:checkForMissionCommand:492]: INCOMING MISSION: Received MissionInit directly through queue.
+[12:05:57] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:onReceiveMissionInit:499]: Mission received: Cliff walking mission based on Sutton and Barto.
+[12:05:57] [Server thread/INFO]: Received mission: §9Cliff walking mission based on Sutton and Barto.
+[12:05:57] [Server thread/INFO]: Source: §a127.0.0.1
+[12:05:57] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: BUILDING_WORLD
+[12:05:57] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: BUILDING_WORLD
+[12:05:57] [Client thread/INFO]: [CHAT] Received mission: §9Cliff walking mission based on Sutton and Barto.
+[12:05:57] [Client thread/INFO]: [CHAT] Source: §a127.0.0.1
+[12:05:57] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[12:05:57] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[12:05:57] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:878]: Experiment requires: 
+[12:05:57] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:881]: >>>> Cristina
+[12:05:57] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[12:05:57] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: RUNNING
+[12:05:57] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: RUNNING
+[12:05:57] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: RUNNING
+[12:05:57] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: RUNNING
+[12:05:57] [Client thread/INFO]: [CHAT] §l20...
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10230.
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10230.
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10230.
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10230.
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionRunningEpisode:sendData:1727]: ERROR: TCP video frames are not getting through - quitting mission.
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: IDLING
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: IDLING
+[12:05:58] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_QUIT
+[12:05:58] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_QUIT
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: MISSION_ENDED
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: MISSION_ENDED
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionEndedEpisode:sendMissionEnded:1915]: Sending mission ended message to 127.0.0.1:10107.
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10107.
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_MISSION_END
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_MISSION_END
+[12:05:58] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: CLEAN_UP
+[12:05:58] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: CLEAN_UP
+[12:05:58] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: DORMANT
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: DORMANT
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: DORMANT
+[12:05:58] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: DORMANT
+[12:05:58] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPInputPoller:clearCommands:127]: JETTISONING 0 COMMANDS
+[12:05:59] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[12:06:13] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[12:06:21] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[12:06:24] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[12:08:46] [Thread-48/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:443]: Received from 127.0.0.1:
+[12:08:46] [Thread-48/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:444]: <?xml version="1.0" encoding="UTF-8" standalone="no" ?><MissionInit xmlns="http://ProjectMalmo.microsoft.com" PlatformVersion="0.21.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ProjectMalmo.microsoft.com MissionInit.xsd"><Mission><About><Summary>Cliff walking mission based on Sutton and Barto.</Summary></About><ServerSection><ServerInitialConditions><Time><StartTime>6000</StartTime><AllowPassageOfTime>false</AllowPassageOfTime></Time><Weather>clear</Weather></ServerInitialConditions><ServerHandlers><FlatWorldGenerator destroyAfterUse="true" forceReset="false" generatorString="3;7,220*1,5*3,2;3;,biome_1" seed=""/><DrawingDecorator><DrawCuboid type="stone" x1="-7" x2="7" y1="226" y2="231" z1="-7" z2="7"/><DrawCuboid type="air" x1="-6" x2="6" y1="227" y2="230" z1="-6" z2="6"/><DrawCuboid type="planks" x1="-7" x2="7" y1="226" y2="226" z1="-7" z2="7"/><DrawLine type="planks" x1="0" x2="0" y1="226" y2="231" z1="0" z2="0"/><DrawBlock face="EAST" type="torch" x="-6" y="229" z="-
+[12:08:46] [Thread-48/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:reply:428]: REPLYING WITH: MALMOOK
+[12:08:46] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$DormantEpisode:checkForMissionCommand:764]: Mission received: Cliff walking mission based on Sutton and Barto.
+[12:08:46] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: CREATING_HANDLERS
+[12:08:46] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: CREATING_HANDLERS
+[12:08:46] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: EVALUATING_WORLD_REQUIREMENTS
+[12:08:46] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: EVALUATING_WORLD_REQUIREMENTS
+[12:08:46] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_READY
+[12:08:46] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_READY
+[12:08:46] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[12:08:46] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:checkForMissionCommand:492]: INCOMING MISSION: Received MissionInit directly through queue.
+[12:08:46] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:onReceiveMissionInit:499]: Mission received: Cliff walking mission based on Sutton and Barto.
+[12:08:46] [Server thread/INFO]: Received mission: §9Cliff walking mission based on Sutton and Barto.
+[12:08:46] [Server thread/INFO]: Source: §a127.0.0.1
+[12:08:46] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: BUILDING_WORLD
+[12:08:46] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: BUILDING_WORLD
+[12:08:46] [Client thread/INFO]: [CHAT] Received mission: §9Cliff walking mission based on Sutton and Barto.
+[12:08:46] [Client thread/INFO]: [CHAT] Source: §a127.0.0.1
+[12:08:46] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[12:08:46] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[12:08:46] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:878]: Experiment requires: 
+[12:08:46] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:881]: >>>> Cristina
+[12:08:46] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[12:08:46] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: RUNNING
+[12:08:46] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: RUNNING
+[12:08:46] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: RUNNING
+[12:08:46] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: RUNNING
+[12:08:46] [Client thread/INFO]: [CHAT] §l20...
+[12:08:47] [Client thread/INFO]: [CHAT] §l19...
+[12:08:48] [Client thread/INFO]: [CHAT] §l18...
+[12:08:49] [Client thread/INFO]: [CHAT] §l17...
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10193.
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10193.
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10193.
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10193.
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionRunningEpisode:sendData:1727]: ERROR: TCP video frames are not getting through - quitting mission.
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: IDLING
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: IDLING
+[12:08:50] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_QUIT
+[12:08:50] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_QUIT
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: MISSION_ENDED
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: MISSION_ENDED
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionEndedEpisode:sendMissionEnded:1915]: Sending mission ended message to 127.0.0.1:10142.
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10142.
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_MISSION_END
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_MISSION_END
+[12:08:50] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: CLEAN_UP
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: DORMANT
+[12:08:50] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: CLEAN_UP
+[12:08:50] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: DORMANT
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: DORMANT
+[12:08:50] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPInputPoller:clearCommands:127]: JETTISONING 0 COMMANDS
+[12:08:50] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: DORMANT
+[12:08:51] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[12:09:05] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[12:09:10] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[12:09:18] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[12:09:41] [Thread-52/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:443]: Received from 127.0.0.1:
+[12:09:41] [Thread-52/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:444]: <?xml version="1.0" encoding="UTF-8" standalone="no" ?><MissionInit xmlns="http://ProjectMalmo.microsoft.com" PlatformVersion="0.21.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ProjectMalmo.microsoft.com MissionInit.xsd"><Mission><About><Summary>Cliff walking mission based on Sutton and Barto.</Summary></About><ServerSection><ServerInitialConditions><Time><StartTime>6000</StartTime><AllowPassageOfTime>false</AllowPassageOfTime></Time><Weather>clear</Weather></ServerInitialConditions><ServerHandlers><FlatWorldGenerator destroyAfterUse="true" forceReset="false" generatorString="3;7,220*1,5*3,2;3;,biome_1" seed=""/><DrawingDecorator><DrawCuboid type="stone" x1="-7" x2="7" y1="226" y2="231" z1="-7" z2="7"/><DrawCuboid type="air" x1="-6" x2="6" y1="227" y2="230" z1="-6" z2="6"/><DrawCuboid type="planks" x1="-7" x2="7" y1="226" y2="226" z1="-7" z2="7"/><DrawLine type="planks" x1="0" x2="0" y1="226" y2="231" z1="0" z2="0"/><DrawBlock face="EAST" type="torch" x="-6" y="229" z="-
+[12:09:41] [Thread-52/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:reply:428]: REPLYING WITH: MALMOOK
+[12:09:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$DormantEpisode:checkForMissionCommand:764]: Mission received: Cliff walking mission based on Sutton and Barto.
+[12:09:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: CREATING_HANDLERS
+[12:09:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: CREATING_HANDLERS
+[12:09:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: EVALUATING_WORLD_REQUIREMENTS
+[12:09:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: EVALUATING_WORLD_REQUIREMENTS
+[12:09:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_READY
+[12:09:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_READY
+[12:09:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[12:09:41] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:checkForMissionCommand:492]: INCOMING MISSION: Received MissionInit directly through queue.
+[12:09:41] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:onReceiveMissionInit:499]: Mission received: Cliff walking mission based on Sutton and Barto.
+[12:09:41] [Server thread/INFO]: Received mission: §9Cliff walking mission based on Sutton and Barto.
+[12:09:41] [Server thread/INFO]: Source: §a127.0.0.1
+[12:09:41] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: BUILDING_WORLD
+[12:09:41] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: BUILDING_WORLD
+[12:09:41] [Client thread/INFO]: [CHAT] Received mission: §9Cliff walking mission based on Sutton and Barto.
+[12:09:41] [Client thread/INFO]: [CHAT] Source: §a127.0.0.1
+[12:09:41] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[12:09:41] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[12:09:41] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:878]: Experiment requires: 
+[12:09:41] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:881]: >>>> Cristina
+[12:09:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[12:09:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: RUNNING
+[12:09:41] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: RUNNING
+[12:09:41] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: RUNNING
+[12:09:41] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: RUNNING
+[12:09:41] [Client thread/INFO]: [CHAT] §l20...
+[12:09:42] [Client thread/INFO]: [CHAT] §l19...
+[12:09:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10107.
+[12:09:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:09:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10107.
+[12:09:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:09:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10107.
+[12:09:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:09:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10107.
+[12:09:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:09:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionRunningEpisode:sendData:1727]: ERROR: TCP video frames are not getting through - quitting mission.
+[12:09:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: IDLING
+[12:09:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: IDLING
+[12:09:42] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_QUIT
+[12:09:42] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_QUIT
+[12:09:42] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: MISSION_ENDED
+[12:09:43] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: MISSION_ENDED
+[12:09:43] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$MissionEndedEpisode:sendMissionEnded:1915]: Sending mission ended message to 127.0.0.1:10620.
+[12:09:43] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10620.
+[12:09:43] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:09:43] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_MISSION_END
+[12:09:43] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_MISSION_END
+[12:09:43] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: CLEAN_UP
+[12:09:43] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: CLEAN_UP
+[12:09:43] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: DORMANT
+[12:09:43] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: DORMANT
+[12:09:43] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: DORMANT
+[12:09:43] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPInputPoller:clearCommands:127]: JETTISONING 0 COMMANDS
+[12:09:43] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: DORMANT
+[12:09:45] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now HUMAN
+[12:09:59] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.MalmoModClient$1:onPressed:147]: Toggling control between human and AI - now AI
+[12:10:02] [Thread-56/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:443]: Received from 127.0.0.1:
+[12:10:02] [Thread-56/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:onCommand:444]: <?xml version="1.0" encoding="UTF-8" standalone="no" ?><MissionInit xmlns="http://ProjectMalmo.microsoft.com" PlatformVersion="0.21.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ProjectMalmo.microsoft.com MissionInit.xsd"><Mission><About><Summary>Cliff walking mission based on Sutton and Barto.</Summary></About><ServerSection><ServerInitialConditions><Time><StartTime>6000</StartTime><AllowPassageOfTime>false</AllowPassageOfTime></Time><Weather>clear</Weather></ServerInitialConditions><ServerHandlers><FlatWorldGenerator destroyAfterUse="true" forceReset="false" generatorString="3;7,220*1,5*3,2;3;,biome_1" seed=""/><DrawingDecorator><DrawCuboid type="stone" x1="-7" x2="7" y1="226" y2="231" z1="-7" z2="7"/><DrawCuboid type="air" x1="-6" x2="6" y1="227" y2="230" z1="-6" z2="6"/><DrawCuboid type="planks" x1="-7" x2="7" y1="226" y2="226" z1="-7" z2="7"/><DrawLine type="planks" x1="0" x2="0" y1="226" y2="231" z1="0" z2="0"/><DrawBlock face="EAST" type="torch" x="-6" y="229" z="-
+[12:10:02] [Thread-56/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$1:reply:428]: REPLYING WITH: MALMOOK
+[12:10:02] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$DormantEpisode:checkForMissionCommand:764]: Mission received: Cliff walking mission based on Sutton and Barto.
+[12:10:02] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: CREATING_HANDLERS
+[12:10:02] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: CREATING_HANDLERS
+[12:10:02] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: EVALUATING_WORLD_REQUIREMENTS
+[12:10:02] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: EVALUATING_WORLD_REQUIREMENTS
+[12:10:02] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: WAITING_FOR_SERVER_READY
+[12:10:02] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: WAITING_FOR_SERVER_READY
+[12:10:02] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[12:10:02] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:checkForMissionCommand:492]: INCOMING MISSION: Received MissionInit directly through queue.
+[12:10:02] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$DormantEpisode:onReceiveMissionInit:499]: Mission received: Cliff walking mission based on Sutton and Barto.
+[12:10:02] [Server thread/INFO]: Received mission: §9Cliff walking mission based on Sutton and Barto.
+[12:10:02] [Server thread/INFO]: Source: §a127.0.0.1
+[12:10:02] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: BUILDING_WORLD
+[12:10:02] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: BUILDING_WORLD
+[12:10:02] [Client thread/INFO]: [CHAT] Received mission: §9Cliff walking mission based on Sutton and Barto.
+[12:10:02] [Client thread/INFO]: [CHAT] Source: §a127.0.0.1
+[12:10:02] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[12:10:02] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: WAITING_FOR_AGENTS_TO_ASSEMBLE
+[12:10:02] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:878]: Experiment requires: 
+[12:10:02] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.Server.ServerStateMachine$WaitingForAgentsEpisode:execute:881]: >>>> Cristina
+[12:10:02] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Client.ClientStateMachine$WaitingForServerEpisode:onClientTick:923]: ***Telling server we are ready - Cristina
+[12:10:02] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: CLIENT request state: RUNNING
+[12:10:02] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: CLIENT enter state: RUNNING
+[12:10:02] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:queueStateChange:143]: SERVER request state: RUNNING
+[12:10:02] [Server thread/INFO] [STDOUT]: [com.microsoft.Malmo.StateMachine:setState:101]: SERVER enter state: RUNNING
+[12:10:02] [Client thread/INFO]: [CHAT] §l20...
+[12:10:03] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10059.
+[12:10:03] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:10:03] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10808.
+[12:10:03] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:10:03] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10059.
+[12:10:03] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:159]: java.net.SocketException: Broken pipe (Write failed)
+[12:10:03] [Client thread/INFO] [STDOUT]: [com.microsoft.Malmo.Utils.TCPSocketHelper:sendTCPBytes:158]: Failed to send TCP bytes to 127.0.0.1:10059.
+[12:10:03] [Client thread/INFO] [STDOU

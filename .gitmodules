@@ -1,0 +1,4 @@
+[submodule "project/malmo_dqn"]
+	path = dqn_malmo
+	url = git@github.com:petrosgk/Atari.git
+	branch = minecraft
