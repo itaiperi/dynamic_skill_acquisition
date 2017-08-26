@@ -1,2 +1,4 @@
 *.bak
 logs/
+malmo/Minecraft/
+.idea/
