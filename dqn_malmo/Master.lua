@@ -18,6 +18,8 @@ function Master:_init(opt)
   self.valFreq = opt.valFreq
   self.experiments = opt.experiments
   self._id = opt._id
+  self.numTasks = opt.numTasks
+  self.task = opt.task
 
   -- Set up singleton global object for transferring step
   self.globals = Singleton({step = 1}) -- Initial step
@@ -40,6 +42,7 @@ function Master:_init(opt)
     if io.read() == 'y' then
       log.info('Loading saved agent')
       self.agent = torch.load(paths.concat(opt.experiments, opt._id, 'agent.t7'))
+      self.agent:switchTask(self.task)
 
       -- Reset globals (step) from agent
       Singleton.setInstance(self.agent.globals)

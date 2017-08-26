@@ -40,6 +40,15 @@ function Agent:_init(opt)
   self.head = 1 -- Identity of current episode bootstrap head
   self.heads = math.max(opt.bootstraps, 1) -- Number of heads
 
+  -- Distillation. Create heads for different tasks, and initiate to be like the policyNet's initial head weights.
+  self.numTasks = opt.numTasks
+  self.currentTask = opt.task
+  local headLayer = self.policyNet:findModules('nn.Linear')[2]
+  self.tasksHeads = {}
+  for i = 1, self.numTasks do
+      self.tasksHeads[i] = headLayer.weight:clone()
+  end
+
   -- Recurrency
   self.recurrent = opt.recurrent
   self.histLen = opt.histLen
@@ -610,6 +619,18 @@ function Agent:loadWeights(path)
   self.theta:copy(weights)
   self.targetNet = self.policyNet:clone()
   self.targetNet:evaluate()
+end
+
+-- Special functions added for distillation!
+function Agent:switchTask(nextTask)
+  local headLayer = self.policyNet:findModules('nn.Linear')[2]
+  -- Save previous task's head
+  self.tasksHeads[self.currentTask]:copy(headLayer)
+  -- Load next task's head
+  headLayer:copy(self.tasksHeads[nextTask])
+  self.currentTask = nextTask
+  -- Reset gradients, prepare for new learning.
+  self.policyNet:zeroGradParameters()
 end
 
 return Agent

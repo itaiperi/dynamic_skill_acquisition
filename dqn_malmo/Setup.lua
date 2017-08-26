@@ -151,6 +151,9 @@ function Setup:parseOptions(arg)
   cmd:option('-verbose', 'false', 'Log info for every episode (only in train mode)')
   cmd:option('-saliency', '', 'Display saliency maps (requires QT): <none>|normal|guided|deconvnet')
   cmd:option('-record', 'false', 'Record screen (only in eval mode)')
+  cmd:option('-task', 1, 'Number of task to perform. Used for multi-task DQN, where there are more than 1 task that can be performed by DQN, with switchable heads')
+  cmd:option('-numTasks', 1, 'Number of tasks that the DQN was trained to be able to perform.')
+  cmd:option('-distillLossThreshold', 0, 'Loss threshold to stop distillation process')
   local opt = cmd:parse(arg)
 
   -- Process boolean options (Torch fails to accept false on the command line)
@@ -265,6 +268,9 @@ function Setup:validateOptions()
     abortIf(self.opt.async == 'A3C' and self.opt.doubleQ, 'Double Q-learning and A3C are incompatible')
     abortIf(self.opt.saliency, 'Saliency maps not supported in async modes yet')
   end
+
+  abortIf(self.opt.numTasks < 1)
+  abortIf(self.opt.task < 1 or self.opt.task > self.opt.numTasks)
 end
 
 -- Augments environments with extra methods if missing
