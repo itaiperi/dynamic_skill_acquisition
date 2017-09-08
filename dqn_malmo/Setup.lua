@@ -151,9 +151,12 @@ function Setup:parseOptions(arg)
   cmd:option('-verbose', 'false', 'Log info for every episode (only in train mode)')
   cmd:option('-saliency', '', 'Display saliency maps (requires QT): <none>|normal|guided|deconvnet')
   cmd:option('-record', 'false', 'Record screen (only in eval mode)')
+  -- Multi-task and Distillation options
   cmd:option('-task', 1, 'Number of task to perform. Used for multi-task DQN, where there are more than 1 task that can be performed by DQN, with switchable heads')
-  cmd:option('-numTasks', 1, 'Number of tasks that the DQN was trained to be able to perform.')
+  cmd:option('-numTasks', 1, 'Number of tasks that the DQN was trained to be able to perform')
   cmd:option('-distillLossThreshold', 0, 'Loss threshold to stop distillation process')
+  -- General added options
+  cmd:option('-autoSaveFreq', 5000, 'Interval of steps between autosaving the training agent')
   local opt = cmd:parse(arg)
 
   -- Process boolean options (Torch fails to accept false on the command line)

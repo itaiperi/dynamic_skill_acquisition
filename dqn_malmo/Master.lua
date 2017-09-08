@@ -137,6 +137,12 @@ function Master:train()
       end
     end
 
+    -- Autosave intermediate training results, for case of crashes or disconnections
+    if step % self.autoSaveFreq == 0 then
+      log.info('Autosaving agent at step' .. step .. '...')
+      torch.save(paths.concat(self.experiments, self._id, 'agent_' .. step .. '.t7'), self.agent) -- Save agent to resume training
+
+
     -- Validate
     if not self.noValidation and step >= self.learnStart and step % self.valFreq == 0 then
       self.validation:validate() -- Sets env and agent to evaluation mode and then back to training mode
