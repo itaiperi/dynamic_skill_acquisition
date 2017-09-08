@@ -141,6 +141,7 @@ function Master:train()
     if step % self.autoSaveFreq == 0 then
       log.info('Autosaving agent at step' .. step .. '...')
       torch.save(paths.concat(self.experiments, self._id, 'agent_' .. step .. '.t7'), self.agent) -- Save agent to resume training
+    end
 
 
     -- Validate
