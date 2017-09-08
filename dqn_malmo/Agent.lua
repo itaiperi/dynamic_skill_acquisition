@@ -623,11 +623,12 @@ end
 
 -- Special functions added for distillation!
 function Agent:switchTask(nextTask)
+  log.info('Switching from task ' .. self.currentTask .. ' to task ' .. nextTask)
   local headLayer = self.policyNet:findModules('nn.Linear')[2]
   -- Save previous task's head
-  self.tasksHeads[self.currentTask]:copy(headLayer)
+  self.tasksHeads[self.currentTask]:copy(headLayer.weight)
   -- Load next task's head
-  headLayer:copy(self.tasksHeads[nextTask])
+  headLayer.weight:copy(self.tasksHeads[nextTask])
   self.currentTask = nextTask
   -- Reset gradients, prepare for new learning.
   self.policyNet:zeroGradParameters()
