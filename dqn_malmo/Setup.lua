@@ -157,6 +157,7 @@ function Setup:parseOptions(arg)
   cmd:option('-distillLossThreshold', 0, 'Loss threshold to stop distillation process')
   -- General added options
   cmd:option('-autoSaveFreq', 5000, 'Interval of steps between autosaving the training agent')
+  cmd:option('-freezeLayers', 0, 'Number of layers, from beginning, to freeze')
   local opt = cmd:parse(arg)
 
   -- Process boolean options (Torch fails to accept false on the command line)

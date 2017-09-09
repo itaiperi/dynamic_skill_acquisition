@@ -21,6 +21,7 @@ function Master:_init(opt)
   self._id = opt._id
   self.numTasks = opt.numTasks
   self.task = opt.task
+  self.freezeLayers = opt.freezeLayers
 
   -- Set up singleton global object for transferring step
   self.globals = Singleton({step = 1}) -- Initial step
@@ -69,6 +70,7 @@ function Master:_init(opt)
         self.agent:setSaliency(opt.saliency)
       end
     end
+  self.agent:freeze(self.freezeLayers)
   end
 
   -- Start gaming
