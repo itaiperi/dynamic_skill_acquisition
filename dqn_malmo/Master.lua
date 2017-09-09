@@ -13,6 +13,7 @@ function Master:_init(opt)
   self.verbose = opt.verbose
   self.learnStart = opt.learnStart
   self.progFreq = opt.progFreq
+  self.autoSaveFreq = opt.autoSaveFreq
   self.reportWeights = opt.reportWeights
   self.noValidation = opt.noValidation
   self.valFreq = opt.valFreq
