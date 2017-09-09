@@ -37,20 +37,37 @@ function Master:_init(opt)
     -- Load saved agent if specified
     log.info('Loading pretrained network weights')
     self.agent:loadWeights(opt.network)
-  elseif paths.filep(paths.concat(opt.experiments, opt._id, 'agent.t7')) then
-    -- Ask to load saved agent if found in experiment folder (resuming training)
-    log.info('Saved agent found - load (y/n)?')
-    if io.read() == 'y' then
-      log.info('Loading saved agent')
-      self.agent = torch.load(paths.concat(opt.experiments, opt._id, 'agent.t7'))
-      self.agent:switchTask(self.task)
+  else
+    save_date = 0
+    autosave_date = 0
+    local save_path = paths.concat(opt.experiments, opt._id, 'agent.t7')
+    local autosave_path = paths.concat(opt.experiments, opt._id, 'agent_autosave.t7')
+    if paths.filep(save_path) then
+      save_date = io.popen('stat -c %Y ' .. save_path):read()
+    end
+    if paths.filep(autosave_path) then
+      autosave_date = io.popen('stat -c %Y ' .. autosave_path):read()
+    end
+    if save_date ~= 0 or autosave_date ~= 0 then
+      -- Ask to load saved agent if found in experiment folder (resuming training)
+      log.info('Saved agent found - load (y/n)?')
+      if io.read() == 'y' then
+        log.info('Loading saved agent')
+        -- Load the model which is more updated, among save and autosave
+        if save_date > autosave_date then
+          self.agent = torch.load(save_path)
+        else
+          self.agent = torch.load(autosave_path)
+        end
+        self.agent:switchTask(self.task)
 
-      -- Reset globals (step) from agent
-      Singleton.setInstance(self.agent.globals)
-      self.globals = Singleton.getInstance()
+        -- Reset globals (step) from agent
+        Singleton.setInstance(self.agent.globals)
+        self.globals = Singleton.getInstance()
 
-      -- Switch saliency style
-      self.agent:setSaliency(opt.saliency)
+        -- Switch saliency style
+        self.agent:setSaliency(opt.saliency)
+      end
     end
   end
 
@@ -141,7 +158,7 @@ function Master:train()
     -- Autosave intermediate training results, for case of crashes or disconnections
     if step % self.autoSaveFreq == 0 then
       log.info('Autosaving agent at step' .. step .. '...')
-      torch.save(paths.concat(self.experiments, self._id, 'agent_' .. step .. '.t7'), self.agent) -- Save agent to resume training
+      torch.save(paths.concat(self.experiments, self._id, 'agent_autosave.t7'), self.agent) -- Save agent to resume training
     end
 
 
