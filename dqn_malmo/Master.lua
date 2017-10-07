@@ -44,10 +44,10 @@ function Master:_init(opt)
     local save_path = paths.concat(opt.experiments, opt._id, 'agent.t7')
     local autosave_path = paths.concat(opt.experiments, opt._id, 'agent_autosave.t7')
     if paths.filep(save_path) then
-      save_date = io.popen('stat -c %Y ' .. save_path):read()
+      save_date = tonumber(io.popen('stat -c %Y ' .. save_path):read())
     end
     if paths.filep(autosave_path) then
-      autosave_date = io.popen('stat -c %Y ' .. autosave_path):read()
+      autosave_date = tonumber(io.popen('stat -c %Y ' .. autosave_path):read())
     end
     if save_date ~= 0 or autosave_date ~= 0 then
       -- Ask to load saved agent if found in experiment folder (resuming training)

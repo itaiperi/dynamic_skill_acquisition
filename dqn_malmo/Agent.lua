@@ -49,6 +49,9 @@ function Agent:_init(opt)
       self.tasksHeads[i] = headLayer.weight:clone()
   end
 
+  -- Freeze layers functionality initiations
+  self.frozenLayers = {}
+
   -- Recurrency
   self.recurrent = opt.recurrent
   self.histLen = opt.histLen
@@ -652,9 +655,11 @@ function Agent:freeze(layers)
 end
 
 function Agent:unfreeze()
-  for i=1, #self.frozenLayers do
-    self.policyNet.modules[i].parameters = self.frozenLayers[i]['parameters']
-    self.policyNet.modules[i].accGradParameters = self.frozenLayers[i]['accGradParameters']
+  if self.frozenLayers ~= nil
+    for i=1, #self.frozenLayers do
+      self.policyNet.modules[i].parameters = self.frozenLayers[i]['parameters']
+      self.policyNet.modules[i].accGradParameters = self.frozenLayers[i]['accGradParameters']
+    end
   end
   self.frozenLayers = {}
 end
