@@ -52,6 +52,12 @@ function Agent:_init(opt)
   -- Freeze layers functionality initiations
   self.frozenLayers = {}
 
+  -- Weight statistics
+  self.wNorms = {}
+  self.wMaxima = {}
+  self.wGradNorms = {}
+  self.wGradMaxima = {}
+
   -- Recurrency
   self.recurrent = opt.recurrent
   self.histLen = opt.histLen
@@ -476,6 +482,61 @@ function Agent:report()
     wGradNorms[#wGradNorms + 1] = torch.mean(w) -- Weight grad norms:
     wGradMaxima[#wGradMaxima + 1] = torch.max(w) -- Weight grad max
   end
+
+  self.wNorms[#self.wNorms + 1] = wNorms
+  self.wMaxima[#self.wMaxima + 1] = wMaxima
+  self.wGradNorms[#self.wGradNorms + 1] = wGradNorms
+  self.wGradMaxima[#self.wGradMaxima + 1] = wGradMaxima
+
+  local epochIndices = torch.linspace(1, #self.weightStats['wNorms'], #self.weightStats['wNorms'])
+
+  -- Plot wNorms
+  local statTensor = torch.cat(self.wNorms, 2)
+  local multilines = {}
+  for i = 1, 4 do
+    multilines[#multilines + 1] = {epochIndices, statTensor[i] }
+  end
+  gnuplot.pngfigure(paths.concat('experiments', self._id, 'wNorms.png'))
+  gnuplot.plot(multilines)
+  gnuplot.xlabel('Epoch')
+  gnuplot.ylabel('wNorms')
+  gnuplot.plotflush()
+
+  -- Plot wMaxima
+  local statTensor = torch.cat(self.wMaxima, 2)
+  local multilines = {}
+  for i = 1, 4 do
+    multilines[#multilines + 1] = {epochIndices, statTensor[i] }
+  end
+  gnuplot.pngfigure(paths.concat('experiments', self._id, 'wMaxima.png'))
+  gnuplot.plot(multilines)
+  gnuplot.xlabel('Epoch')
+  gnuplot.ylabel('wMaxima')
+  gnuplot.plotflush()
+
+  -- Plot wGradNorms
+  local statTensor = torch.cat(self.wGradNorms, 2)
+  local multilines = {}
+  for i = 1, 4 do
+    multilines[#multilines + 1] = {epochIndices, statTensor[i] }
+  end
+  gnuplot.pngfigure(paths.concat('experiments', self._id, 'wGradNorms.png'))
+  gnuplot.plot(multilines)
+  gnuplot.xlabel('Epoch')
+  gnuplot.ylabel('wGradNorms')
+  gnuplot.plotflush()
+
+  -- Plot wGradMaxima
+  local statTensor = torch.cat(self.wGradMaxima, 2)
+  local multilines = {}
+  for i = 1, 4 do
+    multilines[#multilines + 1] = {epochIndices, statTensor[i] }
+  end
+  gnuplot.pngfigure(paths.concat('experiments', self._id, 'wGradMaxima.png'))
+  gnuplot.plot(multilines)
+  gnuplot.xlabel('Epoch')
+  gnuplot.ylabel('wGradMaxima')
+  gnuplot.plotflush()
 
   -- Create report string table
   local reports = {

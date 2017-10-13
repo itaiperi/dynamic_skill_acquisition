@@ -159,7 +159,7 @@ function Master:train()
 
     -- Autosave intermediate training results, for case of crashes or disconnections
     if step % self.autoSaveFreq == 0 then
-      log.info('Autosaving agent at step' .. step .. '...')
+      log.info('Autosaving agent at step ' .. step .. '...')
       torch.save(paths.concat(self.experiments, self._id, 'agent_autosave.t7'), self.agent) -- Save agent to resume training
     end
 
