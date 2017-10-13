@@ -31,8 +31,8 @@
 // in the accompanying FLOSSE file.
 //
 
-#ifndef CXX_HOME_DAVEYBIGGERS_MALMO_PLATFORM_SCHEMAS_TYPES_H
-#define CXX_HOME_DAVEYBIGGERS_MALMO_PLATFORM_SCHEMAS_TYPES_H
+#ifndef CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_TYPES_H
+#define CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_TYPES_H
 
 #ifndef XSD_USE_CHAR
 #define XSD_USE_CHAR
@@ -267,6 +267,8 @@ namespace malmo
     class HalfTypes;
     class EntityTypes;
     class NonLivingEntityTypes;
+    class ProjectileEntityTypes;
+    class NoteTypes;
     class SpawnableTypes;
     class Variation;
   }
@@ -605,6 +607,26 @@ namespace malmo
         jungle_door,
         acacia_door,
         dark_oak_door,
+        chorus_fruit,
+        chorus_fruit_popped,
+        beetroot,
+        beetroot_seeds,
+        beetroot_soup,
+        dragon_breath,
+        splash_potion,
+        spectral_arrow,
+        tipped_arrow,
+        lingering_potion,
+        shield,
+        elytra,
+        spruce_boat,
+        birch_boat,
+        jungle_boat,
+        acacia_boat,
+        dark_oak_boat,
+        totem_of_undying,
+        shulker_shell,
+        iron_nugget,
         record_13,
         record_cat,
         record_blocks,
@@ -662,8 +684,8 @@ namespace malmo
       _xsd_ItemType_convert () const;
 
       public:
-      static const char* const _xsd_ItemType_literals_[188];
-      static const value _xsd_ItemType_indexes_[188];
+      static const char* const _xsd_ItemType_literals_[208];
+      static const value _xsd_ItemType_indexes_[208];
     };
 
     class BlockType: public ::xml_schema::string
@@ -868,7 +890,45 @@ namespace malmo
         birch_door,
         jungle_door,
         acacia_door,
-        dark_oak_door
+        dark_oak_door,
+        end_rod,
+        chorus_plant,
+        chorus_flower,
+        purpur_block,
+        purpur_pillar,
+        purpur_stairs,
+        purpur_double_slab,
+        purpur_slab,
+        end_bricks,
+        beetroots,
+        grass_path,
+        end_gateway,
+        repeating_command_block,
+        chain_command_block,
+        frosted_ice,
+        magma,
+        nether_wart_block,
+        red_nether_brick,
+        bone_block,
+        structure_void,
+        observer,
+        white_shulker_box,
+        orange_shulker_box,
+        magenta_shulker_box,
+        light_blue_shulker_box,
+        yellow_shulker_box,
+        lime_shulker_box,
+        pink_shulker_box,
+        gray_shulker_box,
+        silver_shulker_box,
+        cyan_shulker_box,
+        purple_shulker_box,
+        blue_shulker_box,
+        brown_shulker_box,
+        green_shulker_box,
+        red_shulker_box,
+        black_shulker_box,
+        structure_block
       };
 
       BlockType (value v);
@@ -914,8 +974,8 @@ namespace malmo
       _xsd_BlockType_convert () const;
 
       public:
-      static const char* const _xsd_BlockType_literals_[198];
-      static const value _xsd_BlockType_indexes_[198];
+      static const char* const _xsd_BlockType_literals_[236];
+      static const value _xsd_BlockType_indexes_[236];
     };
 
     class BlockOrItem: public ::xml_schema::string
@@ -1121,6 +1181,44 @@ namespace malmo
         jungle_door,
         acacia_door,
         dark_oak_door,
+        end_rod,
+        chorus_plant,
+        chorus_flower,
+        purpur_block,
+        purpur_pillar,
+        purpur_stairs,
+        purpur_double_slab,
+        purpur_slab,
+        end_bricks,
+        beetroots,
+        grass_path,
+        end_gateway,
+        repeating_command_block,
+        chain_command_block,
+        frosted_ice,
+        magma,
+        nether_wart_block,
+        red_nether_brick,
+        bone_block,
+        structure_void,
+        observer,
+        white_shulker_box,
+        orange_shulker_box,
+        magenta_shulker_box,
+        light_blue_shulker_box,
+        yellow_shulker_box,
+        lime_shulker_box,
+        pink_shulker_box,
+        gray_shulker_box,
+        silver_shulker_box,
+        cyan_shulker_box,
+        purple_shulker_box,
+        blue_shulker_box,
+        brown_shulker_box,
+        green_shulker_box,
+        red_shulker_box,
+        black_shulker_box,
+        structure_block,
         iron_shovel,
         iron_pickaxe,
         iron_axe,
@@ -1280,6 +1378,26 @@ namespace malmo
         mutton,
         cooked_mutton,
         banner,
+        chorus_fruit,
+        chorus_fruit_popped,
+        beetroot,
+        beetroot_seeds,
+        beetroot_soup,
+        dragon_breath,
+        splash_potion,
+        spectral_arrow,
+        tipped_arrow,
+        lingering_potion,
+        shield,
+        elytra,
+        spruce_boat,
+        birch_boat,
+        jungle_boat,
+        acacia_boat,
+        dark_oak_boat,
+        totem_of_undying,
+        shulker_shell,
+        iron_nugget,
         record_13,
         record_cat,
         record_blocks,
@@ -1337,8 +1455,8 @@ namespace malmo
       _xsd_BlockOrItem_convert () const;
 
       public:
-      static const char* const _xsd_BlockOrItem_literals_[369];
-      static const value _xsd_BlockOrItem_indexes_[369];
+      static const char* const _xsd_BlockOrItem_literals_[427];
+      static const value _xsd_BlockOrItem_indexes_[427];
     };
 
     class StoneTypes: public ::xml_schema::string
@@ -1714,6 +1832,16 @@ namespace malmo
       public:
       enum value
       {
+        ElderGuardian,
+        WitherSkeleton,
+        Stray,
+        Husk,
+        ZombieVillager,
+        SkeletonHorse,
+        ZombieHorse,
+        EvocationIllager,
+        VindicationIllager,
+        Vex,
         Creeper,
         Skeleton,
         Spider,
@@ -1733,6 +1861,9 @@ namespace malmo
         Witch,
         Endermite,
         Guardian,
+        Shulker,
+        Donkey,
+        Mule,
         Pig,
         Sheep,
         Cow,
@@ -1743,10 +1874,11 @@ namespace malmo
         SnowMan,
         Ozelot,
         VillagerGolem,
-        EntityHorse,
+        Horse,
         Rabbit,
-        Villager,
-        EnderCrystal
+        PolarBear,
+        Llama,
+        Villager
       };
 
       EntityTypes (value v);
@@ -1792,8 +1924,8 @@ namespace malmo
       _xsd_EntityTypes_convert () const;
 
       public:
-      static const char* const _xsd_EntityTypes_literals_[33];
-      static const value _xsd_EntityTypes_indexes_[33];
+      static const char* const _xsd_EntityTypes_literals_[47];
+      static const value _xsd_EntityTypes_indexes_[47];
     };
 
     class NonLivingEntityTypes: public ::xml_schema::string
@@ -1801,10 +1933,21 @@ namespace malmo
       public:
       enum value
       {
-        Minecart,
+        MinecartRideable,
+        MinecartChest,
+        MinecartFurnace,
+        MinecartTNT,
+        MinecartSpawner,
+        MinecartHopper,
+        MinecartCommandBlock,
         Boat,
         ArmorStand,
-        ItemFrame
+        ItemFrame,
+        EnderCrystal,
+        LeashKnot,
+        Painting,
+        PrimedTnt,
+        FallingSand
       };
 
       NonLivingEntityTypes (value v);
@@ -1850,8 +1993,159 @@ namespace malmo
       _xsd_NonLivingEntityTypes_convert () const;
 
       public:
-      static const char* const _xsd_NonLivingEntityTypes_literals_[4];
-      static const value _xsd_NonLivingEntityTypes_indexes_[4];
+      static const char* const _xsd_NonLivingEntityTypes_literals_[15];
+      static const value _xsd_NonLivingEntityTypes_indexes_[15];
+    };
+
+    class ProjectileEntityTypes: public ::xml_schema::string
+    {
+      public:
+      enum value
+      {
+        XPOrb,
+        AreaEffectCloud,
+        ThrownEgg,
+        Arrow,
+        Snowball,
+        Fireball,
+        SmallFireball,
+        ThrownEnderpearl,
+        EyeOfEnderSignal,
+        ThrownPotion,
+        ThrownExpBottle,
+        WitherSkull,
+        FireworksRocketEntity,
+        SpectralArrow,
+        ShulkerBullet,
+        DragonFireball,
+        EvocationFangs,
+        LlamaSpit
+      };
+
+      ProjectileEntityTypes (value v);
+
+      ProjectileEntityTypes (const char* v);
+
+      ProjectileEntityTypes (const ::std::string& v);
+
+      ProjectileEntityTypes (const ::xml_schema::string& v);
+
+      ProjectileEntityTypes (const ::xercesc::DOMElement& e,
+                             ::xml_schema::flags f = 0,
+                             ::xml_schema::container* c = 0);
+
+      ProjectileEntityTypes (const ::xercesc::DOMAttr& a,
+                             ::xml_schema::flags f = 0,
+                             ::xml_schema::container* c = 0);
+
+      ProjectileEntityTypes (const ::std::string& s,
+                             const ::xercesc::DOMElement* e,
+                             ::xml_schema::flags f = 0,
+                             ::xml_schema::container* c = 0);
+
+      ProjectileEntityTypes (const ProjectileEntityTypes& x,
+                             ::xml_schema::flags f = 0,
+                             ::xml_schema::container* c = 0);
+
+      virtual ProjectileEntityTypes*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      ProjectileEntityTypes&
+      operator= (value v);
+
+      virtual
+      operator value () const
+      {
+        return _xsd_ProjectileEntityTypes_convert ();
+      }
+
+      protected:
+      value
+      _xsd_ProjectileEntityTypes_convert () const;
+
+      public:
+      static const char* const _xsd_ProjectileEntityTypes_literals_[18];
+      static const value _xsd_ProjectileEntityTypes_indexes_[18];
+    };
+
+    class NoteTypes: public ::xml_schema::string
+    {
+      public:
+      enum value
+      {
+        F_sharp_3,
+        G3,
+        G_sharp_3,
+        A3,
+        A_sharp_3,
+        B3,
+        C4,
+        C_sharp_4,
+        D4,
+        D_sharp_4,
+        E4,
+        F4,
+        F_sharp_4,
+        G4,
+        G_sharp_4,
+        A4,
+        A_sharp_4,
+        B4,
+        C5,
+        C_sharp_5,
+        D5,
+        D_sharp_5,
+        E5,
+        F5,
+        F_sharp_5
+      };
+
+      NoteTypes (value v);
+
+      NoteTypes (const char* v);
+
+      NoteTypes (const ::std::string& v);
+
+      NoteTypes (const ::xml_schema::string& v);
+
+      NoteTypes (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+      NoteTypes (const ::xercesc::DOMAttr& a,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+      NoteTypes (const ::std::string& s,
+                 const ::xercesc::DOMElement* e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+      NoteTypes (const NoteTypes& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+      virtual NoteTypes*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      NoteTypes&
+      operator= (value v);
+
+      virtual
+      operator value () const
+      {
+        return _xsd_NoteTypes_convert ();
+      }
+
+      protected:
+      value
+      _xsd_NoteTypes_convert () const;
+
+      public:
+      static const char* const _xsd_NoteTypes_literals_[25];
+      static const value _xsd_NoteTypes_indexes_[25];
     };
 
     class SpawnableTypes: public ::xml_schema::string
@@ -1859,6 +2153,16 @@ namespace malmo
       public:
       enum value
       {
+        ElderGuardian,
+        WitherSkeleton,
+        Stray,
+        Husk,
+        ZombieVillager,
+        SkeletonHorse,
+        ZombieHorse,
+        EvocationIllager,
+        VindicationIllager,
+        Vex,
         Creeper,
         Skeleton,
         Spider,
@@ -1878,6 +2182,9 @@ namespace malmo
         Witch,
         Endermite,
         Guardian,
+        Shulker,
+        Donkey,
+        Mule,
         Pig,
         Sheep,
         Cow,
@@ -1888,14 +2195,26 @@ namespace malmo
         SnowMan,
         Ozelot,
         VillagerGolem,
-        EntityHorse,
+        Horse,
         Rabbit,
+        PolarBear,
+        Llama,
         Villager,
-        EnderCrystal,
-        Minecart,
+        MinecartRideable,
+        MinecartChest,
+        MinecartFurnace,
+        MinecartTNT,
+        MinecartSpawner,
+        MinecartHopper,
+        MinecartCommandBlock,
         Boat,
         ArmorStand,
-        ItemFrame
+        ItemFrame,
+        EnderCrystal,
+        LeashKnot,
+        Painting,
+        PrimedTnt,
+        FallingSand
       };
 
       SpawnableTypes (value v);
@@ -1941,8 +2260,8 @@ namespace malmo
       _xsd_SpawnableTypes_convert () const;
 
       public:
-      static const char* const _xsd_SpawnableTypes_literals_[37];
-      static const value _xsd_SpawnableTypes_indexes_[37];
+      static const char* const _xsd_SpawnableTypes_literals_[62];
+      static const value _xsd_SpawnableTypes_indexes_[62];
     };
 
     class Variation: public ::xml_schema::string
@@ -1973,6 +2292,16 @@ namespace malmo
         white_tulip,
         pink_tulip,
         oxeye_daisy,
+        ElderGuardian,
+        WitherSkeleton,
+        Stray,
+        Husk,
+        ZombieVillager,
+        SkeletonHorse,
+        ZombieHorse,
+        EvocationIllager,
+        VindicationIllager,
+        Vex,
         Creeper,
         Skeleton,
         Spider,
@@ -1992,6 +2321,9 @@ namespace malmo
         Witch,
         Endermite,
         Guardian,
+        Shulker,
+        Donkey,
+        Mule,
         Pig,
         Sheep,
         Cow,
@@ -2002,10 +2334,11 @@ namespace malmo
         SnowMan,
         Ozelot,
         VillagerGolem,
-        EntityHorse,
+        Horse,
         Rabbit,
+        PolarBear,
+        Llama,
         Villager,
-        EnderCrystal,
         north_south,
         east_west,
         north_east,
@@ -2026,7 +2359,32 @@ namespace malmo
         head,
         foot,
         upper,
-        lower
+        lower,
+        F_sharp_3,
+        G3,
+        G_sharp_3,
+        A3,
+        A_sharp_3,
+        B3,
+        C4,
+        C_sharp_4,
+        D4,
+        D_sharp_4,
+        E4,
+        F4,
+        F_sharp_4,
+        G4,
+        G_sharp_4,
+        A4,
+        A_sharp_4,
+        B4,
+        C5,
+        C_sharp_5,
+        D5,
+        D_sharp_5,
+        E5,
+        F5,
+        F_sharp_5
       };
 
       Variation (value v);
@@ -2072,8 +2430,8 @@ namespace malmo
       _xsd_Variation_convert () const;
 
       public:
-      static const char* const _xsd_Variation_literals_[77];
-      static const value _xsd_Variation_indexes_[77];
+      static const char* const _xsd_Variation_literals_[116];
+      static const value _xsd_Variation_indexes_[116];
     };
   }
 }
@@ -2234,6 +2592,26 @@ namespace malmo
                 const NonLivingEntityTypes&);
 
     void
+    operator<< (::xercesc::DOMElement&, const ProjectileEntityTypes&);
+
+    void
+    operator<< (::xercesc::DOMAttr&, const ProjectileEntityTypes&);
+
+    void
+    operator<< (::xml_schema::list_stream&,
+                const ProjectileEntityTypes&);
+
+    void
+    operator<< (::xercesc::DOMElement&, const NoteTypes&);
+
+    void
+    operator<< (::xercesc::DOMAttr&, const NoteTypes&);
+
+    void
+    operator<< (::xml_schema::list_stream&,
+                const NoteTypes&);
+
+    void
     operator<< (::xercesc::DOMElement&, const SpawnableTypes&);
 
     void
@@ -2262,4 +2640,4 @@ namespace malmo
 //
 // End epilogue.
 
-#endif // CXX_HOME_DAVEYBIGGERS_MALMO_PLATFORM_SCHEMAS_TYPES_H
+#endif // CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_TYPES_H

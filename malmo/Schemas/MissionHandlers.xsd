@@ -6,7 +6,7 @@
            xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
            elementFormDefault="qualified"
            jaxb:version="2.1"
-           version="0.21">
+           version="0.30">
 
   <xs:include schemaLocation="Types.xsd" />
   <xs:include schemaLocation="Mission.xsd" /> 
@@ -1469,7 +1469,7 @@
       <xs:documentation>
         When present, the Mod will return several observations:
 
-        * Achievement statistics: {{{DistanceTravelled}}}, {{{TimeAlive}}}, {{{MobsKilled}}}, {{{PlayersKilled}}}, {{{DamageTaken}}}
+        * Achievement statistics: {{{DistanceTravelled}}}, {{{TimeAlive}}}, {{{MobsKilled}}}, {{{PlayersKilled}}}, {{{DamageTaken}}}, {{{DamageDealt}}}
         * Life statistics: {{{Life}}}, {{{Score}}}, {{{Food}}}, {{{Air}}}, {{{XP}}}, {{{IsAlive}}}, {{{Name}}}
         * Position statistics: {{{XPos}}}, {{{YPos}}}, {{{ZPos}}}, {{{Pitch}}}, {{{Yaw}}}
         * Environment statistics: {{{WorldTime}}} - current time in ticks, {{{TotalTime}}} - total world time, unaffected by ServerInitialConditions
@@ -1483,8 +1483,8 @@
       <xs:documentation>
         When present, the Mod will return a JSON object called "LineOfSight", containing observations about the block or entity which is currently in the centre of the screen:
 
-        * Hit details: {{{hitType}}} - will be "block" for a block, "entity" for an entity (eg spider, rabbit etc) or "item" for a free-floating item that can be picked up. {{{inRange}}} will be true if the block/entity is within the agent's reach - ie attacking or using will have an effect on the object.
-        * Position: {{{x}}}, {{{y}}}, {{{z}}} - in the case of block hits, will be the precise point when the ray intercepts the block.
+        * Hit details: {{{hitType}}} - will be "block" for a block, "entity" for an entity (eg spider, rabbit etc) or "item" for a free-floating item that can be picked up. {{{inRange}}} will be true if the block/entity is within the agent's reach - ie attacking or using will have an effect on the object. {{{distance}}} gives the straight-line distance from the agent.
+        * Position: {{{x}}}, {{{y}}}, {{{z}}} - in the case of block hits, will be the precise point when the ray intercepts the block. {{{yaw}}}, {{{pitch}}} are also added for entities.
         * Type information: {{{type}}}, {{{colour}}}, {{{variant}}}, {{{facing}}}
         * Extra properties: in the case of block types, any extra properties will be returned by their minecraft name, prefixed with "prop_" (eg, for leaves, "prop_decayable" and "prop_check_decay") - this is the same data as can be seen by exploring Minecraft with the F3 debug information displayed. For floating items, the stack size is returned in {{{stackSize}}}
       </xs:documentation>
@@ -1663,6 +1663,26 @@
     </xs:complexContent>
   </xs:complexType>
 
+  <xs:complexType name="MobWithReward">
+    <xs:attribute name="type" type="MobList" use="required"/>
+    <xs:attribute name="reward" type="xs:decimal" use="required" />
+    <xs:attribute name="distribution" type="xs:string" use="optional" default="" />
+  </xs:complexType>
+
+  <xs:element name="RewardForDamagingEntity">
+    <xs:annotation>
+      <xs:documentation>
+        Sends a reward when an entity is damaged.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="Mob" type="MobWithReward"/>
+      </xs:choice>
+      <xs:attributeGroup ref="RewardProducerAttributes"/>
+    </xs:complexType>
+  </xs:element>
+  
   <xs:element name="RewardForReachingPosition">
     <xs:annotation>
       <xs:documentation>

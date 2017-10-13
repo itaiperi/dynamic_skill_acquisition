@@ -107,7 +107,7 @@ function Setup:parseOptions(arg)
   cmd:option('-alpha', 0.65, 'Prioritised experience replay exponent α') -- Best vals are rank = 0.7, proportional = 0.6
   cmd:option('-betaZero', 0.45, 'Initial value of importance-sampling exponent β') -- Best vals are rank = 0.5, proportional = 0.4
   -- Reinforcement learning parameters
-  cmd:option('-gamma', 0.99, 'Discount rate γ')
+  cmd:option('-gamma', 0.97, 'Discount rate γ')
   cmd:option('-epsilonStart', 1, 'Initial value of greediness ε')
   cmd:option('-epsilonEnd', 0.01, 'Final value of greediness ε') -- Tuned DDQN final greediness (1/10 that of DQN)
   cmd:option('-epsilonSteps', 1e6, 'Number of steps to linearly decay epsilonStart to epsilonEnd') -- Usually same as memory size
@@ -151,13 +151,27 @@ function Setup:parseOptions(arg)
   cmd:option('-verbose', 'false', 'Log info for every episode (only in train mode)')
   cmd:option('-saliency', '', 'Display saliency maps (requires QT): <none>|normal|guided|deconvnet')
   cmd:option('-record', 'false', 'Record screen (only in eval mode)')
-  -- Multi-task and Distillation options
   cmd:option('-task', 1, 'Number of task to perform. Used for multi-task DQN, where there are more than 1 task that can be performed by DQN, with switchable heads')
-  cmd:option('-numTasks', 1, 'Number of tasks that the DQN was trained to be able to perform')
+  cmd:option('-numTasks', 1, 'Number of tasks that the DQN was trained to be able to perform.')
   cmd:option('-distillLossThreshold', 0, 'Loss threshold to stop distillation process')
   -- General added options
   cmd:option('-autoSaveFreq', 5000, 'Interval of steps between autosaving the training agent')
   cmd:option('-freezeLayers', 0, 'Number of layers, from beginning, to freeze')
+  -- Minecraft options
+  cmd:option('-mission_xml', "", 'Xml mission file location')
+  cmd:option('-x_min_limit', '0', 'Xml mission file location')
+  cmd:option('-x_max_limit', '0', 'Xml mission file location')
+  cmd:option('-z_min_limit', '0', 'Xml mission file location')
+  cmd:option('-z_max_limit', '0', 'Xml mission file location')
+  cmd:option('-actions', false, 'List of possible actions')
+  cmd:option('-port', 10000, 'Port to connect to malmo')
+  cmd:option('-slowActions', 'false', 'should be slower')
+  cmd:option('-findReward', '1', 'Reward for finding coal')
+  cmd:option('-commandReward', '0', 'Reward for sending command')
+  cmd:option('-timeReward', '0', 'Reward for time left')
+  cmd:option('-roundTime', '10000', 'length of round in ms')
+  cmd:option('-randomStart', 'false', 'should start in random spot')
+
   local opt = cmd:parse(arg)
 
   -- Process boolean options (Torch fails to accept false on the command line)
@@ -172,6 +186,8 @@ function Setup:parseOptions(arg)
   opt.verbose = opt.verbose == 'true'
   opt.record = opt.record == 'true'
   opt.noValidation = opt.noValidation == 'true'
+  opt.randomStart = opt.verbose == 'true'
+  opt.slowActions = opt.record == 'true'
 
   -- Process boolean/enum options
   if opt.colorSpace == '' then opt.colorSpace = false end

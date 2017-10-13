@@ -38,8 +38,8 @@ from collections import namedtuple
 # For a bit more fun, set MOB_TYPE = "Creeper"...
 MOB_TYPE = "Villager"
 
-EntityInfo = namedtuple('EntityInfo', 'x, y, z, yaw, pitch, name, colour, variation, quantity')
-EntityInfo.__new__.__defaults__ = (0, 0, 0, 0, 0, "", "", "", 1)
+EntityInfo = namedtuple('EntityInfo', 'x, y, z, yaw, pitch, name, colour, variation, quantity, life')
+EntityInfo.__new__.__defaults__ = (0, 0, 0, 0, 0, "", "", "", 1, "")
 
 def drawrailline(x1, z1, x2, z2, y):
     ''' Draw a powered rail between the two points '''
@@ -297,10 +297,10 @@ missionXML = '''<?xml version="1.0" encoding="UTF-8" ?>
                     ''' + drawHilbert(4,16,34,16) + '''
                     
                     <!-- Give the player a Minecart -->
-                    <DrawEntity x="18.5" y="56" z="20.5" type="Minecart"/>
+                    <DrawEntity x="18.5" y="56" z="20.5" type="MinecartRideable"/>
                     
                     <!-- And something amusing to follow -->
-                    <DrawEntity x="20.5" y="56" z="16.5" xVel="0" yVel="0" zVel="-1" type="Minecart"/>
+                    <DrawEntity x="20.5" y="56" z="16.5" xVel="0" yVel="0" zVel="-1" type="MinecartRideable"/>
                     <DrawEntity x="20.5" y="56" z="16.5" type="''' + MOB_TYPE + '''"/>
                 </DrawingDecorator>''' + timeoutCondition + '''
                 <ServerQuitWhenAnyAgentFinishes />

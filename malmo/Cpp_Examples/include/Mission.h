@@ -31,8 +31,8 @@
 // in the accompanying FLOSSE file.
 //
 
-#ifndef CXX_HOME_DAVEYBIGGERS_MALMO_PLATFORM_SCHEMAS_MISSION_H
-#define CXX_HOME_DAVEYBIGGERS_MALMO_PLATFORM_SCHEMAS_MISSION_H
+#ifndef CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_MISSION_H
+#define CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_MISSION_H
 
 #ifndef XSD_USE_CHAR
 #define XSD_USE_CHAR
@@ -1950,6 +1950,27 @@ namespace malmo
       void
       RewardForCatchingMob (::std::auto_ptr< RewardForCatchingMob_type > p);
 
+      // RewardForDamagingEntity
+      //
+      typedef ::malmo::schemas::RewardForDamagingEntity RewardForDamagingEntity_type;
+      typedef ::xsd::cxx::tree::optional< RewardForDamagingEntity_type > RewardForDamagingEntity_optional;
+      typedef ::xsd::cxx::tree::traits< RewardForDamagingEntity_type, char > RewardForDamagingEntity_traits;
+
+      const RewardForDamagingEntity_optional&
+      RewardForDamagingEntity () const;
+
+      RewardForDamagingEntity_optional&
+      RewardForDamagingEntity ();
+
+      void
+      RewardForDamagingEntity (const RewardForDamagingEntity_type& x);
+
+      void
+      RewardForDamagingEntity (const RewardForDamagingEntity_optional& x);
+
+      void
+      RewardForDamagingEntity (::std::auto_ptr< RewardForDamagingEntity_type > p);
+
       // ContinuousMovementCommands
       //
       typedef ::malmo::schemas::ContinuousMovementCommands ContinuousMovementCommands_type;
@@ -2297,6 +2318,7 @@ namespace malmo
       RewardForStructureCopying_optional RewardForStructureCopying_;
       RewardForTimeTaken_optional RewardForTimeTaken_;
       RewardForCatchingMob_optional RewardForCatchingMob_;
+      RewardForDamagingEntity_optional RewardForDamagingEntity_;
       ContinuousMovementCommands_optional ContinuousMovementCommands_;
       AbsoluteMovementCommands_optional AbsoluteMovementCommands_;
       DiscreteMovementCommands_optional DiscreteMovementCommands_;
@@ -3008,4 +3030,4 @@ namespace malmo
 //
 // End epilogue.
 
-#endif // CXX_HOME_DAVEYBIGGERS_MALMO_PLATFORM_SCHEMAS_MISSION_H
+#endif // CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_MISSION_H

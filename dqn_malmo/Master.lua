@@ -54,7 +54,7 @@ function Master:_init(opt)
       log.info('Saved agent found - load (y/n)?')
       if io.read() == 'y' then
         log.info('Loading saved agent')
-        -- Load the model which is more updated, among save and autosave
+        -- Load the model which is more updated, among save and autosave)
         if save_date > autosave_date then
           self.agent = torch.load(save_path)
         else

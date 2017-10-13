@@ -1,15 +1,15 @@
 # ------------------------------------------------------------------------------------------------
 # Copyright (c) 2016 Microsoft Corporation
-#
+# 
 # Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
 # associated documentation files (the "Software"), to deal in the Software without restriction,
 # including without limitation the rights to use, copy, modify, merge, publish, distribute,
 # sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
-#
+# 
 # The above copyright notice and this permission notice shall be included in all copies or
 # substantial portions of the Software.
-#
+# 
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
 # NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
 # NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
@@ -55,31 +55,31 @@ class TabQAgent:
 
     def updateQTable( self, reward, current_state ):
         """Change q_table to reflect what we have learnt."""
-
+        
         # retrieve the old action value from the Q-table (indexed by the previous state and the previous action)
         old_q = self.q_table[self.prev_s][self.prev_a]
-
+        
         # TODO: what should the new action value be?
         new_q = old_q
-
+        
         # assign the new action value to the Q-table
         self.q_table[self.prev_s][self.prev_a] = new_q
-
+        
     def updateQTableFromTerminatingState( self, reward ):
         """Change q_table to reflect what we have learnt, after reaching a terminal state."""
-
+        
         # retrieve the old action value from the Q-table (indexed by the previous state and the previous action)
         old_q = self.q_table[self.prev_s][self.prev_a]
-
+        
         # TODO: what should the new action value be?
         new_q = old_q
-
+        
         # assign the new action value to the Q-table
         self.q_table[self.prev_s][self.prev_a] = new_q
-
+        
     def act(self, world_state, agent_host, current_r ):
         """take 1 action in response to the current world state"""
-
+        
         obs_text = world_state.observations[-1].text
         obs = json.loads(obs_text) # most recent observation
         self.logger.debug(obs)
@@ -128,18 +128,18 @@ class TabQAgent:
         """run the agent on the world"""
 
         total_reward = 0
-
+        
         self.prev_s = None
         self.prev_a = None
-
+        
         is_first_action = True
-
+        
         # main loop:
         world_state = agent_host.getWorldState()
         while world_state.is_mission_running:
 
             current_r = 0
-
+            
             if is_first_action:
                 # wait until have received a valid observation
                 while True:
@@ -185,11 +185,11 @@ class TabQAgent:
         # update Q values
         if self.prev_s is not None and self.prev_a is not None:
             self.updateQTableFromTerminatingState( current_r )
-
+            
         self.drawQ()
-
+    
         return total_reward
-
+        
     def drawQ( self, curr_x=None, curr_y=None ):
         scale = 40
         world_x = 6
@@ -222,13 +222,13 @@ class TabQAgent:
                     self.canvas.create_oval( (x + action_positions[action][0] - action_radius ) *scale,
                                              (y + action_positions[action][1] - action_radius ) *scale,
                                              (x + action_positions[action][0] + action_radius ) *scale,
-                                             (y + action_positions[action][1] + action_radius ) *scale,
+                                             (y + action_positions[action][1] + action_radius ) *scale, 
                                              outline=color_string, fill=color_string )
         if curr_x is not None and curr_y is not None:
-            self.canvas.create_oval( (curr_x + 0.5 - curr_radius ) * scale,
-                                     (curr_y + 0.5 - curr_radius ) * scale,
-                                     (curr_x + 0.5 + curr_radius ) * scale,
-                                     (curr_y + 0.5 + curr_radius ) * scale,
+            self.canvas.create_oval( (curr_x + 0.5 - curr_radius ) * scale, 
+                                     (curr_y + 0.5 - curr_radius ) * scale, 
+                                     (curr_x + 0.5 + curr_radius ) * scale, 
+                                     (curr_y + 0.5 + curr_radius ) * scale, 
                                      outline="#fff", fill="#fff" )
         self.root.update()
 
@@ -270,7 +270,7 @@ for i in range(num_repeats):
 
     print
     print 'Repeat %d of %d' % ( i+1, num_repeats )
-
+    
     my_mission_record = MalmoPython.MissionRecordSpec()
 
     for retry in range(max_retries):

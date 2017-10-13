@@ -8,6 +8,7 @@ var searchData=
   ['setdouble',['setDouble',['../classmalmo_1_1_parameter_set.html#a9753e538e4a3750bc9f0eb428fac3fad',1,'malmo::ParameterSet']]],
   ['setint',['setInt',['../classmalmo_1_1_parameter_set.html#aa8e892c56575de94d2fafb57c4047ac6',1,'malmo::ParameterSet']]],
   ['setiterationcount',['setIterationCount',['../classmalmo_1_1_parameter_set.html#a636caf65f164af666cba5f151032a322',1,'malmo::ParameterSet']]],
+  ['setlogging',['setLogging',['../classmalmo_1_1_logger.html#a3a64f1ade9b199c846ddbc496da2674a',1,'malmo::Logger']]],
   ['setmodetocreative',['setModeToCreative',['../classmalmo_1_1_mission_spec.html#abec4b1faaee7eb2bdd749139454b6b82',1,'malmo::MissionSpec']]],
   ['setmodetospectator',['setModeToSpectator',['../classmalmo_1_1_mission_spec.html#a32be8c10a05bf11735b9d64f4c958ed7',1,'malmo::MissionSpec']]],
   ['setobservationspolicy',['setObservationsPolicy',['../classmalmo_1_1_agent_host.html#a364a65044d7519f13c1b7eea5b718791',1,'malmo::AgentHost::setObservationsPolicy()'],['../classmalmo_1_1_a_l_e_agent_host.html#add62473f02763ff52d0b7305f8f276c8',1,'malmo::ALEAgentHost::setObservationsPolicy()']]],

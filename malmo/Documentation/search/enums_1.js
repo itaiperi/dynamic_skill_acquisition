@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rewardspolicy',['RewardsPolicy',['../classmalmo_1_1_agent_host.html#a2479a59c823bb1e9288c94b1a6295663',1,'malmo::AgentHost']]]
+  ['observationspolicy',['ObservationsPolicy',['../classmalmo_1_1_agent_host.html#abdf1035a7a56e4f100a58c5e4db01091',1,'malmo::AgentHost']]]
 ];

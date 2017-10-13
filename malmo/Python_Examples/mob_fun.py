@@ -31,8 +31,8 @@ import errno
 import math
 import Tkinter as tk
 from collections import namedtuple
-EntityInfo = namedtuple('EntityInfo', 'x, y, z, yaw, pitch, name, colour, variation, quantity')
-EntityInfo.__new__.__defaults__ = (0, 0, 0, 0, 0, "", "", "", 1)
+EntityInfo = namedtuple('EntityInfo', 'x, y, z, yaw, pitch, name, colour, variation, quantity, life')
+EntityInfo.__new__.__defaults__ = (0, 0, 0, 0, 0, "", "", "", 1, "")
 
 # Task parameters:
 NUM_GOALS = 20
@@ -92,6 +92,8 @@ def getMissionXML(summary):
                     <StartTime>13000</StartTime>
                     <AllowPassageOfTime>false</AllowPassageOfTime>
                 </Time>
+                <AllowSpawning>true</AllowSpawning>
+                <AllowedMobs>''' + MOB_TYPE + '''</AllowedMobs>
             </ServerInitialConditions>
             <ServerHandlers>
                 <FlatWorldGenerator generatorString="3;7,220*1,5*3,2;3;,biome_1" />

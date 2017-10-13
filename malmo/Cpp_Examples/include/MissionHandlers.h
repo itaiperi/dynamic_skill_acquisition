@@ -31,8 +31,8 @@
 // in the accompanying FLOSSE file.
 //
 
-#ifndef CXX_HOME_DAVEYBIGGERS_MALMO_PLATFORM_SCHEMAS_MISSION_HANDLERS_H
-#define CXX_HOME_DAVEYBIGGERS_MALMO_PLATFORM_SCHEMAS_MISSION_HANDLERS_H
+#ifndef CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_MISSION_HANDLERS_H
+#define CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_MISSION_HANDLERS_H
 
 #ifndef XSD_USE_CHAR
 #define XSD_USE_CHAR
@@ -293,6 +293,7 @@ namespace malmo
     class RangeDefinition;
     class Dimension;
     class PointWithReward;
+    class MobWithReward;
     class BlockSpec;
     class BlockOrItemSpec;
     class BlockSpecWithRewardAndBehaviour;
@@ -347,6 +348,7 @@ namespace malmo
     class ObservationFromGrid;
     class ObservationFromNearbyEntities;
     class ObservationFromChat;
+    class RewardForDamagingEntity;
     class RewardForReachingPosition;
     class RewardForTouchingBlockType;
     class RewardForSendingCommand;
@@ -3505,6 +3507,97 @@ namespace malmo
       ::xsd::cxx::tree::one< reward_type > reward_;
       ::xsd::cxx::tree::one< tolerance_type > tolerance_;
       ::xsd::cxx::tree::one< oneshot_type > oneshot_;
+      ::xsd::cxx::tree::one< distribution_type > distribution_;
+      static const distribution_type distribution_default_value_;
+    };
+
+    class MobWithReward: public ::xml_schema::type
+    {
+      public:
+      // type
+      //
+      typedef ::malmo::schemas::MobList type_type;
+      typedef ::xsd::cxx::tree::traits< type_type, char > type_traits;
+
+      const type_type&
+      type () const;
+
+      type_type&
+      type ();
+
+      void
+      type (const type_type& x);
+
+      void
+      type (::std::auto_ptr< type_type > p);
+
+      // reward
+      //
+      typedef ::xml_schema::decimal reward_type;
+      typedef ::xsd::cxx::tree::traits< reward_type, char, ::xsd::cxx::tree::schema_type::decimal > reward_traits;
+
+      const reward_type&
+      reward () const;
+
+      reward_type&
+      reward ();
+
+      void
+      reward (const reward_type& x);
+
+      // distribution
+      //
+      typedef ::xml_schema::string distribution_type;
+      typedef ::xsd::cxx::tree::traits< distribution_type, char > distribution_traits;
+
+      const distribution_type&
+      distribution () const;
+
+      distribution_type&
+      distribution ();
+
+      void
+      distribution (const distribution_type& x);
+
+      void
+      distribution (::std::auto_ptr< distribution_type > p);
+
+      static const distribution_type&
+      distribution_default_value ();
+
+      // Constructors.
+      //
+      MobWithReward (const type_type&,
+                     const reward_type&);
+
+      MobWithReward (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+      MobWithReward (const MobWithReward& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+      virtual MobWithReward*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      MobWithReward&
+      operator= (const MobWithReward& x);
+
+      virtual 
+      ~MobWithReward ();
+
+      // Implementation.
+      //
+      protected:
+      void
+      parse (::xsd::cxx::xml::dom::parser< char >&,
+             ::xml_schema::flags);
+
+      protected:
+      ::xsd::cxx::tree::one< type_type > type_;
+      ::xsd::cxx::tree::one< reward_type > reward_;
       ::xsd::cxx::tree::one< distribution_type > distribution_;
       static const distribution_type distribution_default_value_;
     };
@@ -7926,6 +8019,80 @@ namespace malmo
       ~ObservationFromChat ();
     };
 
+    class RewardForDamagingEntity: public ::xml_schema::type
+    {
+      public:
+      // Mob
+      //
+      typedef ::malmo::schemas::MobWithReward Mob_type;
+      typedef ::xsd::cxx::tree::sequence< Mob_type > Mob_sequence;
+      typedef Mob_sequence::iterator Mob_iterator;
+      typedef Mob_sequence::const_iterator Mob_const_iterator;
+      typedef ::xsd::cxx::tree::traits< Mob_type, char > Mob_traits;
+
+      const Mob_sequence&
+      Mob () const;
+
+      Mob_sequence&
+      Mob ();
+
+      void
+      Mob (const Mob_sequence& s);
+
+      // dimension
+      //
+      typedef ::malmo::schemas::Dimension dimension_type;
+      typedef ::xsd::cxx::tree::traits< dimension_type, char > dimension_traits;
+
+      const dimension_type&
+      dimension () const;
+
+      dimension_type&
+      dimension ();
+
+      void
+      dimension (const dimension_type& x);
+
+      void
+      dimension (::std::auto_ptr< dimension_type > p);
+
+      static dimension_type
+      dimension_default_value ();
+
+      // Constructors.
+      //
+      RewardForDamagingEntity ();
+
+      RewardForDamagingEntity (const ::xercesc::DOMElement& e,
+                               ::xml_schema::flags f = 0,
+                               ::xml_schema::container* c = 0);
+
+      RewardForDamagingEntity (const RewardForDamagingEntity& x,
+                               ::xml_schema::flags f = 0,
+                               ::xml_schema::container* c = 0);
+
+      virtual RewardForDamagingEntity*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      RewardForDamagingEntity&
+      operator= (const RewardForDamagingEntity& x);
+
+      virtual 
+      ~RewardForDamagingEntity ();
+
+      // Implementation.
+      //
+      protected:
+      void
+      parse (::xsd::cxx::xml::dom::parser< char >&,
+             ::xml_schema::flags);
+
+      protected:
+      Mob_sequence Mob_;
+      ::xsd::cxx::tree::one< dimension_type > dimension_;
+    };
+
     class RewardForReachingPosition: public ::xml_schema::type
     {
       public:
@@ -11338,6 +11505,9 @@ namespace malmo
     operator<< (::xercesc::DOMElement&, const PointWithReward&);
 
     void
+    operator<< (::xercesc::DOMElement&, const MobWithReward&);
+
+    void
     operator<< (::xercesc::DOMElement&, const BlockSpec&);
 
     void
@@ -11605,6 +11775,9 @@ namespace malmo
                 const ObservationFromChat&);
 
     void
+    operator<< (::xercesc::DOMElement&, const RewardForDamagingEntity&);
+
+    void
     operator<< (::xercesc::DOMElement&, const RewardForReachingPosition&);
 
     void
@@ -11799,4 +11972,4 @@ namespace malmo
 //
 // End epilogue.
 
-#endif // CXX_HOME_DAVEYBIGGERS_MALMO_PLATFORM_SCHEMAS_MISSION_HANDLERS_H
+#endif // CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_MISSION_HANDLERS_H

@@ -18,6 +18,7 @@ var searchData=
   ['allowcontinuousmovementcommand',['allowContinuousMovementCommand',['../classmalmo_1_1_mission_spec.html#a10a97c9639b5e93e845f4cc08705c2f3',1,'malmo::MissionSpec']]],
   ['allowdiscretemovementcommand',['allowDiscreteMovementCommand',['../classmalmo_1_1_mission_spec.html#a52ca57beab46e7b84d98b75b6d15204d',1,'malmo::MissionSpec']]],
   ['allowinventorycommand',['allowInventoryCommand',['../classmalmo_1_1_mission_spec.html#afeea65ed63077b1de22ef19f0e27a00d',1,'malmo::MissionSpec']]],
+  ['appendtolog',['appendToLog',['../classmalmo_1_1_logger.html#a579442f7d897330d2ec524f6f2dee37b',1,'malmo::Logger']]],
   ['argumentparser',['ArgumentParser',['../classmalmo_1_1_argument_parser.html#aa11f748280243fc6d985c5cba2931662',1,'malmo::ArgumentParser']]],
   ['argumentparser',['ArgumentParser',['../classmalmo_1_1_argument_parser.html',1,'malmo']]]
 ];

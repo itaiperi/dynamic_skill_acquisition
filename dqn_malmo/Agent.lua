@@ -113,7 +113,7 @@ function Agent:_init(opt)
 
   -- Get singleton instance for step
   self.globals = Singleton.getInstance()
-  
+
   -- Flag for triggering learning at the end of an episode
   self.learningScheduled = false
 end
@@ -152,7 +152,7 @@ function Agent:evaluate()
     self.policyNet:forget()
   end
 end
-  
+
 -- Observes the results of the previous transition and chooses the next action to perform
 function Agent:observe(reward, rawObservation, terminal)
   -- Clip reward for stability
@@ -204,7 +204,7 @@ function Agent:observe(reward, rawObservation, terminal)
       if self.saliency then
         self:computeSaliency(state, aIndex, true)
       end
-    elseif torch.uniform() < epsilon then 
+    elseif torch.uniform() < epsilon then
       -- Choose action by ε-greedy exploration (even with bootstraps)
       aIndex = torch.random(1, self.m)
 
@@ -253,7 +253,7 @@ function Agent:observe(reward, rawObservation, terminal)
     if self.globals.step <= self.valSize + 1 then
       self.valMemory:store(reward, observation, terminal, aIndex)
     end
-    
+
     -- Schedule learning after current episode ends
     if self.globals.step % self.memSampleFreq == 0 and self.globals.step >= self.learnStart then
 	  self.learningScheduled = true
@@ -402,7 +402,7 @@ function Agent:learn(x, indices, ISWeights, isValidation)
 
   -- Send TD-errors δ to be used as priorities
   self.memory:updatePriorities(indices, torch.mean(self.tdErr, 2)) -- Use average error over heads
-  
+
   -- Zero QCurr outputs (no error)
   QCurr:zero()
   -- Set TD-errors δ with given actions
@@ -434,7 +434,7 @@ function Agent:optimise(indices, ISWeights)
   local feval = function(x)
     return self:learn(x, indices, ISWeights)
   end
-  
+
   -- Optimise
   local __, loss = optim[self.optimiser](feval, self.theta, self.optimParams)
   -- Store loss
@@ -460,7 +460,7 @@ function Agent:report()
   end
   local fcLayers = self.policyNet:findModules('nn.Linear')
   weightLayers = _.append(weightLayers, fcLayers)
-  
+
   -- Array of norms and maxima
   local wNorms = {}
   local wMaxima = {}
@@ -655,7 +655,7 @@ function Agent:freeze(layers)
 end
 
 function Agent:unfreeze()
-  if self.frozenLayers ~= nil
+  if self.frozenLayers ~= nil then
     for i=1, #self.frozenLayers do
       self.policyNet.modules[i].parameters = self.frozenLayers[i]['parameters']
       self.policyNet.modules[i].accGradParameters = self.frozenLayers[i]['accGradParameters']
