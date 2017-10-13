@@ -313,6 +313,7 @@ function Minecraft:step(action)
   end
 
   self.agent_host:sendCommand(action)
+  -- print(action)
 
   -- Wait for command to be received and world state to change
   sleep(0.25)
@@ -336,7 +337,7 @@ function Minecraft:step(action)
   if max_retries >= 0 then
     self.rewards = self:getRewards(world_state.rewards)
   else
-	print(max_retries)
+	  -- print(max_retries)
   end
 
   -- Zero previous frame
