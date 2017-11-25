@@ -429,9 +429,9 @@ div#legend div.hint {
     <script type="text/javascript">
 <!--
 /* IDs of XML Instance Representation boxes */
-var xiBoxes = new Array('type_Colour_xibox', 'type_Facing_xibox', 'type_ItemType_xibox', 'type_BlockType_xibox', 'type_BlockOrItem_xibox', 'type_StoneTypes_xibox', 'type_WoodTypes_xibox', 'type_FlowerTypes_xibox', 'type_MonsterEggTypes_xibox', 'type_ShapeTypes_xibox', 'type_HalfTypes_xibox', 'type_EntityTypes_xibox', 'type_NonLivingEntityTypes_xibox', 'type_ProjectileEntityTypes_xibox', 'type_NoteTypes_xibox', 'type_SpawnableTypes_xibox', 'type_Variation_xibox');
+var xiBoxes = new Array('type_Colour_xibox', 'type_Facing_xibox', 'type_ItemType_xibox', 'type_BlockType_xibox', 'type_BlockOrItem_xibox', 'type_ContainerType_xibox', 'type_StoneTypes_xibox', 'type_WoodTypes_xibox', 'type_FlowerTypes_xibox', 'type_MonsterEggTypes_xibox', 'type_ShapeTypes_xibox', 'type_HalfTypes_xibox', 'type_EntityTypes_xibox', 'type_NonLivingEntityTypes_xibox', 'type_ProjectileEntityTypes_xibox', 'type_NoteTypes_xibox', 'type_SpawnableTypes_xibox', 'type_Variation_xibox');
 /* IDs of Schema Component Representation boxes */
-var scBoxes = new Array('schema_scbox', 'type_Colour_scbox', 'type_Facing_scbox', 'type_ItemType_scbox', 'type_BlockType_scbox', 'type_BlockOrItem_scbox', 'type_StoneTypes_scbox', 'type_WoodTypes_scbox', 'type_FlowerTypes_scbox', 'type_MonsterEggTypes_scbox', 'type_ShapeTypes_scbox', 'type_HalfTypes_scbox', 'type_EntityTypes_scbox', 'type_NonLivingEntityTypes_scbox', 'type_ProjectileEntityTypes_scbox', 'type_NoteTypes_scbox', 'type_SpawnableTypes_scbox', 'type_Variation_scbox');
+var scBoxes = new Array('schema_scbox', 'type_Colour_scbox', 'type_Facing_scbox', 'type_ItemType_scbox', 'type_BlockType_scbox', 'type_BlockOrItem_scbox', 'type_ContainerType_scbox', 'type_StoneTypes_scbox', 'type_WoodTypes_scbox', 'type_FlowerTypes_scbox', 'type_MonsterEggTypes_scbox', 'type_ShapeTypes_scbox', 'type_HalfTypes_scbox', 'type_EntityTypes_scbox', 'type_NonLivingEntityTypes_scbox', 'type_ProjectileEntityTypes_scbox', 'type_NoteTypes_scbox', 'type_SpawnableTypes_scbox', 'type_Variation_scbox');
 
 /**
  * Can get the ID of the button controlling
@@ -1109,54 +1109,57 @@ var creole = new Parse.Simple.Creole( {
       <h3><span id="docPopupTitleDesc">Desc</span>: <span class="name" id="docPopupTitleName">Name</span></h3>
       <span id="docPopupText">Popup text</span>
     </div>
-    <div class="annotation documentation hidden" id="hdoc_idm45671502414016">
+    <div class="annotation documentation hidden" id="hdoc_idm46642456503440">
         The sixteen block colours allowed in the Minecraft world: {{{WHITE}}}, {{{ORANGE}}}, {{{MAGENTA}}}, {{{LIGHT_BLUE}}}, {{{YELLOW}}}, {{{LIME}}}, {{{PINK}}},
         {{{GRAY}}}, {{{SILVER}}}, {{{CYAN}}}, {{{PURPLE}}}, {{{BLUE}}}, {{{BROWN}}}, {{{GREEN}}}, {{{RED}}}, {{{BLACK}}}.
       </div>
-    <div class="annotation documentation hidden" id="hdoc_idm45671501821280">
+    <div class="annotation documentation hidden" id="hdoc_idm46642455881344">
         Enum to specify block faces: {{{DOWN}}}, {{{UP}}}, {{{NORTH}}}, {{{SOUTH}}}, {{{WEST}}}, {{{EAST}}}, {{{UP_X}}}, {{{DOWN_X}}}, {{{UP_Z}}}, {{{DOWN_Z}}}.
       </div>
-    <div class="annotation documentation hidden" id="hdoc_idm45671503336928">
+    <div class="annotation documentation hidden" id="hdoc_idm46642457118560">
         The types of item allowed in the Minecraft world.
       </div>
-    <div class="annotation documentation hidden" id="hdoc_idm45671503659664">
+    <div class="annotation documentation hidden" id="hdoc_idm46642457712656">
         The block types allowed in the Minecraft world.
        </div>
-    <div class="annotation documentation hidden" id="hdoc_idm45671499864208">
+    <div class="annotation documentation hidden" id="hdoc_idm46642453919584">
+      Subset of the block types which act as containers, for use in DrawContainer object
+    </div>
+    <div class="annotation documentation hidden" id="hdoc_idm46642453907040">
         Types of stone for stone blocks/items
       </div>
-    <div class="annotation documentation hidden" id="hdoc_idm45671499858720">
+    <div class="annotation documentation hidden" id="hdoc_idm46642453901552">
         Types of wood for wooden blocks/items
       </div>
-    <div class="annotation documentation hidden" id="hdoc_idm45671499853728">
+    <div class="annotation documentation hidden" id="hdoc_idm46642453896560">
             Types of flower
         </div>
-    <div class="annotation documentation hidden" id="hdoc_idm45671499846752">
+    <div class="annotation documentation hidden" id="hdoc_idm46642453889584">
             Types of monster egg blocks
         </div>
-    <div class="annotation documentation hidden" id="hdoc_idm45671499842256">
+    <div class="annotation documentation hidden" id="hdoc_idm46642453885088">
             Shapes for, eg, rails
         </div>
-    <div class="annotation documentation hidden" id="hdoc_idm45671499835280">
+    <div class="annotation documentation hidden" id="hdoc_idm46642453878112">
             Specify which half - for stairs or double blocks (doors, tall flowers, etc)
         </div>
-    <div class="annotation documentation hidden" id="hdoc_idm45671499829408">
+    <div class="annotation documentation hidden" id="hdoc_idm46642453872240">
         Types of entity for eggs, spawners etc.
       </div>
-    <div class="annotation documentation hidden" id="hdoc_idm45671499803824">
+    <div class="annotation documentation hidden" id="hdoc_idm46642453846656">
         Non-living entities, such as boats, minecarts etc.
       </div>
-    <div class="annotation documentation hidden" id="hdoc_idm45671499794368">
+    <div class="annotation documentation hidden" id="hdoc_idm46642453837200">
         Non-living entities which tend to represent projectiles thrown by other mobs, etc.
         Doesn't make much sense to spawn/draw these, but the agent could encounter them in the wild.
       </div>
-    <div class="annotation documentation hidden" id="hdoc_idm45671499783216">
+    <div class="annotation documentation hidden" id="hdoc_idm46642453826048">
         Note values for creating tuned noteblocks
       </div>
-    <div class="annotation documentation hidden" id="hdoc_idm45671499768800">
+    <div class="annotation documentation hidden" id="hdoc_idm46642453811632">
             An entity that can be placed using the DrawingDecorator.
         </div>
-    <div class="annotation documentation hidden" id="hdoc_idm45671499765776">
+    <div class="annotation documentation hidden" id="hdoc_idm46642453808608">
         Variants of block types, item types, entities etc
       </div>
     <h1>
@@ -1211,6 +1214,9 @@ if (gc != null) {
           </li>
           <li>
             <a href="#type_Colour">Simple Type: <strong>Colour</strong></a>
+          </li>
+          <li>
+            <a href="#type_ContainerType">Simple Type: <strong>ContainerType</strong></a>
           </li>
           <li>
             <a href="#type_EntityTypes">Simple Type: <strong>EntityTypes</strong></a>
@@ -1285,7 +1291,7 @@ if (gc != null) {
       </tr>
       <tr>
         <th>Version</th>
-        <td>0.30</td>
+        <td>0.31</td>
       </tr>
       <tr>
         <th>Element and Attribute Namespaces</th>
@@ -1334,7 +1340,7 @@ if (gc != null) {
     <div class="schemaComponent box">
       <div><input type="button" id="schema_scbox_button" class="control" onclick="switchState('schema_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span></div>
       <div id="schema_scbox" class="contents">
-        <div style="margin-left: 0em">&lt;<span class="scTag">xs:schema</span> <span class="scTag">targetNamespace</span>="<span class="scContent">http://ProjectMalmo.microsoft.com</span>" <span class="scTag">elementFormDefault</span>="<span class="scContent">qualified</span>" <span class="scTag">version</span>="<span class="scContent">2.1</span>" <span class="scTag">version</span>="<span class="scContent">0.30</span>"&gt;<div class="scContent" style="margin-left: 1.5em">...</div>&lt;/<span class="scTag">xs:schema</span>&gt;</div>
+        <div style="margin-left: 0em">&lt;<span class="scTag">xs:schema</span> <span class="scTag">targetNamespace</span>="<span class="scContent">http://ProjectMalmo.microsoft.com</span>" <span class="scTag">elementFormDefault</span>="<span class="scContent">qualified</span>" <span class="scTag">version</span>="<span class="scContent">2.1</span>" <span class="scTag">version</span>="<span class="scContent">0.31</span>"&gt;<div class="scContent" style="margin-left: 1.5em">...</div>&lt;/<span class="scTag">xs:schema</span>&gt;</div>
       </div>
       <script type="text/javascript">
 <!--
@@ -1417,10 +1423,10 @@ setState('type_BlockOrItem_scbox', false);
         </td>
       </tr>
     </table>
-    <div class="annotation documentation" id="wdoc_idm45671503659664">Javascript required.</div>
+    <div class="annotation documentation" id="wdoc_idm46642457712656">Javascript required.</div>
     <script type="text/javascript">
-               var block = document.getElementById("wdoc_idm45671503659664");
-               var hblock = document.getElementById("hdoc_idm45671503659664");
+               var block = document.getElementById("wdoc_idm46642457712656");
+               var hblock = document.getElementById("hdoc_idm46642457712656");
                var content = hblock.childNodes[0].nodeValue;
                block.innerHTML = '';
                creole.parse(block, content);
@@ -1468,10 +1474,10 @@ setState('type_BlockType_scbox', false);
         </td>
       </tr>
     </table>
-    <div class="annotation documentation" id="wdoc_idm45671502414016">Javascript required.</div>
+    <div class="annotation documentation" id="wdoc_idm46642456503440">Javascript required.</div>
     <script type="text/javascript">
-               var block = document.getElementById("wdoc_idm45671502414016");
-               var hblock = document.getElementById("hdoc_idm45671502414016");
+               var block = document.getElementById("wdoc_idm46642456503440");
+               var hblock = document.getElementById("hdoc_idm46642456503440");
                var content = hblock.childNodes[0].nodeValue;
                block.innerHTML = '';
                creole.parse(block, content);
@@ -1484,6 +1490,57 @@ setState('type_BlockType_scbox', false);
       <script type="text/javascript">
 <!--
 setState('type_Colour_scbox', false);
+// -->
+</script>
+    </div>
+    <div style="text-align: right; clear: both;">
+      <a href="#top">top</a>
+    </div>
+    <hr />
+    <h3>Simple Type: <a name="type_ContainerType" class="name" id="type_ContainerType">ContainerType</a></h3>
+    <table class="hierarchy">
+      <tr>
+        <th>Super-types:</th>
+        <td><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span> &lt; <strong>ContainerType</strong> (by restriction)</td>
+      </tr>
+      <tr>
+        <th>Sub-types:</th>
+        <td>None</td>
+      </tr>
+    </table>
+    <table class="properties">
+      <tr>
+        <th>Name</th>
+        <td>ContainerType</td>
+      </tr>
+      <tr>
+        <th>Content</th>
+        <td>
+          <ul>
+            <li>Base XSD Type: string</li>
+          </ul>
+          <ul>
+            <li><em>value</em> comes from list: {'dispenser'|'chest'|'trapped_chest'|'hopper'|'dropper'|'white_shulker_box'|'orange_shulker_box'|'magenta_shulker_box'|'light_blue_shulker_box'|'yellow_shulker_box'|'lime_shulker_box'|'pink_shulker_box'|'gray_shulker_box'|'silver_shulker_box'|'cyan_shulker_box'|'purple_shulker_box'|'blue_shulker_box'|'brown_shulker_box'|'green_shulker_box'|'red_shulker_box'|'black_shulker_box'}</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+    <div class="annotation documentation" id="wdoc_idm46642453919584">Javascript required.</div>
+    <script type="text/javascript">
+               var block = document.getElementById("wdoc_idm46642453919584");
+               var hblock = document.getElementById("hdoc_idm46642453919584");
+               var content = hblock.childNodes[0].nodeValue;
+               block.innerHTML = '';
+               creole.parse(block, content);
+            </script>
+    <div class="schemaComponent box">
+      <div><input type="button" id="type_ContainerType_scbox_button" class="control" onclick="switchState('type_ContainerType_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span></div>
+      <div id="type_ContainerType_scbox" class="contents">
+        <div style="margin-left: 0em">&lt;<span class="scTag">xs:simpleType</span> <span class="scTag">name</span>="<span class="scContent">ContainerType</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:restriction</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span></span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">dispenser</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">chest</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">trapped_chest</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">hopper</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">dropper</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">white_shulker_box</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">orange_shulker_box</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">magenta_shulker_box</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">light_blue_shulker_box</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">yellow_shulker_box</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">lime_shulker_box</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">pink_shulker_box</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">gray_shulker_box</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">silver_shulker_box</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">cyan_shulker_box</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">purple_shulker_box</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">blue_shulker_box</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">brown_shulker_box</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">green_shulker_box</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">red_shulker_box</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">black_shulker_box</span>"/&gt;</div>&lt;/<span class="scTag">xs:restriction</span>&gt;</div>&lt;/<span class="scTag">xs:simpleType</span>&gt;</div>
+      </div>
+      <script type="text/javascript">
+<!--
+setState('type_ContainerType_scbox', false);
 // -->
 </script>
     </div>
@@ -1519,10 +1576,10 @@ setState('type_Colour_scbox', false);
         </td>
       </tr>
     </table>
-    <div class="annotation documentation" id="wdoc_idm45671499829408">Javascript required.</div>
+    <div class="annotation documentation" id="wdoc_idm46642453872240">Javascript required.</div>
     <script type="text/javascript">
-               var block = document.getElementById("wdoc_idm45671499829408");
-               var hblock = document.getElementById("hdoc_idm45671499829408");
+               var block = document.getElementById("wdoc_idm46642453872240");
+               var hblock = document.getElementById("hdoc_idm46642453872240");
                var content = hblock.childNodes[0].nodeValue;
                block.innerHTML = '';
                creole.parse(block, content);
@@ -1570,10 +1627,10 @@ setState('type_EntityTypes_scbox', false);
         </td>
       </tr>
     </table>
-    <div class="annotation documentation" id="wdoc_idm45671501821280">Javascript required.</div>
+    <div class="annotation documentation" id="wdoc_idm46642455881344">Javascript required.</div>
     <script type="text/javascript">
-               var block = document.getElementById("wdoc_idm45671501821280");
-               var hblock = document.getElementById("hdoc_idm45671501821280");
+               var block = document.getElementById("wdoc_idm46642455881344");
+               var hblock = document.getElementById("hdoc_idm46642455881344");
                var content = hblock.childNodes[0].nodeValue;
                block.innerHTML = '';
                creole.parse(block, content);
@@ -1621,10 +1678,10 @@ setState('type_Facing_scbox', false);
         </td>
       </tr>
     </table>
-    <div class="annotation documentation" id="wdoc_idm45671499853728">Javascript required.</div>
+    <div class="annotation documentation" id="wdoc_idm46642453896560">Javascript required.</div>
     <script type="text/javascript">
-               var block = document.getElementById("wdoc_idm45671499853728");
-               var hblock = document.getElementById("hdoc_idm45671499853728");
+               var block = document.getElementById("wdoc_idm46642453896560");
+               var hblock = document.getElementById("hdoc_idm46642453896560");
                var content = hblock.childNodes[0].nodeValue;
                block.innerHTML = '';
                creole.parse(block, content);
@@ -1672,10 +1729,10 @@ setState('type_FlowerTypes_scbox', false);
         </td>
       </tr>
     </table>
-    <div class="annotation documentation" id="wdoc_idm45671499835280">Javascript required.</div>
+    <div class="annotation documentation" id="wdoc_idm46642453878112">Javascript required.</div>
     <script type="text/javascript">
-               var block = document.getElementById("wdoc_idm45671499835280");
-               var hblock = document.getElementById("hdoc_idm45671499835280");
+               var block = document.getElementById("wdoc_idm46642453878112");
+               var hblock = document.getElementById("hdoc_idm46642453878112");
                var content = hblock.childNodes[0].nodeValue;
                block.innerHTML = '';
                creole.parse(block, content);
@@ -1723,10 +1780,10 @@ setState('type_HalfTypes_scbox', false);
         </td>
       </tr>
     </table>
-    <div class="annotation documentation" id="wdoc_idm45671503336928">Javascript required.</div>
+    <div class="annotation documentation" id="wdoc_idm46642457118560">Javascript required.</div>
     <script type="text/javascript">
-               var block = document.getElementById("wdoc_idm45671503336928");
-               var hblock = document.getElementById("hdoc_idm45671503336928");
+               var block = document.getElementById("wdoc_idm46642457118560");
+               var hblock = document.getElementById("hdoc_idm46642457118560");
                var content = hblock.childNodes[0].nodeValue;
                block.innerHTML = '';
                creole.parse(block, content);
@@ -1774,10 +1831,10 @@ setState('type_ItemType_scbox', false);
         </td>
       </tr>
     </table>
-    <div class="annotation documentation" id="wdoc_idm45671499846752">Javascript required.</div>
+    <div class="annotation documentation" id="wdoc_idm46642453889584">Javascript required.</div>
     <script type="text/javascript">
-               var block = document.getElementById("wdoc_idm45671499846752");
-               var hblock = document.getElementById("hdoc_idm45671499846752");
+               var block = document.getElementById("wdoc_idm46642453889584");
+               var hblock = document.getElementById("hdoc_idm46642453889584");
                var content = hblock.childNodes[0].nodeValue;
                block.innerHTML = '';
                creole.parse(block, content);
@@ -1825,10 +1882,10 @@ setState('type_MonsterEggTypes_scbox', false);
         </td>
       </tr>
     </table>
-    <div class="annotation documentation" id="wdoc_idm45671499803824">Javascript required.</div>
+    <div class="annotation documentation" id="wdoc_idm46642453846656">Javascript required.</div>
     <script type="text/javascript">
-               var block = document.getElementById("wdoc_idm45671499803824");
-               var hblock = document.getElementById("hdoc_idm45671499803824");
+               var block = document.getElementById("wdoc_idm46642453846656");
+               var hblock = document.getElementById("hdoc_idm46642453846656");
                var content = hblock.childNodes[0].nodeValue;
                block.innerHTML = '';
                creole.parse(block, content);
@@ -1876,10 +1933,10 @@ setState('type_NonLivingEntityTypes_scbox', false);
         </td>
       </tr>
     </table>
-    <div class="annotation documentation" id="wdoc_idm45671499783216">Javascript required.</div>
+    <div class="annotation documentation" id="wdoc_idm46642453826048">Javascript required.</div>
     <script type="text/javascript">
-               var block = document.getElementById("wdoc_idm45671499783216");
-               var hblock = document.getElementById("hdoc_idm45671499783216");
+               var block = document.getElementById("wdoc_idm46642453826048");
+               var hblock = document.getElementById("hdoc_idm46642453826048");
                var content = hblock.childNodes[0].nodeValue;
                block.innerHTML = '';
                creole.parse(block, content);
@@ -1927,10 +1984,10 @@ setState('type_NoteTypes_scbox', false);
         </td>
       </tr>
     </table>
-    <div class="annotation documentation" id="wdoc_idm45671499794368">Javascript required.</div>
+    <div class="annotation documentation" id="wdoc_idm46642453837200">Javascript required.</div>
     <script type="text/javascript">
-               var block = document.getElementById("wdoc_idm45671499794368");
-               var hblock = document.getElementById("hdoc_idm45671499794368");
+               var block = document.getElementById("wdoc_idm46642453837200");
+               var hblock = document.getElementById("hdoc_idm46642453837200");
                var content = hblock.childNodes[0].nodeValue;
                block.innerHTML = '';
                creole.parse(block, content);
@@ -1978,10 +2035,10 @@ setState('type_ProjectileEntityTypes_scbox', false);
         </td>
       </tr>
     </table>
-    <div class="annotation documentation" id="wdoc_idm45671499842256">Javascript required.</div>
+    <div class="annotation documentation" id="wdoc_idm46642453885088">Javascript required.</div>
     <script type="text/javascript">
-               var block = document.getElementById("wdoc_idm45671499842256");
-               var hblock = document.getElementById("hdoc_idm45671499842256");
+               var block = document.getElementById("wdoc_idm46642453885088");
+               var hblock = document.getElementById("hdoc_idm46642453885088");
                var content = hblock.childNodes[0].nodeValue;
                block.innerHTML = '';
                creole.parse(block, content);
@@ -2026,10 +2083,10 @@ setState('type_ShapeTypes_scbox', false);
         </td>
       </tr>
     </table>
-    <div class="annotation documentation" id="wdoc_idm45671499768800">Javascript required.</div>
+    <div class="annotation documentation" id="wdoc_idm46642453811632">Javascript required.</div>
     <script type="text/javascript">
-               var block = document.getElementById("wdoc_idm45671499768800");
-               var hblock = document.getElementById("hdoc_idm45671499768800");
+               var block = document.getElementById("wdoc_idm46642453811632");
+               var hblock = document.getElementById("hdoc_idm46642453811632");
                var content = hblock.childNodes[0].nodeValue;
                block.innerHTML = '';
                creole.parse(block, content);
@@ -2080,10 +2137,10 @@ setState('type_SpawnableTypes_scbox', false);
         </td>
       </tr>
     </table>
-    <div class="annotation documentation" id="wdoc_idm45671499864208">Javascript required.</div>
+    <div class="annotation documentation" id="wdoc_idm46642453907040">Javascript required.</div>
     <script type="text/javascript">
-               var block = document.getElementById("wdoc_idm45671499864208");
-               var hblock = document.getElementById("hdoc_idm45671499864208");
+               var block = document.getElementById("wdoc_idm46642453907040");
+               var hblock = document.getElementById("hdoc_idm46642453907040");
                var content = hblock.childNodes[0].nodeValue;
                block.innerHTML = '';
                creole.parse(block, content);
@@ -2128,10 +2185,10 @@ setState('type_StoneTypes_scbox', false);
         </td>
       </tr>
     </table>
-    <div class="annotation documentation" id="wdoc_idm45671499765776">Javascript required.</div>
+    <div class="annotation documentation" id="wdoc_idm46642453808608">Javascript required.</div>
     <script type="text/javascript">
-               var block = document.getElementById("wdoc_idm45671499765776");
-               var hblock = document.getElementById("hdoc_idm45671499765776");
+               var block = document.getElementById("wdoc_idm46642453808608");
+               var hblock = document.getElementById("hdoc_idm46642453808608");
                var content = hblock.childNodes[0].nodeValue;
                block.innerHTML = '';
                creole.parse(block, content);
@@ -2182,10 +2239,10 @@ setState('type_Variation_scbox', false);
         </td>
       </tr>
     </table>
-    <div class="annotation documentation" id="wdoc_idm45671499858720">Javascript required.</div>
+    <div class="annotation documentation" id="wdoc_idm46642453901552">Javascript required.</div>
     <script type="text/javascript">
-               var block = document.getElementById("wdoc_idm45671499858720");
-               var hblock = document.getElementById("hdoc_idm45671499858720");
+               var block = document.getElementById("wdoc_idm46642453901552");
+               var hblock = document.getElementById("hdoc_idm46642453901552");
                var content = hblock.childNodes[0].nodeValue;
                block.innerHTML = '';
                creole.parse(block, content);

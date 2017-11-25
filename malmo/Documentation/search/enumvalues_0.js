@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['identity',['IDENTITY',['../structmalmo_1_1_timestamped_video_frame.html#a72f071afb831b7e2036255229d676515ab07e0b4b6969aaa6e0975c33022185f4',1,'malmo::TimestampedVideoFrame']]]
+  ['colour_5fmap',['COLOUR_MAP',['../structmalmo_1_1_timestamped_video_frame.html#a6016177a24884e003e9696bcfcf172a2a0eb6976dc320838e38eb526b35c48f1a',1,'malmo::TimestampedVideoFrame']]]
 ];

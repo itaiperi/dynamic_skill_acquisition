@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Mission xmlns="http://ProjectMalmo.microsoft.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<About>
+  <Summary>Cliff walking mission based on Sutton and Barto.</Summary>
+</About>
+
+<ModSettings>
+  <MsPerTick>100</MsPerTick>
+</ModSettings>
+
+<ServerSection>
+    <ServerInitialConditions>
+          <Time>
+              <StartTime>6000</StartTime>
+              <AllowPassageOfTime>false</AllowPassageOfTime>
+          </Time>
+          <Weather>clear</Weather>
+          <AllowSpawning>false</AllowSpawning>
+    </ServerInitialConditions>
+  <ServerHandlers>
+    <FlatWorldGenerator generatorString="3;7,220*1,5*3,2;3;,biome_1"/>
+    <DrawingDecorator><!-- STRUCTURE -->
+  <DrawCuboid type="stone" x1="-6" x2="6" y1="226" y2="231" z1="-6" z2="6"/>
+  <DrawCuboid type="air" x1="-5" x2="5" y1="227" y2="230" z1="-5" z2="5"/>
+  <DrawCuboid type="glass" x1="-6" x2="6" y1="231" y2="231" z1="-6" z2="6"/>
+  <DrawCuboid type="planks" x1="-6" x2="6" y1="226" y2="226" z1="-6" z2="6"/>
+  <!-- /STRUCTURE -->
+  <DrawCuboid face="UP" type="hay_block" x1="3" x2="5" y1="227" y2="229" z1="-5" z2="-4"/>
+  <DrawCuboid face="SOUTH" type="furnace" x1="3" x2="4" y1="227" y2="228" z1="-4" z2="-4"/>
+  <!-- <DrawCuboid face="SOUTH" type="chest" x1="-5" x2="-4" y1="227" y2="227" z1="5" z2="5"/> -->
+  <DrawContainer x="-5" y="227" z="5" face="SOUTH" type="chest">
+    <Object type="chicken"/>
+  </DrawContainer>
+  <DrawContainer x="-4" y="227" z="5" face="SOUTH" type="chest">
+    <Object type="chicken"/>
+  </DrawContainer>
+  <DrawItem type="coal" x="^X" y="229" z="^Z"/>
+    </DrawingDecorator>
+    <ServerQuitFromTimeUp timeLimitMs="^TIME"/>
+    <ServerQuitWhenAnyAgentFinishes/>
+  </ServerHandlers>
+</ServerSection>
+
+<AgentSection mode="Survival">
+  <Name>Cristina</Name>
+  <AgentStart>
+    <Placement pitch="60" x="0" y="227" yaw="^YAW" z="0"/>
+    <Inventory/>
+    <!--<Inventory>
+      <InventoryItem slot="0" type="diamond_pickaxe"/>
+    </Inventory>-->
+  </AgentStart>
+  <AgentHandlers>
+    <ObservationFromFullStats/>
+    <RewardForCollectingItem>
+      <Item reward="^F_R" type="coal"/>
+    </RewardForCollectingItem>
+    <RewardForTimeTaken initialReward="^T_R" delta="^DELTA" density="MISSION_END"/>
+    <VideoProducer want_depth="false">
+        <Width>640</Width>
+        <Height>480</Height>
+    </VideoProducer>
+    <ContinuousMovementCommands turnSpeedDegs="360">
+    </ContinuousMovementCommands>
+    <RewardForMissionEnd rewardForDeath="-100">
+    <Reward description="found_goal" reward="100"/>
+    </RewardForMissionEnd>
+    <RewardForSendingCommand reward="^C_R"/>
+    <MissionQuitCommands quitDescription="give_up"/>
+      <AgentQuitFromCollectingItem>
+          <Item type="coal" description="Found coal!"/>
+      </AgentQuitFromCollectingItem>
+  </AgentHandlers>
+</AgentSection>
+
+</Mission>

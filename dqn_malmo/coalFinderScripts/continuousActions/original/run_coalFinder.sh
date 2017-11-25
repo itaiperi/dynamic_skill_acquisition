@@ -1,0 +1,3 @@
+#!/bin/bash
+
+th $DQNF/main.lua -env Minecraft -modelBody models.Minecraft -mode train -height 84 -width 84 -zoom 4 -valSteps 5000 -hiddenSize 256 -recurrent true -histLen 4 -bootstraps 0 -memSampleFreq 400 -memNSamples 100 -memSize 5e4 -learnStart 5e3 -epsilonSteps 5e4 -eta 0.00025 -tau 1000 -rewardClip 0 -tdClip 0 -gradClip 0 -noValidation true -verbose true -progFreq 1e3 -reportWeights true -cudnn true -_id $1 -x_min_limit -$2 -x_max_limit $2 -z_min_limit -$2 -z_max_limit $2 -steps 5e8 -mission_xml /home/deep1/Itai_Asaf/minecraft_lifelong_learning/missions/coalFinder.fromOutside.xml -findReward $3 -commandReward $4 -timeReward $5 -roundTime $6 -port $7 -gamma 0.99 -slowActions true

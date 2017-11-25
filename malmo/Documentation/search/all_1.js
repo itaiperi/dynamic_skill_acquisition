@@ -6,6 +6,7 @@ var searchData=
   ['clientinfo',['ClientInfo',['../structmalmo_1_1_client_info.html',1,'malmo']]],
   ['clientpool',['ClientPool',['../structmalmo_1_1_client_pool.html',1,'malmo']]],
   ['clients',['clients',['../structmalmo_1_1_client_pool.html#a84ddb8582b84c153ea651a294bba19a7',1,'malmo::ClientPool']]],
+  ['colour_5fmap',['COLOUR_MAP',['../structmalmo_1_1_timestamped_video_frame.html#a6016177a24884e003e9696bcfcf172a2a0eb6976dc320838e38eb526b35c48f1a',1,'malmo::TimestampedVideoFrame']]],
   ['createdefaultterrain',['createDefaultTerrain',['../classmalmo_1_1_mission_spec.html#a04f50c40a3d69ea595b1d5af09e758fd',1,'malmo::MissionSpec']]],
   ['createfromsimplestring',['createFromSimpleString',['../classmalmo_1_1_timestamped_reward.html#a74e9772ea49f655e42144c3d4fe61f6e',1,'malmo::TimestampedReward']]],
   ['createfromxml',['createFromXML',['../classmalmo_1_1_timestamped_reward.html#ab73fd2e77d1eb6cf084be696309d7b89',1,'malmo::TimestampedReward']]]

@@ -31,8 +31,8 @@
 // in the accompanying FLOSSE file.
 //
 
-#ifndef CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_MISSION_H
-#define CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_MISSION_H
+#ifndef CXX_HOME_DAVEY_MALMO_PLATFORM_PY2_SCHEMAS_MISSION_H
+#define CXX_HOME_DAVEY_MALMO_PLATFORM_PY2_SCHEMAS_MISSION_H
 
 #ifndef XSD_USE_CHAR
 #define XSD_USE_CHAR
@@ -274,6 +274,7 @@ namespace malmo
     class ServerHandlers;
     class MsPerTick;
     class Inventory;
+    class EnderBoxInventory;
     class AllowedMobs;
   }
 }
@@ -1022,6 +1023,27 @@ namespace malmo
       void
       Inventory (::std::auto_ptr< Inventory_type > p);
 
+      // EnderBoxInventory
+      //
+      typedef ::malmo::schemas::EnderBoxInventory EnderBoxInventory_type;
+      typedef ::xsd::cxx::tree::optional< EnderBoxInventory_type > EnderBoxInventory_optional;
+      typedef ::xsd::cxx::tree::traits< EnderBoxInventory_type, char > EnderBoxInventory_traits;
+
+      const EnderBoxInventory_optional&
+      EnderBoxInventory () const;
+
+      EnderBoxInventory_optional&
+      EnderBoxInventory ();
+
+      void
+      EnderBoxInventory (const EnderBoxInventory_type& x);
+
+      void
+      EnderBoxInventory (const EnderBoxInventory_optional& x);
+
+      void
+      EnderBoxInventory (::std::auto_ptr< EnderBoxInventory_type > p);
+
       // Constructors.
       //
       AgentStart ();
@@ -1054,6 +1076,7 @@ namespace malmo
       protected:
       Placement_optional Placement_;
       Inventory_optional Inventory_;
+      EnderBoxInventory_optional EnderBoxInventory_;
     };
 
     class ServerInitialConditions: public ::xml_schema::type
@@ -1740,6 +1763,69 @@ namespace malmo
       void
       VideoProducer (::std::auto_ptr< VideoProducer_type > p);
 
+      // DepthProducer
+      //
+      typedef ::malmo::schemas::DepthProducer DepthProducer_type;
+      typedef ::xsd::cxx::tree::optional< DepthProducer_type > DepthProducer_optional;
+      typedef ::xsd::cxx::tree::traits< DepthProducer_type, char > DepthProducer_traits;
+
+      const DepthProducer_optional&
+      DepthProducer () const;
+
+      DepthProducer_optional&
+      DepthProducer ();
+
+      void
+      DepthProducer (const DepthProducer_type& x);
+
+      void
+      DepthProducer (const DepthProducer_optional& x);
+
+      void
+      DepthProducer (::std::auto_ptr< DepthProducer_type > p);
+
+      // LuminanceProducer
+      //
+      typedef ::malmo::schemas::LuminanceProducer LuminanceProducer_type;
+      typedef ::xsd::cxx::tree::optional< LuminanceProducer_type > LuminanceProducer_optional;
+      typedef ::xsd::cxx::tree::traits< LuminanceProducer_type, char > LuminanceProducer_traits;
+
+      const LuminanceProducer_optional&
+      LuminanceProducer () const;
+
+      LuminanceProducer_optional&
+      LuminanceProducer ();
+
+      void
+      LuminanceProducer (const LuminanceProducer_type& x);
+
+      void
+      LuminanceProducer (const LuminanceProducer_optional& x);
+
+      void
+      LuminanceProducer (::std::auto_ptr< LuminanceProducer_type > p);
+
+      // ColourMapProducer
+      //
+      typedef ::malmo::schemas::ColourMapProducer ColourMapProducer_type;
+      typedef ::xsd::cxx::tree::optional< ColourMapProducer_type > ColourMapProducer_optional;
+      typedef ::xsd::cxx::tree::traits< ColourMapProducer_type, char > ColourMapProducer_traits;
+
+      const ColourMapProducer_optional&
+      ColourMapProducer () const;
+
+      ColourMapProducer_optional&
+      ColourMapProducer ();
+
+      void
+      ColourMapProducer (const ColourMapProducer_type& x);
+
+      void
+      ColourMapProducer (const ColourMapProducer_optional& x);
+
+      void
+      ColourMapProducer (::std::auto_ptr< ColourMapProducer_type > p);
+
       // RewardForTouchingBlockType
       //
       typedef ::malmo::schemas::RewardForTouchingBlockType RewardForTouchingBlockType_type;
@@ -2308,6 +2394,9 @@ namespace malmo
       ObservationFromRay_optional ObservationFromRay_;
       ObservationFromTurnScheduler_optional ObservationFromTurnScheduler_;
       VideoProducer_optional VideoProducer_;
+      DepthProducer_optional DepthProducer_;
+      LuminanceProducer_optional LuminanceProducer_;
+      ColourMapProducer_optional ColourMapProducer_;
       RewardForTouchingBlockType_optional RewardForTouchingBlockType_;
       RewardForSendingCommand_optional RewardForSendingCommand_;
       RewardForSendingMatchingChatMessage_optional RewardForSendingMatchingChatMessage_;
@@ -2683,6 +2772,59 @@ namespace malmo
       InventoryObject_sequence InventoryObject_;
     };
 
+    class EnderBoxInventory: public ::xml_schema::type
+    {
+      public:
+      // InventoryObject
+      //
+      typedef ::malmo::schemas::InventoryObjectType InventoryObject_type;
+      typedef ::xsd::cxx::tree::sequence< InventoryObject_type > InventoryObject_sequence;
+      typedef InventoryObject_sequence::iterator InventoryObject_iterator;
+      typedef InventoryObject_sequence::const_iterator InventoryObject_const_iterator;
+      typedef ::xsd::cxx::tree::traits< InventoryObject_type, char > InventoryObject_traits;
+
+      const InventoryObject_sequence&
+      InventoryObject () const;
+
+      InventoryObject_sequence&
+      InventoryObject ();
+
+      void
+      InventoryObject (const InventoryObject_sequence& s);
+
+      // Constructors.
+      //
+      EnderBoxInventory ();
+
+      EnderBoxInventory (const ::xercesc::DOMElement& e,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+      EnderBoxInventory (const EnderBoxInventory& x,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+      virtual EnderBoxInventory*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      EnderBoxInventory&
+      operator= (const EnderBoxInventory& x);
+
+      virtual 
+      ~EnderBoxInventory ();
+
+      // Implementation.
+      //
+      protected:
+      void
+      parse (::xsd::cxx::xml::dom::parser< char >&,
+             ::xml_schema::flags);
+
+      protected:
+      InventoryObject_sequence InventoryObject_;
+    };
+
     class AllowedMobs: public ::xml_schema::simple_type,
       public ::xsd::cxx::tree::list< ::malmo::schemas::EntityTypes, char >
     {
@@ -3012,6 +3154,9 @@ namespace malmo
     operator<< (::xercesc::DOMElement&, const Inventory&);
 
     void
+    operator<< (::xercesc::DOMElement&, const EnderBoxInventory&);
+
+    void
     operator<< (::xercesc::DOMElement&, const AllowedMobs&);
 
     void
@@ -3030,4 +3175,4 @@ namespace malmo
 //
 // End epilogue.
 
-#endif // CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_MISSION_H
+#endif // CXX_HOME_DAVEY_MALMO_PLATFORM_PY2_SCHEMAS_MISSION_H

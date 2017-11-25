@@ -7,6 +7,7 @@ if not hasSocket then
 end
 -- Do not require libMalmoLua for install
 local hasLibMalmoLua, libMalmoLua = pcall(require, 'libMalmoLua')
+-- require 'libMalmoLua'
 
 local Minecraft, super = classic.class('Minecraft', Env)
 
@@ -150,7 +151,8 @@ function Minecraft:_init(opts)
   self.randomStart = opts.randomStart
   self.slowActions = opts.slowActions
 
-  self.actions = opts.actions or {"left", "right", "forward"} --, "use 0", "turn 0", "move 1", "move 0"}
+  self.actions = opts.actions or {"left", "right", "forward", "swap"} --, "use 0", "turn 0", "move 1", "move 0"}
+  -- self.actions = opts.actions or {"swap"} --, "use 0", "turn 0", "move 1", "move 0"}
 
   self.agent_host = AgentHost()
 
@@ -306,14 +308,18 @@ function Minecraft:step(action)
     action = "turn -" .. value
   elseif action == "right" then
     action = "turn " .. value
-  else
+  elseif action == "forward" then
     value = self.slowActions and "0.5" or "1"
     action = "move " .. value
     counterAction = "move 0"
+  elseif action == "swap" then
+    self.agent_host:sendCommand(counterAction)
+    action = "swapInventoryItems chest:0 1"
+  else
+    action = counterAction
   end
 
   self.agent_host:sendCommand(action)
-  -- print(action)
 
   -- Wait for command to be received and world state to change
   sleep(0.25)

@@ -483,18 +483,19 @@ function Agent:report()
     wGradMaxima[#wGradMaxima + 1] = torch.max(w) -- Weight grad max
   end
 
-  self.wNorms[#self.wNorms + 1] = wNorms
-  self.wMaxima[#self.wMaxima + 1] = wMaxima
-  self.wGradNorms[#self.wGradNorms + 1] = wGradNorms
-  self.wGradMaxima[#self.wGradMaxima + 1] = wGradMaxima
+  self.wNorms[#self.wNorms + 1] = torch.Tensor(wNorms)
+  self.wMaxima[#self.wMaxima + 1] = torch.Tensor(wMaxima)
+  self.wGradNorms[#self.wGradNorms + 1] = torch.Tensor(wGradNorms)
+  self.wGradMaxima[#self.wGradMaxima + 1] = torch.Tensor(wGradMaxima)
 
-  local epochIndices = torch.linspace(1, #self.weightStats['wNorms'], #self.weightStats['wNorms'])
+  local epochIndices = torch.linspace(1, #self.wNorms, #self.wNorms)
+  local layersNames = {'Conv1', 'Conv2', 'FC1', 'FC2'}
 
   -- Plot wNorms
   local statTensor = torch.cat(self.wNorms, 2)
   local multilines = {}
-  for i = 1, 4 do
-    multilines[#multilines + 1] = {epochIndices, statTensor[i] }
+  for i = 1, statTensor:size(1) do
+    multilines[#multilines + 1] = {layersNames[i], epochIndices, statTensor[i]}
   end
   gnuplot.pngfigure(paths.concat('experiments', self._id, 'wNorms.png'))
   gnuplot.plot(multilines)
@@ -506,7 +507,7 @@ function Agent:report()
   local statTensor = torch.cat(self.wMaxima, 2)
   local multilines = {}
   for i = 1, 4 do
-    multilines[#multilines + 1] = {epochIndices, statTensor[i] }
+    multilines[#multilines + 1] = {layersNames[i], epochIndices, statTensor[i] }
   end
   gnuplot.pngfigure(paths.concat('experiments', self._id, 'wMaxima.png'))
   gnuplot.plot(multilines)
@@ -518,7 +519,7 @@ function Agent:report()
   local statTensor = torch.cat(self.wGradNorms, 2)
   local multilines = {}
   for i = 1, 4 do
-    multilines[#multilines + 1] = {epochIndices, statTensor[i] }
+    multilines[#multilines + 1] = {layersNames[i], epochIndices, statTensor[i] }
   end
   gnuplot.pngfigure(paths.concat('experiments', self._id, 'wGradNorms.png'))
   gnuplot.plot(multilines)
@@ -530,13 +531,15 @@ function Agent:report()
   local statTensor = torch.cat(self.wGradMaxima, 2)
   local multilines = {}
   for i = 1, 4 do
-    multilines[#multilines + 1] = {epochIndices, statTensor[i] }
+    multilines[#multilines + 1] = {layersNames[i], epochIndices, statTensor[i] }
   end
   gnuplot.pngfigure(paths.concat('experiments', self._id, 'wGradMaxima.png'))
   gnuplot.plot(multilines)
   gnuplot.xlabel('Epoch')
   gnuplot.ylabel('wGradMaxima')
   gnuplot.plotflush()
+
+  gnuplot.closeall()
 
   -- Create report string table
   local reports = {
@@ -628,7 +631,7 @@ function Agent:validate()
     gnuplot.plotflush()
     torch.save(paths.concat(self.experiments, self._id, 'normScores.t7'), normScores)
   end
-  gnuplot.close()
+  gnuplot.closeall()
 
   return self.avgV[#self.avgV], self.avgTdErr[#self.avgTdErr]
 end
@@ -687,7 +690,7 @@ end
 
 -- Special functions added for distillation!
 function Agent:switchTask(nextTask)
-  log.info('Switching from task ' .. self.currentTask .. ' to task ' .. nextTask)
+  -- log.info('Switching from task ' .. self.currentTask .. ' to task ' .. nextTask)
   local headLayer = self.policyNet:findModules('nn.Linear')[2]
   -- Save previous task's head
   self.tasksHeads[self.currentTask]:copy(headLayer.weight)

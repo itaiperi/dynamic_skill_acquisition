@@ -1,5 +1,5 @@
 local Setup = require 'Setup'
-local DistillMaster = require 'Master'
+local DistillMaster = require 'DistillMaster'
 
 -- Parse options and perform setup
 local setup = Setup(arg)

@@ -31,8 +31,8 @@
 // in the accompanying FLOSSE file.
 //
 
-#ifndef CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_MISSION_HANDLERS_H
-#define CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_MISSION_HANDLERS_H
+#ifndef CXX_HOME_DAVEY_MALMO_PLATFORM_PY2_SCHEMAS_MISSION_HANDLERS_H
+#define CXX_HOME_DAVEY_MALMO_PLATFORM_PY2_SCHEMAS_MISSION_HANDLERS_H
 
 #ifndef XSD_USE_CHAR
 #define XSD_USE_CHAR
@@ -268,6 +268,8 @@ namespace malmo
     class DrawBlockBasedObjectType;
     class DrawBlock;
     class DrawItem;
+    class ContainedObjectType;
+    class DrawContainer;
     class DrawEntity;
     class DrawCuboid;
     class DrawSphere;
@@ -278,6 +280,8 @@ namespace malmo
     class BuildingSize;
     class ZeroToOne;
     class NonNegative;
+    class HexColour;
+    class MobWithColour;
     class ContinuousMovementCommand;
     class AbsoluteMovementCommand;
     class DiscreteMovementCommand;
@@ -326,6 +330,9 @@ namespace malmo
     class BuildBattleDecorator;
     class ServerQuitFromTimeUp;
     class ServerQuitWhenAnyAgentFinishes;
+    class DepthProducer;
+    class LuminanceProducer;
+    class ColourMapProducer;
     class VideoProducer;
     class type;
     class ContinuousMovementCommands;
@@ -1499,6 +1506,306 @@ namespace malmo
       face_optional face_;
     };
 
+    class ContainedObjectType: public ::xml_schema::type
+    {
+      public:
+      // type
+      //
+      typedef ::malmo::schemas::BlockOrItem type_type;
+      typedef ::xsd::cxx::tree::traits< type_type, char > type_traits;
+
+      const type_type&
+      type () const;
+
+      type_type&
+      type ();
+
+      void
+      type (const type_type& x);
+
+      void
+      type (::std::auto_ptr< type_type > p);
+
+      // variant
+      //
+      typedef ::malmo::schemas::Variation variant_type;
+      typedef ::xsd::cxx::tree::optional< variant_type > variant_optional;
+      typedef ::xsd::cxx::tree::traits< variant_type, char > variant_traits;
+
+      const variant_optional&
+      variant () const;
+
+      variant_optional&
+      variant ();
+
+      void
+      variant (const variant_type& x);
+
+      void
+      variant (const variant_optional& x);
+
+      void
+      variant (::std::auto_ptr< variant_type > p);
+
+      // colour
+      //
+      typedef ::malmo::schemas::Colour colour_type;
+      typedef ::xsd::cxx::tree::optional< colour_type > colour_optional;
+      typedef ::xsd::cxx::tree::traits< colour_type, char > colour_traits;
+
+      const colour_optional&
+      colour () const;
+
+      colour_optional&
+      colour ();
+
+      void
+      colour (const colour_type& x);
+
+      void
+      colour (const colour_optional& x);
+
+      void
+      colour (::std::auto_ptr< colour_type > p);
+
+      // quantity
+      //
+      typedef ::xml_schema::int_ quantity_type;
+      typedef ::xsd::cxx::tree::traits< quantity_type, char > quantity_traits;
+
+      const quantity_type&
+      quantity () const;
+
+      quantity_type&
+      quantity ();
+
+      void
+      quantity (const quantity_type& x);
+
+      static quantity_type
+      quantity_default_value ();
+
+      // Constructors.
+      //
+      ContainedObjectType (const type_type&);
+
+      ContainedObjectType (const ::xercesc::DOMElement& e,
+                           ::xml_schema::flags f = 0,
+                           ::xml_schema::container* c = 0);
+
+      ContainedObjectType (const ContainedObjectType& x,
+                           ::xml_schema::flags f = 0,
+                           ::xml_schema::container* c = 0);
+
+      virtual ContainedObjectType*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      ContainedObjectType&
+      operator= (const ContainedObjectType& x);
+
+      virtual 
+      ~ContainedObjectType ();
+
+      // Implementation.
+      //
+      protected:
+      void
+      parse (::xsd::cxx::xml::dom::parser< char >&,
+             ::xml_schema::flags);
+
+      protected:
+      ::xsd::cxx::tree::one< type_type > type_;
+      variant_optional variant_;
+      colour_optional colour_;
+      ::xsd::cxx::tree::one< quantity_type > quantity_;
+    };
+
+    class DrawContainer: public ::malmo::schemas::DrawObjectType
+    {
+      public:
+      // Object
+      //
+      typedef ::malmo::schemas::ContainedObjectType Object_type;
+      typedef ::xsd::cxx::tree::sequence< Object_type > Object_sequence;
+      typedef Object_sequence::iterator Object_iterator;
+      typedef Object_sequence::const_iterator Object_const_iterator;
+      typedef ::xsd::cxx::tree::traits< Object_type, char > Object_traits;
+
+      const Object_sequence&
+      Object () const;
+
+      Object_sequence&
+      Object ();
+
+      void
+      Object (const Object_sequence& s);
+
+      // x
+      //
+      typedef ::xml_schema::int_ x_type;
+      typedef ::xsd::cxx::tree::traits< x_type, char > x_traits;
+
+      const x_type&
+      x () const;
+
+      x_type&
+      x ();
+
+      void
+      x (const x_type& x);
+
+      // y
+      //
+      typedef ::xml_schema::int_ y_type;
+      typedef ::xsd::cxx::tree::traits< y_type, char > y_traits;
+
+      const y_type&
+      y () const;
+
+      y_type&
+      y ();
+
+      void
+      y (const y_type& x);
+
+      // z
+      //
+      typedef ::xml_schema::int_ z_type;
+      typedef ::xsd::cxx::tree::traits< z_type, char > z_traits;
+
+      const z_type&
+      z () const;
+
+      z_type&
+      z ();
+
+      void
+      z (const z_type& x);
+
+      // type
+      //
+      typedef ::malmo::schemas::ContainerType type_type;
+      typedef ::xsd::cxx::tree::traits< type_type, char > type_traits;
+
+      const type_type&
+      type () const;
+
+      type_type&
+      type ();
+
+      void
+      type (const type_type& x);
+
+      void
+      type (::std::auto_ptr< type_type > p);
+
+      // variant
+      //
+      typedef ::malmo::schemas::Variation variant_type;
+      typedef ::xsd::cxx::tree::optional< variant_type > variant_optional;
+      typedef ::xsd::cxx::tree::traits< variant_type, char > variant_traits;
+
+      const variant_optional&
+      variant () const;
+
+      variant_optional&
+      variant ();
+
+      void
+      variant (const variant_type& x);
+
+      void
+      variant (const variant_optional& x);
+
+      void
+      variant (::std::auto_ptr< variant_type > p);
+
+      // colour
+      //
+      typedef ::malmo::schemas::Colour colour_type;
+      typedef ::xsd::cxx::tree::optional< colour_type > colour_optional;
+      typedef ::xsd::cxx::tree::traits< colour_type, char > colour_traits;
+
+      const colour_optional&
+      colour () const;
+
+      colour_optional&
+      colour ();
+
+      void
+      colour (const colour_type& x);
+
+      void
+      colour (const colour_optional& x);
+
+      void
+      colour (::std::auto_ptr< colour_type > p);
+
+      // face
+      //
+      typedef ::malmo::schemas::Facing face_type;
+      typedef ::xsd::cxx::tree::optional< face_type > face_optional;
+      typedef ::xsd::cxx::tree::traits< face_type, char > face_traits;
+
+      const face_optional&
+      face () const;
+
+      face_optional&
+      face ();
+
+      void
+      face (const face_type& x);
+
+      void
+      face (const face_optional& x);
+
+      void
+      face (::std::auto_ptr< face_type > p);
+
+      // Constructors.
+      //
+      DrawContainer (const x_type&,
+                     const y_type&,
+                     const z_type&,
+                     const type_type&);
+
+      DrawContainer (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+      DrawContainer (const DrawContainer& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+      virtual DrawContainer*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      DrawContainer&
+      operator= (const DrawContainer& x);
+
+      virtual 
+      ~DrawContainer ();
+
+      // Implementation.
+      //
+      protected:
+      void
+      parse (::xsd::cxx::xml::dom::parser< char >&,
+             ::xml_schema::flags);
+
+      protected:
+      Object_sequence Object_;
+      ::xsd::cxx::tree::one< x_type > x_;
+      ::xsd::cxx::tree::one< y_type > y_;
+      ::xsd::cxx::tree::one< z_type > z_;
+      ::xsd::cxx::tree::one< type_type > type_;
+      variant_optional variant_;
+      colour_optional colour_;
+      face_optional face_;
+    };
+
     class DrawEntity: public ::malmo::schemas::DrawObjectType
     {
       public:
@@ -2446,6 +2753,112 @@ namespace malmo
 
       virtual 
       ~NonNegative ();
+    };
+
+    class HexColour: public ::xml_schema::hex_binary
+    {
+      public:
+      // Constructors.
+      //
+      HexColour ();
+
+      HexColour (const ::xml_schema::hex_binary&);
+
+      HexColour (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+      HexColour (const ::xercesc::DOMAttr& a,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+      HexColour (const ::std::string& s,
+                 const ::xercesc::DOMElement* e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+      HexColour (const HexColour& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+      virtual HexColour*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      virtual 
+      ~HexColour ();
+    };
+
+    class MobWithColour: public ::xml_schema::type
+    {
+      public:
+      // type
+      //
+      typedef ::malmo::schemas::MobList type_type;
+      typedef ::xsd::cxx::tree::traits< type_type, char > type_traits;
+
+      const type_type&
+      type () const;
+
+      type_type&
+      type ();
+
+      void
+      type (const type_type& x);
+
+      void
+      type (::std::auto_ptr< type_type > p);
+
+      // colour
+      //
+      typedef ::malmo::schemas::HexColour colour_type;
+      typedef ::xsd::cxx::tree::traits< colour_type, char > colour_traits;
+
+      const colour_type&
+      colour () const;
+
+      colour_type&
+      colour ();
+
+      void
+      colour (const colour_type& x);
+
+      void
+      colour (::std::auto_ptr< colour_type > p);
+
+      // Constructors.
+      //
+      MobWithColour (const type_type&,
+                     const colour_type&);
+
+      MobWithColour (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+      MobWithColour (const MobWithColour& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+      virtual MobWithColour*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      MobWithColour&
+      operator= (const MobWithColour& x);
+
+      virtual 
+      ~MobWithColour ();
+
+      // Implementation.
+      //
+      protected:
+      void
+      parse (::xsd::cxx::xml::dom::parser< char >&,
+             ::xml_schema::flags);
+
+      protected:
+      ::xsd::cxx::tree::one< type_type > type_;
+      ::xsd::cxx::tree::one< colour_type > colour_;
     };
 
     class ContinuousMovementCommand: public ::xml_schema::string
@@ -6704,6 +7117,244 @@ namespace malmo
       static const description_type description_default_value_;
     };
 
+    class DepthProducer: public ::xml_schema::type
+    {
+      public:
+      // Width
+      //
+      typedef ::xml_schema::int_ Width_type;
+      typedef ::xsd::cxx::tree::traits< Width_type, char > Width_traits;
+
+      const Width_type&
+      Width () const;
+
+      Width_type&
+      Width ();
+
+      void
+      Width (const Width_type& x);
+
+      // Height
+      //
+      typedef ::xml_schema::int_ Height_type;
+      typedef ::xsd::cxx::tree::traits< Height_type, char > Height_traits;
+
+      const Height_type&
+      Height () const;
+
+      Height_type&
+      Height ();
+
+      void
+      Height (const Height_type& x);
+
+      // Constructors.
+      //
+      DepthProducer (const Width_type&,
+                     const Height_type&);
+
+      DepthProducer (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+      DepthProducer (const DepthProducer& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+      virtual DepthProducer*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      DepthProducer&
+      operator= (const DepthProducer& x);
+
+      virtual 
+      ~DepthProducer ();
+
+      // Implementation.
+      //
+      protected:
+      void
+      parse (::xsd::cxx::xml::dom::parser< char >&,
+             ::xml_schema::flags);
+
+      protected:
+      ::xsd::cxx::tree::one< Width_type > Width_;
+      ::xsd::cxx::tree::one< Height_type > Height_;
+    };
+
+    class LuminanceProducer: public ::xml_schema::type
+    {
+      public:
+      // Width
+      //
+      typedef ::xml_schema::int_ Width_type;
+      typedef ::xsd::cxx::tree::traits< Width_type, char > Width_traits;
+
+      const Width_type&
+      Width () const;
+
+      Width_type&
+      Width ();
+
+      void
+      Width (const Width_type& x);
+
+      // Height
+      //
+      typedef ::xml_schema::int_ Height_type;
+      typedef ::xsd::cxx::tree::traits< Height_type, char > Height_traits;
+
+      const Height_type&
+      Height () const;
+
+      Height_type&
+      Height ();
+
+      void
+      Height (const Height_type& x);
+
+      // Constructors.
+      //
+      LuminanceProducer (const Width_type&,
+                         const Height_type&);
+
+      LuminanceProducer (const ::xercesc::DOMElement& e,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+      LuminanceProducer (const LuminanceProducer& x,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+      virtual LuminanceProducer*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      LuminanceProducer&
+      operator= (const LuminanceProducer& x);
+
+      virtual 
+      ~LuminanceProducer ();
+
+      // Implementation.
+      //
+      protected:
+      void
+      parse (::xsd::cxx::xml::dom::parser< char >&,
+             ::xml_schema::flags);
+
+      protected:
+      ::xsd::cxx::tree::one< Width_type > Width_;
+      ::xsd::cxx::tree::one< Height_type > Height_;
+    };
+
+    class ColourMapProducer: public ::xml_schema::type
+    {
+      public:
+      // Width
+      //
+      typedef ::xml_schema::int_ Width_type;
+      typedef ::xsd::cxx::tree::traits< Width_type, char > Width_traits;
+
+      const Width_type&
+      Width () const;
+
+      Width_type&
+      Width ();
+
+      void
+      Width (const Width_type& x);
+
+      // Height
+      //
+      typedef ::xml_schema::int_ Height_type;
+      typedef ::xsd::cxx::tree::traits< Height_type, char > Height_traits;
+
+      const Height_type&
+      Height () const;
+
+      Height_type&
+      Height ();
+
+      void
+      Height (const Height_type& x);
+
+      // ColourSpec
+      //
+      typedef ::malmo::schemas::MobWithColour ColourSpec_type;
+      typedef ::xsd::cxx::tree::sequence< ColourSpec_type > ColourSpec_sequence;
+      typedef ColourSpec_sequence::iterator ColourSpec_iterator;
+      typedef ColourSpec_sequence::const_iterator ColourSpec_const_iterator;
+      typedef ::xsd::cxx::tree::traits< ColourSpec_type, char > ColourSpec_traits;
+
+      const ColourSpec_sequence&
+      ColourSpec () const;
+
+      ColourSpec_sequence&
+      ColourSpec ();
+
+      void
+      ColourSpec (const ColourSpec_sequence& s);
+
+      // skyColour
+      //
+      typedef ::malmo::schemas::HexColour skyColour_type;
+      typedef ::xsd::cxx::tree::traits< skyColour_type, char > skyColour_traits;
+
+      const skyColour_type&
+      skyColour () const;
+
+      skyColour_type&
+      skyColour ();
+
+      void
+      skyColour (const skyColour_type& x);
+
+      void
+      skyColour (::std::auto_ptr< skyColour_type > p);
+
+      static const skyColour_type&
+      skyColour_default_value ();
+
+      // Constructors.
+      //
+      ColourMapProducer (const Width_type&,
+                         const Height_type&);
+
+      ColourMapProducer (const ::xercesc::DOMElement& e,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+      ColourMapProducer (const ColourMapProducer& x,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+      virtual ColourMapProducer*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      ColourMapProducer&
+      operator= (const ColourMapProducer& x);
+
+      virtual 
+      ~ColourMapProducer ();
+
+      // Implementation.
+      //
+      protected:
+      void
+      parse (::xsd::cxx::xml::dom::parser< char >&,
+             ::xml_schema::flags);
+
+      protected:
+      ::xsd::cxx::tree::one< Width_type > Width_;
+      ::xsd::cxx::tree::one< Height_type > Height_;
+      ColourSpec_sequence ColourSpec_;
+      ::xsd::cxx::tree::one< skyColour_type > skyColour_;
+      static const skyColour_type skyColour_default_value_;
+    };
+
     class VideoProducer: public ::xml_schema::type
     {
       public:
@@ -7767,20 +8418,28 @@ namespace malmo
     class ObservationFromFullInventory: public ::xml_schema::type
     {
       public:
+      // flat
+      //
+      typedef ::xml_schema::boolean flat_type;
+      typedef ::xsd::cxx::tree::traits< flat_type, char > flat_traits;
+
+      const flat_type&
+      flat () const;
+
+      flat_type&
+      flat ();
+
+      void
+      flat (const flat_type& x);
+
+      static flat_type
+      flat_default_value ();
+
       // Constructors.
       //
       ObservationFromFullInventory ();
 
       ObservationFromFullInventory (const ::xercesc::DOMElement& e,
-                                    ::xml_schema::flags f = 0,
-                                    ::xml_schema::container* c = 0);
-
-      ObservationFromFullInventory (const ::xercesc::DOMAttr& a,
-                                    ::xml_schema::flags f = 0,
-                                    ::xml_schema::container* c = 0);
-
-      ObservationFromFullInventory (const ::std::string& s,
-                                    const ::xercesc::DOMElement* e,
                                     ::xml_schema::flags f = 0,
                                     ::xml_schema::container* c = 0);
 
@@ -7792,8 +8451,21 @@ namespace malmo
       _clone (::xml_schema::flags f = 0,
               ::xml_schema::container* c = 0) const;
 
+      ObservationFromFullInventory&
+      operator= (const ObservationFromFullInventory& x);
+
       virtual 
       ~ObservationFromFullInventory ();
+
+      // Implementation.
+      //
+      protected:
+      void
+      parse (::xsd::cxx::xml::dom::parser< char >&,
+             ::xml_schema::flags);
+
+      protected:
+      ::xsd::cxx::tree::one< flat_type > flat_;
     };
 
     class ObservationFromDiscreteCell: public ::xml_schema::type
@@ -11332,6 +12004,12 @@ namespace malmo
     operator<< (::xercesc::DOMElement&, const DrawItem&);
 
     void
+    operator<< (::xercesc::DOMElement&, const ContainedObjectType&);
+
+    void
+    operator<< (::xercesc::DOMElement&, const DrawContainer&);
+
+    void
     operator<< (::xercesc::DOMElement&, const DrawEntity&);
 
     void
@@ -11388,6 +12066,19 @@ namespace malmo
     void
     operator<< (::xml_schema::list_stream&,
                 const NonNegative&);
+
+    void
+    operator<< (::xercesc::DOMElement&, const HexColour&);
+
+    void
+    operator<< (::xercesc::DOMAttr&, const HexColour&);
+
+    void
+    operator<< (::xml_schema::list_stream&,
+                const HexColour&);
+
+    void
+    operator<< (::xercesc::DOMElement&, const MobWithColour&);
 
     void
     operator<< (::xercesc::DOMElement&, const ContinuousMovementCommand&);
@@ -11646,6 +12337,15 @@ namespace malmo
     operator<< (::xercesc::DOMElement&, const ServerQuitWhenAnyAgentFinishes&);
 
     void
+    operator<< (::xercesc::DOMElement&, const DepthProducer&);
+
+    void
+    operator<< (::xercesc::DOMElement&, const LuminanceProducer&);
+
+    void
+    operator<< (::xercesc::DOMElement&, const ColourMapProducer&);
+
+    void
     operator<< (::xercesc::DOMElement&, const VideoProducer&);
 
     void
@@ -11737,13 +12437,6 @@ namespace malmo
 
     void
     operator<< (::xercesc::DOMElement&, const ObservationFromFullInventory&);
-
-    void
-    operator<< (::xercesc::DOMAttr&, const ObservationFromFullInventory&);
-
-    void
-    operator<< (::xml_schema::list_stream&,
-                const ObservationFromFullInventory&);
 
     void
     operator<< (::xercesc::DOMElement&, const ObservationFromDiscreteCell&);
@@ -11972,4 +12665,4 @@ namespace malmo
 //
 // End epilogue.
 
-#endif // CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_MISSION_HANDLERS_H
+#endif // CXX_HOME_DAVEY_MALMO_PLATFORM_PY2_SCHEMAS_MISSION_HANDLERS_H

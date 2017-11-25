@@ -31,8 +31,8 @@
 // in the accompanying FLOSSE file.
 //
 
-#ifndef CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_TYPES_H
-#define CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_TYPES_H
+#ifndef CXX_HOME_DAVEY_MALMO_PLATFORM_PY2_SCHEMAS_TYPES_H
+#define CXX_HOME_DAVEY_MALMO_PLATFORM_PY2_SCHEMAS_TYPES_H
 
 #ifndef XSD_USE_CHAR
 #define XSD_USE_CHAR
@@ -259,6 +259,7 @@ namespace malmo
     class ItemType;
     class BlockType;
     class BlockOrItem;
+    class ContainerType;
     class StoneTypes;
     class WoodTypes;
     class FlowerTypes;
@@ -1459,6 +1460,81 @@ namespace malmo
       static const value _xsd_BlockOrItem_indexes_[427];
     };
 
+    class ContainerType: public ::xml_schema::string
+    {
+      public:
+      enum value
+      {
+        dispenser,
+        chest,
+        trapped_chest,
+        hopper,
+        dropper,
+        white_shulker_box,
+        orange_shulker_box,
+        magenta_shulker_box,
+        light_blue_shulker_box,
+        yellow_shulker_box,
+        lime_shulker_box,
+        pink_shulker_box,
+        gray_shulker_box,
+        silver_shulker_box,
+        cyan_shulker_box,
+        purple_shulker_box,
+        blue_shulker_box,
+        brown_shulker_box,
+        green_shulker_box,
+        red_shulker_box,
+        black_shulker_box
+      };
+
+      ContainerType (value v);
+
+      ContainerType (const char* v);
+
+      ContainerType (const ::std::string& v);
+
+      ContainerType (const ::xml_schema::string& v);
+
+      ContainerType (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+      ContainerType (const ::xercesc::DOMAttr& a,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+      ContainerType (const ::std::string& s,
+                     const ::xercesc::DOMElement* e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+      ContainerType (const ContainerType& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+      virtual ContainerType*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      ContainerType&
+      operator= (value v);
+
+      virtual
+      operator value () const
+      {
+        return _xsd_ContainerType_convert ();
+      }
+
+      protected:
+      value
+      _xsd_ContainerType_convert () const;
+
+      public:
+      static const char* const _xsd_ContainerType_literals_[21];
+      static const value _xsd_ContainerType_indexes_[21];
+    };
+
     class StoneTypes: public ::xml_schema::string
     {
       public:
@@ -2512,6 +2588,16 @@ namespace malmo
                 const BlockOrItem&);
 
     void
+    operator<< (::xercesc::DOMElement&, const ContainerType&);
+
+    void
+    operator<< (::xercesc::DOMAttr&, const ContainerType&);
+
+    void
+    operator<< (::xml_schema::list_stream&,
+                const ContainerType&);
+
+    void
     operator<< (::xercesc::DOMElement&, const StoneTypes&);
 
     void
@@ -2640,4 +2726,4 @@ namespace malmo
 //
 // End epilogue.
 
-#endif // CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_TYPES_H
+#endif // CXX_HOME_DAVEY_MALMO_PLATFORM_PY2_SCHEMAS_TYPES_H

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['observationspolicy',['ObservationsPolicy',['../classmalmo_1_1_agent_host.html#abdf1035a7a56e4f100a58c5e4db01091',1,'malmo::AgentHost']]]
+  ['loggingseveritylevel',['LoggingSeverityLevel',['../classmalmo_1_1_logger.html#a3e1f4546121d7847f51b22d6be701a38',1,'malmo::Logger']]]
 ];

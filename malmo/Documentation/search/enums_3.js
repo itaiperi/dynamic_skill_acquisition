@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['transform',['Transform',['../structmalmo_1_1_timestamped_video_frame.html#a72f071afb831b7e2036255229d676515',1,'malmo::TimestampedVideoFrame']]]
+  ['rewardspolicy',['RewardsPolicy',['../classmalmo_1_1_agent_host.html#a2479a59c823bb1e9288c94b1a6295663',1,'malmo::AgentHost']]]
 ];

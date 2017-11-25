@@ -31,8 +31,8 @@
 // in the accompanying FLOSSE file.
 //
 
-#ifndef CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_MISSION_INIT_H
-#define CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_MISSION_INIT_H
+#ifndef CXX_HOME_DAVEY_MALMO_PLATFORM_PY2_SCHEMAS_MISSION_INIT_H
+#define CXX_HOME_DAVEY_MALMO_PLATFORM_PY2_SCHEMAS_MISSION_INIT_H
 
 #ifndef XSD_USE_CHAR
 #define XSD_USE_CHAR
@@ -620,6 +620,34 @@ namespace malmo
       void
       AgentVideoPort (const AgentVideoPort_type& x);
 
+      // AgentDepthPort
+      //
+      typedef ::xml_schema::int_ AgentDepthPort_type;
+      typedef ::xsd::cxx::tree::traits< AgentDepthPort_type, char > AgentDepthPort_traits;
+
+      const AgentDepthPort_type&
+      AgentDepthPort () const;
+
+      AgentDepthPort_type&
+      AgentDepthPort ();
+
+      void
+      AgentDepthPort (const AgentDepthPort_type& x);
+
+      // AgentLuminancePort
+      //
+      typedef ::xml_schema::int_ AgentLuminancePort_type;
+      typedef ::xsd::cxx::tree::traits< AgentLuminancePort_type, char > AgentLuminancePort_traits;
+
+      const AgentLuminancePort_type&
+      AgentLuminancePort () const;
+
+      AgentLuminancePort_type&
+      AgentLuminancePort ();
+
+      void
+      AgentLuminancePort (const AgentLuminancePort_type& x);
+
       // AgentObservationsPort
       //
       typedef ::xml_schema::int_ AgentObservationsPort_type;
@@ -648,6 +676,20 @@ namespace malmo
       void
       AgentRewardsPort (const AgentRewardsPort_type& x);
 
+      // AgentColourMapPort
+      //
+      typedef ::xml_schema::int_ AgentColourMapPort_type;
+      typedef ::xsd::cxx::tree::traits< AgentColourMapPort_type, char > AgentColourMapPort_traits;
+
+      const AgentColourMapPort_type&
+      AgentColourMapPort () const;
+
+      AgentColourMapPort_type&
+      AgentColourMapPort ();
+
+      void
+      AgentColourMapPort (const AgentColourMapPort_type& x);
+
       // Constructors.
       //
       ClientAgentConnection (const ClientIPAddress_type&,
@@ -656,8 +698,11 @@ namespace malmo
                              const AgentIPAddress_type&,
                              const AgentMissionControlPort_type&,
                              const AgentVideoPort_type&,
+                             const AgentDepthPort_type&,
+                             const AgentLuminancePort_type&,
                              const AgentObservationsPort_type&,
-                             const AgentRewardsPort_type&);
+                             const AgentRewardsPort_type&,
+                             const AgentColourMapPort_type&);
 
       ClientAgentConnection (const ::xercesc::DOMElement& e,
                              ::xml_schema::flags f = 0,
@@ -691,8 +736,11 @@ namespace malmo
       ::xsd::cxx::tree::one< AgentIPAddress_type > AgentIPAddress_;
       ::xsd::cxx::tree::one< AgentMissionControlPort_type > AgentMissionControlPort_;
       ::xsd::cxx::tree::one< AgentVideoPort_type > AgentVideoPort_;
+      ::xsd::cxx::tree::one< AgentDepthPort_type > AgentDepthPort_;
+      ::xsd::cxx::tree::one< AgentLuminancePort_type > AgentLuminancePort_;
       ::xsd::cxx::tree::one< AgentObservationsPort_type > AgentObservationsPort_;
       ::xsd::cxx::tree::one< AgentRewardsPort_type > AgentRewardsPort_;
+      ::xsd::cxx::tree::one< AgentColourMapPort_type > AgentColourMapPort_;
     };
   }
 }
@@ -900,4 +948,4 @@ namespace malmo
 //
 // End epilogue.
 
-#endif // CXX_HOME_DAVEY_MALMO_PLATFORM_SCHEMAS_MISSION_INIT_H
+#endif // CXX_HOME_DAVEY_MALMO_PLATFORM_PY2_SCHEMAS_MISSION_INIT_H

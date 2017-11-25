@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project Malmo
-   &#160;<span id="projectnumber">0.30.0</span>
+   &#160;<span id="projectnumber">0.31.0</span>
    </div>
   </td>
  </tr>
@@ -167,6 +167,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a681138f45802358f6e7c6a3e9b20390c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmalmo_1_1_mission_spec.html#a681138f45802358f6e7c6a3e9b20390c">requestVideo</a> (int width, int height)</td></tr>
 <tr class="memdesc:a681138f45802358f6e7c6a3e9b20390c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks for image data to be sent from Minecraft for the agent.  <a href="#a681138f45802358f6e7c6a3e9b20390c">More...</a><br /></td></tr>
 <tr class="separator:a681138f45802358f6e7c6a3e9b20390c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32ec928bc789cf1f5d5ea2ecc8f85d6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmalmo_1_1_mission_spec.html#a32ec928bc789cf1f5d5ea2ecc8f85d6e">requestLuminance</a> (int width, int height)</td></tr>
+<tr class="memdesc:a32ec928bc789cf1f5d5ea2ecc8f85d6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks for 8bpp greyscale image data to be sent from Minecraft for the agent.  <a href="#a32ec928bc789cf1f5d5ea2ecc8f85d6e">More...</a><br /></td></tr>
+<tr class="separator:a32ec928bc789cf1f5d5ea2ecc8f85d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ade620ab9f652d4b12b1bccb6f601c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmalmo_1_1_mission_spec.html#a9ade620ab9f652d4b12b1bccb6f601c8">requestColourMap</a> (int width, int height)</td></tr>
+<tr class="memdesc:a9ade620ab9f652d4b12b1bccb6f601c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks for 24bpp colourmap image data to be sent from Minecraft for the agent.  <a href="#a9ade620ab9f652d4b12b1bccb6f601c8">More...</a><br /></td></tr>
+<tr class="separator:a9ade620ab9f652d4b12b1bccb6f601c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa083c3406eddddfdd6324d803e67ed09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmalmo_1_1_mission_spec.html#aa083c3406eddddfdd6324d803e67ed09">request32bppDepth</a> (int width, int height)</td></tr>
+<tr class="memdesc:aa083c3406eddddfdd6324d803e67ed09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks for 32bpp depth data to be sent from Minecraft for the agent.  <a href="#aa083c3406eddddfdd6324d803e67ed09">More...</a><br /></td></tr>
+<tr class="separator:aa083c3406eddddfdd6324d803e67ed09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7859965bf8aa07246291ecdf16add7bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmalmo_1_1_mission_spec.html#a7859965bf8aa07246291ecdf16add7bd">requestVideoWithDepth</a> (int width, int height)</td></tr>
 <tr class="memdesc:a7859965bf8aa07246291ecdf16add7bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks for image data and depth data to be sent from Minecraft for the agent.  <a href="#a7859965bf8aa07246291ecdf16add7bd">More...</a><br /></td></tr>
 <tr class="separator:a7859965bf8aa07246291ecdf16add7bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -234,6 +243,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:ad35a620b2113875d41e82ce4442c9d5d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmalmo_1_1_mission_spec.html#ad35a620b2113875d41e82ce4442c9d5d">isVideoRequested</a> (int role) const </td></tr>
 <tr class="memdesc:ad35a620b2113875d41e82ce4442c9d5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether video has been requested for one of the agents involved in this mission.  <a href="#ad35a620b2113875d41e82ce4442c9d5d">More...</a><br /></td></tr>
 <tr class="separator:ad35a620b2113875d41e82ce4442c9d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace7609a01484ef14575c446e7823a7ff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmalmo_1_1_mission_spec.html#ace7609a01484ef14575c446e7823a7ff">isDepthRequested</a> (int role) const </td></tr>
+<tr class="memdesc:ace7609a01484ef14575c446e7823a7ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether depthmap video has been requested for one of the agents involved in this mission.  <a href="#ace7609a01484ef14575c446e7823a7ff">More...</a><br /></td></tr>
+<tr class="separator:ace7609a01484ef14575c446e7823a7ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a0cd9b64d49de86b3356c16addb6301"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmalmo_1_1_mission_spec.html#a0a0cd9b64d49de86b3356c16addb6301">isLuminanceRequested</a> (int role) const </td></tr>
+<tr class="memdesc:a0a0cd9b64d49de86b3356c16addb6301"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether luminance video has been requested for one of the agents involved in this mission.  <a href="#a0a0cd9b64d49de86b3356c16addb6301">More...</a><br /></td></tr>
+<tr class="separator:a0a0cd9b64d49de86b3356c16addb6301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f003d9ac55621e2af440ecc35a720c0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmalmo_1_1_mission_spec.html#a4f003d9ac55621e2af440ecc35a720c0">isColourMapRequested</a> (int role) const </td></tr>
+<tr class="memdesc:a4f003d9ac55621e2af440ecc35a720c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether colourmap video has been requested for one of the agents involved in this mission.  <a href="#a4f003d9ac55621e2af440ecc35a720c0">More...</a><br /></td></tr>
+<tr class="separator:a4f003d9ac55621e2af440ecc35a720c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2dd045052e54b6c216a4cea0e90e8028"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmalmo_1_1_mission_spec.html#a2dd045052e54b6c216a4cea0e90e8028">getVideoWidth</a> (int role) const </td></tr>
 <tr class="memdesc:a2dd045052e54b6c216a4cea0e90e8028"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the width of the requested video for one of the agents involved in this mission.  <a href="#a2dd045052e54b6c216a4cea0e90e8028">More...</a><br /></td></tr>
 <tr class="separator:a2dd045052e54b6c216a4cea0e90e8028"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1060,6 +1078,81 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 
 </div>
 </div>
+<a class="anchor" id="a4f003d9ac55621e2af440ecc35a720c0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool malmo::MissionSpec::isColourMapRequested </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>role</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets whether colourmap video has been requested for one of the agents involved in this mission. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">role</td><td>The agent index. Zero based. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if colourmap video was requested. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ace7609a01484ef14575c446e7823a7ff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool malmo::MissionSpec::isDepthRequested </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>role</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets whether depthmap video has been requested for one of the agents involved in this mission. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">role</td><td>The agent index. Zero based. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if depthmap video was requested. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0a0cd9b64d49de86b3356c16addb6301"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool malmo::MissionSpec::isLuminanceRequested </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>role</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets whether luminance video has been requested for one of the agents involved in this mission. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">role</td><td>The agent index. Zero based. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if luminance video was requested. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="ad35a620b2113875d41e82ce4442c9d5d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1273,6 +1366,111 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 
 <p>Remove any existing command handlers from the mission specification. </p>
 <p>Use with other functions to add exactly the command handlers you want. Only applies to the first agent in the mission. For multi-agent missions, specify the command handlers for each in the XML. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa083c3406eddddfdd6324d803e67ed09"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void malmo::MissionSpec::request32bppDepth </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Asks for 32bpp depth data to be sent from Minecraft for the agent. </p>
+<p>Only supports single agent missions. Data will be delivered in a TimestampedVideoFrame structure as an array of floats. The default camera viewpoint will be used (first-person view) - use setViewpoint to change this. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>The width of the image in pixels. Ensure this is divisible by 4. </td></tr>
+    <tr><td class="paramname">height</td><td>The height of the image in pixels. Ensure this is divisible by 2. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a9ade620ab9f652d4b12b1bccb6f601c8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void malmo::MissionSpec::requestColourMap </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Asks for 24bpp colourmap image data to be sent from Minecraft for the agent. </p>
+<p>Only supports single agent missions. Data will be delivered in a TimestampedVideoFrame structure as RGBRGB... The default camera viewpoint will be used (first-person view) - use setViewpoint to change this. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>The width of the image in pixels. Ensure this is divisible by 4. </td></tr>
+    <tr><td class="paramname">height</td><td>The height of the image in pixels. Ensure this is divisible by 2. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a32ec928bc789cf1f5d5ea2ecc8f85d6e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void malmo::MissionSpec::requestLuminance </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Asks for 8bpp greyscale image data to be sent from Minecraft for the agent. </p>
+<p>Only supports single agent missions. Data will be delivered in a TimestampedVideoFrame structure as LLLL... The default camera viewpoint will be used (first-person view) - use setViewpoint to change this. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>The width of the image in pixels. Ensure this is divisible by 4. </td></tr>
+    <tr><td class="paramname">height</td><td>The height of the image in pixels. Ensure this is divisible by 2. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1632,7 +1830,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 20 2017 20:59:12 for Project Malmo by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 12 2017 15:49:13 for Project Malmo by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

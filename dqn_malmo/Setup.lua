@@ -171,6 +171,7 @@ function Setup:parseOptions(arg)
   cmd:option('-timeReward', '0', 'Reward for time left')
   cmd:option('-roundTime', '10000', 'length of round in ms')
   cmd:option('-randomStart', 'false', 'should start in random spot')
+  cmd:option('-initialReward', 'false', 'time does not reduce final reward')
 
   local opt = cmd:parse(arg)
 
@@ -186,8 +187,9 @@ function Setup:parseOptions(arg)
   opt.verbose = opt.verbose == 'true'
   opt.record = opt.record == 'true'
   opt.noValidation = opt.noValidation == 'true'
-  opt.randomStart = opt.verbose == 'true'
-  opt.slowActions = opt.record == 'true'
+  opt.randomStart = opt.randomStart == 'true'
+  opt.slowActions = opt.slowActions == 'true'
+  opt.initialReward = opt.initialReward == 'true'
 
   -- Process boolean/enum options
   if opt.colorSpace == '' then opt.colorSpace = false end
@@ -208,6 +210,7 @@ function Setup:parseOptions(arg)
 
   -- Create one environment to extract specifications
   local Env = require(opt.env)
+  print(opt.env)
   local env = Env(opt)
   opt.stateSpec = env:getStateSpec()
   opt.actionSpec = env:getActionSpec()

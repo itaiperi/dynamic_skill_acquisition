@@ -233,7 +233,7 @@ function Model:create()
       --]]
     end
   end
-  
+
   -- Save reference to network
   self.net = net
 

@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project Malmo
-   &#160;<span id="projectnumber">0.30.0</span>
+   &#160;<span id="projectnumber">0.31.0</span>
    </div>
   </td>
  </tr>
@@ -195,6 +195,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>clients
 : <a class="el" href="structmalmo_1_1_client_pool.html#a84ddb8582b84c153ea651a294bba19a7">malmo::ClientPool</a>
 </li>
+<li>COLOUR_MAP
+: <a class="el" href="structmalmo_1_1_timestamped_video_frame.html#a6016177a24884e003e9696bcfcf172a2a0eb6976dc320838e38eb526b35c48f1a">malmo::TimestampedVideoFrame</a>
+</li>
 <li>createDefaultTerrain()
 : <a class="el" href="classmalmo_1_1_mission_spec.html#a04f50c40a3d69ea595b1d5af09e758fd">malmo::MissionSpec</a>
 </li>
@@ -210,6 +213,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
 <li>data
 : <a class="el" href="structmalmo_1_1_timestamped_unsigned_char_vector.html#a95698d9ec8d2c1a706226a81ef888bc5">malmo::TimestampedUnsignedCharVector</a>
+</li>
+<li>DEPTH_MAP
+: <a class="el" href="structmalmo_1_1_timestamped_video_frame.html#a6016177a24884e003e9696bcfcf172a2a88313c1104a5fd0dc39c27becf2557d1">malmo::TimestampedVideoFrame</a>
 </li>
 <li>drawBlock()
 : <a class="el" href="classmalmo_1_1_mission_spec.html#a0b6b5a2eb38e02bfa9b9c8915d214b90">malmo::MissionSpec</a>
@@ -242,6 +248,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
 <li>forceWorldReset()
 : <a class="el" href="classmalmo_1_1_mission_spec.html#abf25f4e5c92fbb91069c71843ce4fa80">malmo::MissionSpec</a>
+</li>
+<li>frametype
+: <a class="el" href="structmalmo_1_1_timestamped_video_frame.html#ae91b65922d0c3537d35a32cedd9eea7c">malmo::TimestampedVideoFrame</a>
+</li>
+<li>FrameType
+: <a class="el" href="structmalmo_1_1_timestamped_video_frame.html#a6016177a24884e003e9696bcfcf172a2">malmo::TimestampedVideoFrame</a>
 </li>
 </ul>
 
@@ -345,6 +357,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>is_mission_running
 : <a class="el" href="structmalmo_1_1_world_state.html#a144adc14861cd5ae4e755163b321d289">malmo::WorldState</a>
 </li>
+<li>isColourMapRequested()
+: <a class="el" href="classmalmo_1_1_mission_spec.html#a4f003d9ac55621e2af440ecc35a720c0">malmo::MissionSpec</a>
+</li>
+<li>isDepthRequested()
+: <a class="el" href="classmalmo_1_1_mission_spec.html#ace7609a01484ef14575c446e7823a7ff">malmo::MissionSpec</a>
+</li>
+<li>isLuminanceRequested()
+: <a class="el" href="classmalmo_1_1_mission_spec.html#a0a0cd9b64d49de86b3356c16addb6301">malmo::MissionSpec</a>
+</li>
 <li>isRecording()
 : <a class="el" href="structmalmo_1_1_mission_record_spec.html#a22bacb02bd42ce4a1c5b5a008fc86e62">malmo::MissionRecordSpec</a>
 </li>
@@ -382,6 +403,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>LoggingSeverityLevel
 : <a class="el" href="classmalmo_1_1_logger.html#a3e1f4546121d7847f51b22d6be701a38">malmo::Logger</a>
+</li>
+<li>LUMINANCE
+: <a class="el" href="structmalmo_1_1_timestamped_video_frame.html#a6016177a24884e003e9696bcfcf172a2a8961d7e70c09648f54fb370c0ac78da5">malmo::TimestampedVideoFrame</a>
 </li>
 </ul>
 
@@ -487,6 +511,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>removeAllCommandHandlers()
 : <a class="el" href="classmalmo_1_1_mission_spec.html#a762ef8e01f258a0f5be76acfc2ae7999">malmo::MissionSpec</a>
+</li>
+<li>request32bppDepth()
+: <a class="el" href="classmalmo_1_1_mission_spec.html#aa083c3406eddddfdd6324d803e67ed09">malmo::MissionSpec</a>
+</li>
+<li>requestColourMap()
+: <a class="el" href="classmalmo_1_1_mission_spec.html#a9ade620ab9f652d4b12b1bccb6f601c8">malmo::MissionSpec</a>
+</li>
+<li>requestLuminance()
+: <a class="el" href="classmalmo_1_1_mission_spec.html#a32ec928bc789cf1f5d5ea2ecc8f85d6e">malmo::MissionSpec</a>
 </li>
 <li>requestVideo()
 : <a class="el" href="classmalmo_1_1_mission_spec.html#a681138f45802358f6e7c6a3e9b20390c">malmo::MissionSpec</a>
@@ -616,6 +649,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_v"></a>- v -</h3><ul>
+<li>VIDEO
+: <a class="el" href="structmalmo_1_1_timestamped_video_frame.html#a6016177a24884e003e9696bcfcf172a2ac48bf8ddfa9c219fda933d0b61745f1a">malmo::TimestampedVideoFrame</a>
+</li>
 <li>video_frames
 : <a class="el" href="structmalmo_1_1_world_state.html#a2d2c915c1aa01eb3856924b35ae02591">malmo::WorldState</a>
 </li>
@@ -667,7 +703,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 20 2017 20:59:12 for Project Malmo by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 12 2017 15:49:13 for Project Malmo by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
