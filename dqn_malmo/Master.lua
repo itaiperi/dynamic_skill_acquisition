@@ -2,11 +2,8 @@ local classic = require 'classic'
 local signal = require 'posix.signal'
 local Singleton = require 'structures/Singleton'
 local Agent = require 'Agent'
-print('After Agent')
 local Display = require 'Display'
-print('After Display')
 local Validation = require 'Validation'
-print('After Validation')
 
 local Master = classic.class('Master')
 
