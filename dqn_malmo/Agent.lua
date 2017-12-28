@@ -46,7 +46,7 @@ function Agent:_init(opt)
   local headLayer = self.policyNet:findModules('nn.Linear')[2]
   self.tasksHeads = {}
   for i = 1, self.numTasks do
-      self.tasksHeads[i] = headLayer.weight:clone()
+     self.tasksHeads[i] = headLayer.weight:clone()
   end
 
   -- Freeze layers functionality initiations

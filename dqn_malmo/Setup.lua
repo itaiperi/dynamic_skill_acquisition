@@ -152,6 +152,7 @@ function Setup:parseOptions(arg)
   cmd:option('-saliency', '', 'Display saliency maps (requires QT): <none>|normal|guided|deconvnet')
   cmd:option('-record', 'false', 'Record screen (only in eval mode)')
   cmd:option('-task', 1, 'Number of task to perform. Used for multi-task DQN, where there are more than 1 task that can be performed by DQN, with switchable heads')
+  cmd:option('-teachers', '', 'IDs of all techers seperated by comma')
   cmd:option('-numTasks', 1, 'Number of tasks that the DQN was trained to be able to perform.')
   cmd:option('-distillLossThreshold', 0, 'Loss threshold to stop distillation process')
   -- General added options
@@ -174,6 +175,14 @@ function Setup:parseOptions(arg)
   cmd:option('-initialReward', 'false', 'time does not reduce final reward')
 
   local opt = cmd:parse(arg)
+
+  -- Split teachers
+  if (opt.teachers == '') then
+    opt.teachers = {}
+  else
+    opt.teachers = opt.teachers:split(",")
+    opt.numTasks = #opt.teachers
+  end
 
   -- Process boolean options (Torch fails to accept false on the command line)
   opt.cudnn = opt.cudnn == 'true'
@@ -292,8 +301,8 @@ function Setup:validateOptions()
     abortIf(self.opt.saliency, 'Saliency maps not supported in async modes yet')
   end
 
-  abortIf(self.opt.numTasks < 1)
-  abortIf(self.opt.task < 1 or self.opt.task > self.opt.numTasks)
+  -- abortIf(self.opt.numTasks < 1)
+  -- abortIf(self.opt.task < 1 or self.opt.task > self.opt.numTasks)
 end
 
 -- Augments environments with extra methods if missing
@@ -309,6 +318,21 @@ function Setup:augmentEnv()
   if not env.evaluate then
     Env.evaluate = function() end
   end
+end
+
+function string:split( inSplitPattern, outResults )
+  if not outResults then
+    outResults = { }
+  end
+  local theStart = 1
+  local theSplitStart, theSplitEnd = string.find( self, inSplitPattern, theStart )
+  while theSplitStart do
+    table.insert( outResults, string.sub( self, theStart, theSplitStart-1 ) )
+    theStart = theSplitEnd + 1
+    theSplitStart, theSplitEnd = string.find( self, inSplitPattern, theStart )
+  end
+  table.insert( outResults, string.sub( self, theStart ) )
+  return outResults
 end
 
 return Setup

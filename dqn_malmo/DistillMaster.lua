@@ -16,7 +16,7 @@ function DistillMaster:_init(opt)
   self.experiments = opt.experiments
   self.numTasks = opt.numTasks
   self.currentTask = 1
-  self.batchSize = 32
+  self.batchSize = opt.batchSize
   self.learningRate = opt.eta
   self.distillLossThreshold = opt.distillLossThreshold
   self.round = 1
@@ -25,23 +25,54 @@ function DistillMaster:_init(opt)
   self.globals = Singleton({step = 1}) -- Initial step
 
   -- Create DQN Teachers
+  torch.save(paths.concat(opt.experiments, opt._id, 'metadata.t7'), opt)
   self.teachers = {}
-  for i=1, self.numTasks do
-    -- if paths.filep(paths.concat(opt.experiments, 'teacher_' .. i, 'agent.t7')) then
-    if paths.filep(paths.concat(opt.experiments, 'chickenFinder.discreteActions.bright.15sec.3rad.1000.0.1', 'agent.t7')) then
-      log.info('Loading teacher ' .. i)
-      self.teachers[i] = torch.load(paths.concat(opt.experiments, 'teacher_' .. i, 'agent.t7'))
+  print("loading " .. #self.opt.teachers .. " teachers")
+  for i=1, #self.opt.teachers do
+    local path = paths.concat(opt.experiments, self.opt.teachers[i], 'agent.t7')
+    print(path)
+    if paths.filep(path) then
+      log.info('Loading teacher ' .. i .. " from " .. path)
+      self.teachers[i] = torch.load(path)
       -- change teachers' batchSize for the sake of student training (memory sampling of teachers)
-      self.teachers[i].memory.batchSize = self.batchSize
+      -- self.teachers[i].memory.batchSize = self.batchSize
+      -- self.teachers[i].batchSize = self.batchSize
     else
-      error('Teacher ' .. i .. ' doesn\'t exist')
+      error('Teacher ' .. self.opt.teachers[i] .. ' doesn\'t exist')
     end
   end
 
   -- Create DQN student
   log.info('Creating Student DQN')
-  -- Create student network in the same form of teachers' networks, so it can be saved as an agent after training.
-  self.student = Agent(opt)
+  save_date = 0
+  autosave_date = 0
+  local save_path = paths.concat(opt.experiments, opt._id, 'agent.t7')
+  local autosave_path = paths.concat(opt.experiments, opt._id, 'agent_autosave.t7')
+  if paths.filep(save_path) then
+    save_date = tonumber(io.popen('stat -c %Y ' .. save_path):read())
+  end
+  if paths.filep(autosave_path) then
+    autosave_date = tonumber(io.popen('stat -c %Y ' .. autosave_path):read())
+  end
+  if save_date ~= 0 or autosave_date ~= 0 then
+    -- Ask to load saved agent if found in experiment folder (resuming training)
+    log.info('Saved agent found - load (y/n)?')
+    if io.read() == 'y' then
+      -- Load the model which is more updated, among save and autosave)
+      if save_date > autosave_date then
+        log.info('Loading saved agent')
+        self.student = torch.load(save_path)
+      else
+        log.info('Loading autosaved agent')
+        self.student = torch.load(autosave_path)
+      end
+    else
+      self.student = Agent(opt)
+    end
+  else
+    -- Create student network in the same form of teachers' networks, so it can be saved as an agent after training.
+    self.student = Agent(opt)
+  end
 
   log.info('Starting distillation process with ' .. self.numTasks .. ' teachers')
 
@@ -64,7 +95,7 @@ function DistillMaster:distill()
     end
   end
   -- Prepare student for learning, teacher for evaluating.
-  self.student.policyNet:training()
+  self.student:training()
   for i=1, self.numTasks do
     self.teachers[i]:evaluate()
   end
@@ -160,13 +191,13 @@ function DistillMaster:distillTeacherMiniBatch(student, teacher, loss)
   local teacherNet = teacher.policyNet
   studentNet:zeroGradParameters()
   local statesIndices = teacher.memory:sample()
-  local states = teacher.memory:retrieve(statesIndices)
+  local states, actions, rewards, transitions, terminals = teacher.memory:retrieve(statesIndices)
   -- Pass mini-batch through teacher and student networks, calculate gradients and accumulate them
   local pred = studentNet:forward(states)
   local y = teacherNet:forward(states)
   local batchLoss = loss:forward(pred, y)
   local gradOutput = loss:backward(pred, y)
-  studentNet:backward(pred, gradOutput)
+  studentNet:backward(states, gradOutput)
   -- Optimize network according to accumulated gradients
   studentNet:updateParameters(self.learningRate)
   _, pred_maxQ = torch.max(pred, 3)

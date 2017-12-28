@@ -165,7 +165,7 @@ function Minecraft:_init(opts)
   -- Load mission XML from provided file
   if opts.mission_xml ~= "" then
     print(opts.mission_xml)
-    print("Loading mission XML from: " .. opts.mission_xml)
+    -- print("Loading mission XML from: " .. opts.mission_xml)
     local f = assert(io.open(opts.mission_xml, "r"), "Error loading mission")
     self.mission_xml_pattern = f:read("*a")
   end
@@ -323,7 +323,7 @@ function Minecraft:step(action)
   end
 
   self.agent_host:sendCommand(action)
-  -- print(action)
+  print(action)
 
   -- Wait for command to be received and world state to change
   -- sleep(0.05)

@@ -25,6 +25,7 @@ function Master:_init(opt)
 
   -- Set up singleton global object for transferring step
   self.globals = Singleton({step = 1}) -- Initial step
+  torch.save(paths.concat(opt.experiments, opt._id, 'metadata.t7'), opt)
 
   -- Initialise environment
   log.info('Setting up ' .. opt.env)
@@ -53,14 +54,15 @@ function Master:_init(opt)
       -- Ask to load saved agent if found in experiment folder (resuming training)
       log.info('Saved agent found - load (y/n)?')
       if io.read() == 'y' then
-        log.info('Loading saved agent')
         -- Load the model which is more updated, among save and autosave)
         if save_date > autosave_date then
+          log.info('Loading saved agent')
           self.agent = torch.load(save_path)
         else
+          log.info('Loading autosaved agent')
           self.agent = torch.load(autosave_path)
         end
-        self.agent:switchTask(self.task)
+        -- self.agent:switchTask(self.task)
 
         -- Reset globals (step) from agent
         Singleton.setInstance(self.agent.globals)
