@@ -28,7 +28,7 @@ function DistillMaster:_init(opt)
   torch.save(paths.concat(opt.experiments, opt._id, 'metadata.t7'), opt)
   self.teachers = {}
   print("loading " .. #self.opt.teachers .. " teachers")
-  for i=1, #self.opt.teachers do
+  for i=1, self.numTasks do
     local path = paths.concat(opt.experiments, self.opt.teachers[i], 'agent.t7')
     print(path)
     if paths.filep(path) then
@@ -44,8 +44,8 @@ function DistillMaster:_init(opt)
 
   -- Create DQN student
   log.info('Creating Student DQN')
-  save_date = 0
-  autosave_date = 0
+  local save_date = 0
+  local autosave_date = 0
   local save_path = paths.concat(opt.experiments, opt._id, 'agent.t7')
   local autosave_path = paths.concat(opt.experiments, opt._id, 'agent_autosave.t7')
   if paths.filep(save_path) then
@@ -117,7 +117,7 @@ function DistillMaster:distill()
     end
     -- Iterate over teachers every epoch, and do a mini-batch update for every teacher
     for currentTask = 1, self.numTasks do
-      -- self.student:switchTask(currentTask)
+      self.student:switchTask(currentTask)
       local teacher = self.teachers[currentTask]
       -- print('Switching to task ' .. currentTask .. ', with teacher ' .. teacher._id)
       -- TODO Need to check about the validateTransition function which checks that the states sampled are not terminal,

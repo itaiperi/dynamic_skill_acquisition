@@ -323,7 +323,7 @@ function Minecraft:step(action)
   end
 
   self.agent_host:sendCommand(action)
-  print(action)
+  -- print(action)
 
   -- Wait for command to be received and world state to change
   -- sleep(0.05)

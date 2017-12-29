@@ -153,7 +153,6 @@ function Setup:parseOptions(arg)
   cmd:option('-record', 'false', 'Record screen (only in eval mode)')
   cmd:option('-task', 1, 'Number of task to perform. Used for multi-task DQN, where there are more than 1 task that can be performed by DQN, with switchable heads')
   cmd:option('-teachers', '', 'IDs of all techers seperated by comma')
-  cmd:option('-numTasks', 1, 'Number of tasks that the DQN was trained to be able to perform.')
   cmd:option('-distillLossThreshold', 0, 'Loss threshold to stop distillation process')
   -- General added options
   cmd:option('-autoSaveFreq', 5000, 'Interval of steps between autosaving the training agent')
@@ -175,10 +174,10 @@ function Setup:parseOptions(arg)
   cmd:option('-initialReward', 'false', 'time does not reduce final reward')
 
   local opt = cmd:parse(arg)
-
   -- Split teachers
   if (opt.teachers == '') then
     opt.teachers = {}
+    opt.numTasks = opt.task
   else
     opt.teachers = opt.teachers:split(",")
     opt.numTasks = #opt.teachers
@@ -216,10 +215,8 @@ function Setup:parseOptions(arg)
       opt._id = envName .. '.' .. opt.game
     end
   end
-
   -- Create one environment to extract specifications
   local Env = require(opt.env)
-  print(opt.env)
   local env = Env(opt)
   opt.stateSpec = env:getStateSpec()
   opt.actionSpec = env:getActionSpec()
@@ -301,8 +298,8 @@ function Setup:validateOptions()
     abortIf(self.opt.saliency, 'Saliency maps not supported in async modes yet')
   end
 
-  -- abortIf(self.opt.numTasks < 1)
-  -- abortIf(self.opt.task < 1 or self.opt.task > self.opt.numTasks)
+   abortIf(self.opt.numTasks < 1)
+   abortIf(self.opt.task < 1 or self.opt.task > self.opt.numTasks)
 end
 
 -- Augments environments with extra methods if missing

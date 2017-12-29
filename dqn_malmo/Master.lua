@@ -40,8 +40,8 @@ function Master:_init(opt)
     log.info('Loading pretrained network weights')
     self.agent:loadWeights(opt.network)
   else
-    save_date = 0
-    autosave_date = 0
+    local save_date = 0
+    local autosave_date = 0
     local save_path = paths.concat(opt.experiments, opt._id, 'agent.t7')
     local autosave_path = paths.concat(opt.experiments, opt._id, 'agent_autosave.t7')
     if paths.filep(save_path) then
@@ -62,7 +62,11 @@ function Master:_init(opt)
           log.info('Loading autosaved agent')
           self.agent = torch.load(autosave_path)
         end
-        -- self.agent:switchTask(self.task)
+        self.numTasks = self.agent.numTasks
+        if self.task > self.numTasks then
+          error('The agent has ' .. self.numTasks ' tasks, but task requested is ' .. self.task)
+        end
+        self.agent:switchTask(self.task)
 
         -- Reset globals (step) from agent
         Singleton.setInstance(self.agent.globals)
