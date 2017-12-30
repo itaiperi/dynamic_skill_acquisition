@@ -154,7 +154,7 @@ function Minecraft:_init(opts)
   self.randomStart = opts.randomStart
   self.slowActions = opts.slowActions
 
-  self.actions = opts.actions or {"left", "right", "forward", "swap"} --, "use 0", "turn 0", "move 1", "move 0"}
+  self.actions = opts.actions or {"left", "right", "forward", "swap", "cook"} --, "use 0", "turn 0", "move 1", "move 0"}
   -- self.actions = opts.actions or {"swap"} --, "use 0", "turn 0", "move 1", "move 0"}
 
   self.agent_host = AgentHost()
@@ -318,6 +318,9 @@ function Minecraft:step(action)
   elseif action == "swap" then
     self.agent_host:sendCommand(counterAction)
     action = "swapInventoryItems chest:0 1"
+  elseif action == "cook" then
+    self.agent_host:sendCommand(counterAction)
+    action = "craft cooked_chicken"
   else
     action = counterAction
   end
