@@ -73,7 +73,7 @@
   <DrawBlock face="SOUTH" type="jungle_stairs" x="5" y="227" z="1"/>
   <DrawCuboid type="glass_pane" x1="6" x2="6" y1="228" y2="229" z1="-1" z2="1"/>
     </DrawingDecorator>
-    <ServerQuitFromTimeUp timeLimitMs="^TIME"/>
+    <ServerQuitFromTimeUp timeLimitMs="100000"/>
     <ServerQuitWhenAnyAgentFinishes/>
   </ServerHandlers>
 </ServerSection>
@@ -81,23 +81,25 @@
 <AgentSection mode="Survival">
   <Name>Cristina</Name>
   <AgentStart>
-     <!--<Placement pitch="30" x="3.5" y="227" yaw="180" z="-1.5"/> &lt;!&ndash;Infront of the furnace&ndash;&gt;-->
-     <Placement pitch="30" x="-0.5" y="227" yaw="^YAW" z="0.5"/>
+     <Placement pitch="30" x="3.5" y="227" yaw="180" z="-1.5"/>
+     <!--<Placement pitch="30" x="-0.5" y="227" yaw="^YAW" z="0.5"/>-->
     <!--<Placement pitch="30" x="^A_X.5" y="227" yaw="^YAW" z="^A_X.5"/>-->
     <Inventory>
       <InventoryItem slot="0" type="coal"/>
-      <InventoryItem slot="1" type="chicken"/>
+      <InventoryItem slot="1" type="rabbit"/>
     </Inventory>
   </AgentStart>
   <AgentHandlers>
     <InventoryCommands/>
-    <ObservationFromRay/>
     <DiscreteMovementCommands/>
+    <ObservationFromDiscreteCell/>
+    <ObservationFromFullStats/>
+    <ObservationFromRay/>
     <SimpleCraftCommands/>
     <RewardForCollectingItem>
-      <Item reward="^F_R" type="cooked_chicken"/>
+      <Item reward="1000" type="cooked_rabbit"/>
     </RewardForCollectingItem>
-    <RewardForTimeTaken initialReward="^T_R" delta="^DELTA" density="MISSION_END"/>
+    <!--<RewardForTimeTaken initialReward="^T_R" delta="^DELTA" density="MISSION_END"/>-->
     <VideoProducer want_depth="false">
         <Width>640</Width>
         <Height>480</Height>
@@ -105,10 +107,10 @@
     <RewardForMissionEnd rewardForDeath="-100">
     <Reward description="found_goal" reward="100"/>
     </RewardForMissionEnd>
-    <RewardForSendingCommand reward="^C_R"/>
+    <!--<RewardForSendingCommand reward="^C_R"/>-->
     <MissionQuitCommands quitDescription="give_up"/>
       <AgentQuitFromCollectingItem>
-          <Item type="cooked_chicken" description="Found coal!"/>
+          <Item type="cooked_rabbit" description="Found coal!"/>
       </AgentQuitFromCollectingItem>
   </AgentHandlers>
 </AgentSection>

@@ -49,6 +49,7 @@
   <DrawContainer x="-4" y="227" z="5" face="SOUTH" type="chest">
     <Object type="chicken"/>
   </DrawContainer>
+  <DrawItem type="coal" x="^X" y="229" z="^Z"/>
   <DrawCuboid type="glass_pane" x1="-5" x2="-4" y1="228" y2="229" z1="6" z2="6"/>
   <DrawBlock face="WEST" type="quartz_stairs" x="3" y="227" z="4"/>
   <DrawBlock face="EAST" type="quartz_stairs" x="4" y="227" z="4"/>
@@ -81,34 +82,26 @@
 <AgentSection mode="Survival">
   <Name>Cristina</Name>
   <AgentStart>
-     <!--<Placement pitch="30" x="3.5" y="227" yaw="180" z="-1.5"/> &lt;!&ndash;Infront of the furnace&ndash;&gt;-->
-     <Placement pitch="30" x="-0.5" y="227" yaw="^YAW" z="0.5"/>
-    <!--<Placement pitch="30" x="^A_X.5" y="227" yaw="^YAW" z="^A_X.5"/>-->
-    <Inventory>
-      <InventoryItem slot="0" type="coal"/>
-      <InventoryItem slot="1" type="chicken"/>
-    </Inventory>
+    <!-- <Placement pitch="30" x="-0.5" y="227" yaw="^YAW" z="0.5"/> -->
+    <Placement pitch="30" x="^A_X.5" y="227" yaw="^YAW" z="^A_X.5"/>
+    <Inventory/>
   </AgentStart>
   <AgentHandlers>
     <InventoryCommands/>
-    <ObservationFromRay/>
     <DiscreteMovementCommands/>
     <SimpleCraftCommands/>
     <RewardForCollectingItem>
-      <Item reward="^F_R" type="cooked_chicken"/>
+      <Item reward="^F_R" type="coal"/>
     </RewardForCollectingItem>
     <RewardForTimeTaken initialReward="^T_R" delta="^DELTA" density="MISSION_END"/>
     <VideoProducer want_depth="false">
         <Width>640</Width>
         <Height>480</Height>
     </VideoProducer>
-    <RewardForMissionEnd rewardForDeath="-100">
-    <Reward description="found_goal" reward="100"/>
-    </RewardForMissionEnd>
     <RewardForSendingCommand reward="^C_R"/>
     <MissionQuitCommands quitDescription="give_up"/>
       <AgentQuitFromCollectingItem>
-          <Item type="cooked_chicken" description="Found coal!"/>
+          <Item type="coal" description="Found coal!"/>
       </AgentQuitFromCollectingItem>
   </AgentHandlers>
 </AgentSection>

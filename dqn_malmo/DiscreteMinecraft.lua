@@ -1,4 +1,5 @@
 local classic = require 'classic'
+local json = require('cjson')
 local image = require 'image'
 -- Do not install if luasocket missing
 local hasSocket, socket = pcall(require, 'socket')
@@ -154,8 +155,8 @@ function Minecraft:_init(opts)
   self.randomStart = opts.randomStart
   self.slowActions = opts.slowActions
 
-  self.actions = opts.actions or {"left", "right", "forward", "swap", "cook"} --, "use 0", "turn 0", "move 1", "move 0"}
-  -- self.actions = opts.actions or {"swap"} --, "use 0", "turn 0", "move 1", "move 0"}
+  self.actions = opts.actions or {"left", "right", "forward", "swap", "cook"}
+--  self.actions = opts.actions or {"left", "right", "forward", "interact"}
 
   self.agent_host = AgentHost()
 
@@ -239,6 +240,7 @@ end
 -- Start new mission
 function Minecraft:start()
 
+  self.firstStep = true
   local world_state = self.agent_host:peekWorldState()
 
   -- check if a previous mission is still running before starting a new one
@@ -293,6 +295,8 @@ function Minecraft:start()
     world_state = self.agent_host:peekWorldState()
   end
 
+  self.world_state = world_state
+
   self.proc_frames = self:processFrames(world_state.video_frames)
 
   self.rewards = self:getRewards(world_state.rewards)
@@ -319,20 +323,37 @@ function Minecraft:step(action)
     self.agent_host:sendCommand(counterAction)
     action = "swapInventoryItems chest:0 1"
   elseif action == "cook" then
-    self.agent_host:sendCommand(counterAction)
-    action = "craft cooked_chicken"
+    if self.world_state and self.world_state.observations() then
+  --  elseif action == "interact" and self.world_state and self.world_state.observations() then
+      local lookingAtType = json.decode(self.world_state.observations().text).LineOfSight.type
+--      print("Trying to cook while looking at " .. lookingAtType)
+  --    local lookingAtType = observationObj.LineOfSight.type
+      if lookingAtType == "furnace" then
+        action = "craft cooked_chicken"
+  --    elseif lookingAtType == "chest" then
+  --      self.agent_host:sendCommand(counterAction)
+  --      action = "swapInventoryItems chest:0 1"
+      else
+        action = counterAction
+      end
+    else
+      action = counterAction
+      if not self.firstStep then
+        log.info("Failed to get observation when trying to cook")
+      end
+    end
   else
     action = counterAction
   end
 
   self.agent_host:sendCommand(action)
-  -- print(action)
+--   print(action)
 
   -- Wait for command to be received and world state to change
-  -- sleep(0.05)
+--   sleep(1)
 
   -- Check the world state
-  local world_state = self.agent_host:peekWorldState()
+  world_state = self.agent_host:peekWorldState()
 
   -- Zero previous reward
   self.rewards[1] = 0
@@ -345,7 +366,7 @@ function Minecraft:step(action)
   end
   if max_retries >= 0 then
     self.rewards = self:getRewards(world_state.rewards)
-  else
+--  else
 	  -- print(max_retries)
   end
 
@@ -365,11 +386,13 @@ function Minecraft:step(action)
 
   local terminal = not world_state.is_mission_running
 
-  world_state = self.agent_host:getWorldState()
+  self.world_state = self.agent_host:getWorldState()
 
   if terminal then
 	sleep(0.5)
   end
+
+  self.firstStep = false
 
   return self.rewards[1], self.proc_frames[1], terminal
 end

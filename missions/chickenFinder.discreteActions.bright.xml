@@ -88,7 +88,7 @@
   </AgentStart>
   <AgentHandlers>
     <InventoryCommands/>
-    <ObservationFromFullStats/>
+    <SimpleCraftCommands/>
     <DiscreteMovementCommands/>
     <RewardForCollectingItem>
       <Item reward="^F_R" type="chicken"/>

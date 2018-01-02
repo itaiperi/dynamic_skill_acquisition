@@ -81,21 +81,18 @@
 <AgentSection mode="Survival">
   <Name>Cristina</Name>
   <AgentStart>
-     <!--<Placement pitch="30" x="3.5" y="227" yaw="180" z="-1.5"/> &lt;!&ndash;Infront of the furnace&ndash;&gt;-->
-     <Placement pitch="30" x="-0.5" y="227" yaw="^YAW" z="0.5"/>
-    <!--<Placement pitch="30" x="^A_X.5" y="227" yaw="^YAW" z="^A_X.5"/>-->
+    <!-- <Placement pitch="30" x="-0.5" y="227" yaw="^YAW" z="0.5"/> -->
+    <Placement pitch="30" x="^A_X.5" y="227" yaw="^YAW" z="^A_X.5"/>
     <Inventory>
       <InventoryItem slot="0" type="coal"/>
-      <InventoryItem slot="1" type="chicken"/>
     </Inventory>
   </AgentStart>
   <AgentHandlers>
     <InventoryCommands/>
-    <ObservationFromRay/>
     <DiscreteMovementCommands/>
     <SimpleCraftCommands/>
     <RewardForCollectingItem>
-      <Item reward="^F_R" type="cooked_chicken"/>
+      <Item reward="^F_R" type="chicken"/>
     </RewardForCollectingItem>
     <RewardForTimeTaken initialReward="^T_R" delta="^DELTA" density="MISSION_END"/>
     <VideoProducer want_depth="false">
@@ -108,7 +105,7 @@
     <RewardForSendingCommand reward="^C_R"/>
     <MissionQuitCommands quitDescription="give_up"/>
       <AgentQuitFromCollectingItem>
-          <Item type="cooked_chicken" description="Found coal!"/>
+          <Item type="chicken" description="Found coal!"/>
       </AgentQuitFromCollectingItem>
   </AgentHandlers>
 </AgentSection>
