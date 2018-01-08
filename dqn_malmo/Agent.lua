@@ -46,7 +46,7 @@ function Agent:_init(opt)
   local headLayer = self.policyNet:findModules('nn.Linear')[2]
   self.tasksHeads = {}
   for i = 1, self.numTasks do
-     self.tasksHeads[i] = headLayer.weight:clone()
+    self.tasksHeads[i] = {weight = headLayer.weight:clone(), bias = headLayer.bias:clone()}
   end
 
   -- Freeze layers functionality initiations
@@ -692,10 +692,13 @@ end
 function Agent:switchTask(nextTask)
   -- log.info('Switching from task ' .. self.currentTask .. ' to task ' .. nextTask)
   local headLayer = self.policyNet:findModules('nn.Linear')[2]
+
   -- Save previous task's head
-  self.tasksHeads[self.currentTask]:copy(headLayer.weight)
+  self.tasksHeads[self.currentTask].weight:copy(headLayer.weight)
+  self.tasksHeads[self.currentTask].bias:copy(headLayer.bias)
   -- Load next task's head
-  headLayer.weight:copy(self.tasksHeads[nextTask])
+  headLayer.weight:copy(self.tasksHeads[nextTask].weight)
+  headLayer.bias:copy(self.tasksHeads[nextTask].bias)
   self.currentTask = nextTask
   -- Reset gradients, prepare for new learning.
   self.policyNet:zeroGradParameters()
@@ -710,8 +713,7 @@ function Agent:freeze(layers)
   -- Freeze all needed layers
   for i=1, layers do
     -- Backup previous functions of layers
-    self.frozenLayers[i]['parameters'] = self.policyNet.modules[i].parameters
-    self.frozenLayers[i]['accGradParameters'] = self.policyNet.modules[i].accGradParameters
+    self.frozenLayers[i] = {parameters = self.policyNet.modules[i].parameters, accGradParameters = self.policyNet.modules[i].accGradParameters}
     -- Set new functions of layers to do nothing
     self.policyNet.modules[i].parameters = function() return nil end
     self.policyNet.modules[i].accGradParameters = function() end
@@ -719,10 +721,10 @@ function Agent:freeze(layers)
 end
 
 function Agent:unfreeze()
-  if self.frozenLayers ~= nil then
+  if #self.frozenLayers > 0 then
     for i=1, #self.frozenLayers do
-      self.policyNet.modules[i].parameters = self.frozenLayers[i]['parameters']
-      self.policyNet.modules[i].accGradParameters = self.frozenLayers[i]['accGradParameters']
+      self.policyNet.modules[i].parameters = self.frozenLayers[i].parameters
+      self.policyNet.modules[i].accGradParameters = self.frozenLayers[i].accGradParameters
     end
   end
   self.frozenLayers = {}

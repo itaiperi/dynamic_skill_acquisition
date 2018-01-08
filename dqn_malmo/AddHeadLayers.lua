@@ -41,8 +41,8 @@ agent = torch.load(agent_path)
 --print(#agent.tasksHeads)
 --print(agent.numTasks)
 
-hiddenSize = agent.tasksHeads[1]:size(2)
-num_actions = agent.tasksHeads[1]:size(1)
+hiddenSize = agent.tasksHeads[1].weight:size(2)
+num_actions = agent.tasksHeads[1].weight:size(1)
 
 if hasCudnn and opt.cudnn then
   print('Creating ' .. opt.num_heads .. ' additional CUDA head weights tensors')
@@ -55,8 +55,7 @@ for i = 1, opt.num_heads do
   if hasCudnn and opt.cudnn then
     newHead:cuda()
   end
-  newHead = newHead.weight
-  agent.tasksHeads[#agent.tasksHeads + 1] = newHead
+  agent.tasksHeads[#agent.tasksHeads + 1] = {weight = newHead.weight, bias = newHead.bias}
 end
 agent.numTasks = agent.numTasks + opt.num_heads
 
