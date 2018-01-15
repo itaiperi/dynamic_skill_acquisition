@@ -76,9 +76,6 @@ function Master:_init(opt)
         self.agent:setSaliency(opt.saliency)
       end
     end
---  print(self.agent.policyNet)
---  print(self.agent.policyNet:parameters())
---  torch.save(paths.concat(opt.experiments, opt._id, 'start_weights.t7'), self.agent.weight)
   self.agent:freeze(self.freezeLayers)
   end
 

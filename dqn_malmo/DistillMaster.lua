@@ -3,6 +3,7 @@ local signal = require 'posix.signal'
 local Singleton = require 'structures/Singleton'
 local Agent = require 'Agent'
 local Model = require 'Model'
+local nn = require 'nn'
 local cunn = require "cunn"
 local gnuplot = require 'gnuplot'
 
@@ -85,15 +86,9 @@ function DistillMaster:distill()
 
   -- Catch CTRL-C to save
   self:catchSigInt()
+--  local loss = nn.MSECriterion():cuda()
+  local loss = nn.DistKLDivCriterion():cuda()
 
-  local loss = nn.MSECriterion():cuda()
-  -- Optional additon of softmax to metwork in order to work with KL Divergence
-  if torch.type(loss) == 'nn.DistKLDivCriterion' then
-    student.policyNet.modules[6].modules[1].modules[2].modules[2]:add(cudnn.SoftMax())
-    for i=1, self.numTasks do
-      self.teachers[i].policyNet.modules[6].modules[1].modules[2].modules[2]:add(cudnn.SoftMax())
-    end
-  end
   -- Prepare student for learning, teacher for evaluating.
   self.student:training()
   for i=1, self.numTasks do
@@ -103,14 +98,14 @@ function DistillMaster:distill()
   -- Training loop
   local studentErrors, preds, ys, policyAccuracy = {}, {}, {}, {}
   local epoch_length = 1000
+  local min_epochs_for_graphs = 20
   local autosave_interval = 10 * epoch_length
+  local lr_decay_interval = 10 * epoch_length
   for i = 1, self.numTasks do
     studentErrors[i], preds[i], ys[i], policyAccuracy[i] = {}, {}, {}, {}
   end
 
   local lossPerTeacher = self.opt.Tensor(self.numTasks):fill(0)
-  local prevLossPerTeacher = lossPerTeacher:clone()
-  local noImprovement = 0
   while true do
     if self.round % 100 == 0 then
       print('Distillation step ' .. self.round .. '...')
@@ -119,11 +114,10 @@ function DistillMaster:distill()
     for currentTask = 1, self.numTasks do
       self.student:switchTask(currentTask)
       local teacher = self.teachers[currentTask]
-      -- print('Switching to task ' .. currentTask .. ', with teacher ' .. teacher._id)
       -- TODO Need to check about the validateTransition function which checks that the states sampled are not terminal,
       -- whether that's a good thing or not...
       lossPerTeacher[currentTask], pred_mean, y_mean, pred_maxQs, y_maxQs = self:distillTeacherMiniBatch(self.student, teacher, loss)
-      if self.round % epoch_length == 0 then
+      if self.round % epoch_length == 0 and self.round > epoch_length * min_epochs_for_graphs then
         local current_index = #studentErrors[currentTask] + 1
         studentErrors[currentTask][current_index] = lossPerTeacher[currentTask]
         preds[currentTask][current_index] = pred_mean
@@ -132,7 +126,8 @@ function DistillMaster:distill()
       end
       -- print('\tTeacher ' .. currentTask .. ', mini-batch MSE: ' .. lossPerTeacher[currentTask])
     end
-    if self.round % epoch_length == 0 then
+
+    if self.round % epoch_length == 0 and self.round > epoch_length * min_epochs_for_graphs then
       local indices = torch.linspace(1, #studentErrors[1], #studentErrors[1])
       local multilines_error = {}
       local multilines_pred_y = {}
@@ -141,7 +136,7 @@ function DistillMaster:distill()
         multilines_error[#multilines_error + 1] = {'MSE error teacher ' .. i, indices, self.opt.Tensor(studentErrors[i])}
         multilines_pred_y[#multilines_pred_y + 1] = {'Mean prediction task ' .. i, indices, self.opt.Tensor(preds[i])}
         multilines_pred_y[#multilines_pred_y + 1] = {'Mean output teacher ' .. i, indices, self.opt.Tensor(ys[i])}
-        multilines_policyAccuracy[#multilines_policyAccuracy + 1] = {'Policy accuracy task ' .. i, indices, self.opt.Tensor(policyAccuracy[i])}
+        multilines_policyAccuracy[#multilines_policyAccuracy + 1] = {'Policy accuracy task ' .. i, indices, self.opt.Tensor(policyAccuracy[i]) }
       end
       gnuplot.pngfigure(paths.concat('experiments', self._id, 'error.png'))
       gnuplot.plot(multilines_error)
@@ -155,16 +150,6 @@ function DistillMaster:distill()
 
       gnuplot.closeall()
       self.student:report()
-      -- if not lossPerTeacher:abs():le(prevLossPerTeacher * 0.8):all() then
-      --   noImprovement = noImprovement + 1
-      --   if noImprovement > 5 then
-      --     self.learningRate = self.learningRate / 2
-      --     print('Learning rate reduced to ' .. self.learningRate .. '...')
-      --   end
-      -- else
-      --   noImprovement = 0
-      -- end
-      -- prevLossPerTeacher = lossPerTeacher:clone()
     end
     if self.round % (autosave_interval) == 0 then
       print('Autosaving backup of agent at distillation step ' .. self.round)
@@ -175,11 +160,13 @@ function DistillMaster:distill()
       print('MSE distances are below threshold. You can stop training now...')
       break -- TODO Should consider if we want to break, or just let the user stop with Ctrl+C.
     end
-     self.round = self.round + 1
-  end
-  -- Revert softmax layer that was added
-  if torch.type(loss) == 'nn.DistKLDivCriterion' then
-    student.policyNet.modules[6].modules[1].modules[2].modules[2]:remove()
+
+--    if self.round % lr_decay_interval == 0 then
+--      self.learningRate = self.learningRate / 2
+--      print('Learning rate reduced to ' .. self.learningRate)
+--    end
+
+    self.round = self.round + 1
   end
   torch.save(paths.concat(self.experiments, self._id, 'agent.t7'), self.student)
   log.info('Finished distilling')
@@ -189,14 +176,26 @@ end
 function DistillMaster:distillTeacherMiniBatch(student, teacher, loss)
   local studentNet = student.policyNet
   local teacherNet = teacher.policyNet
+  local studentSoftmax = nn.SoftMax():cuda()
+  local teacherSoftmax = nn.SoftMax():cuda()
   studentNet:zeroGradParameters()
   local statesIndices = teacher.memory:sample()
   local states, actions, rewards, transitions, terminals = teacher.memory:retrieve(statesIndices)
   -- Pass mini-batch through teacher and student networks, calculate gradients and accumulate them
   local pred = studentNet:forward(states)
   local y = teacherNet:forward(states)
-  local batchLoss = loss:forward(pred, y)
-  local gradOutput = loss:backward(pred, y)
+  local batchLoss = nil
+  local gradOutput = nil
+  if torch.type(loss) == 'nn.DistKLDivCriterion' then
+    local predSoftmax = studentSoftmax:forward(pred)
+    local ySoftmax = teacherSoftmax:forward(y)
+    batchLoss = loss:forward(predSoftmax, ySoftmax)
+    gradOutput = loss:backward(predSoftmax, ySoftmax)
+    gradOutput = studentSoftmax:backward(pred, gradOutput)
+  else
+    batchLoss = loss:forward(pred, y)
+    gradOutput = loss:backward(pred, y)
+  end
   studentNet:backward(states, gradOutput)
   -- Optimize network according to accumulated gradients
   studentNet:updateParameters(self.learningRate)

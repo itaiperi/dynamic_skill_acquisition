@@ -311,6 +311,7 @@ function Minecraft:step(action)
   -- Do something
   local action = self.actions[action]
   local counterAction = "turn 0"
+--  print(action)
 
   value = "1"
   if action == "left" then
@@ -324,15 +325,9 @@ function Minecraft:step(action)
     action = "swapInventoryItems chest:0 1"
   elseif action == "cook" then
     if self.world_state and self.world_state.observations() then
-  --  elseif action == "interact" and self.world_state and self.world_state.observations() then
       local lookingAtType = json.decode(self.world_state.observations().text).LineOfSight.type
---      print("Trying to cook while looking at " .. lookingAtType)
-  --    local lookingAtType = observationObj.LineOfSight.type
       if lookingAtType == "furnace" then
         action = "craft cooked_chicken"
-  --    elseif lookingAtType == "chest" then
-  --      self.agent_host:sendCommand(counterAction)
-  --      action = "swapInventoryItems chest:0 1"
       else
         action = counterAction
       end
@@ -347,7 +342,6 @@ function Minecraft:step(action)
   end
 
   self.agent_host:sendCommand(action)
---   print(action)
 
   -- Wait for command to be received and world state to change
 --   sleep(1)

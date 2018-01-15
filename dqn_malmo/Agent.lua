@@ -706,28 +706,42 @@ end
 
 function Agent:freeze(layers)
   -- Methods 'frozen' are taken from here: https://gist.github.com/farrajota/415e889fe78b476167781d01df9cfe98
-  log.info('Freezing first ' .. layers .. ' layers')
   -- First, we unfreeze any accidentally frozen layers
-  log.info('Unfreezing any previously frozen layers')
   self:unfreeze()
+  local freezableLayers = self:freezableLayers()
+  layers = math.min(layers, #freezableLayers)
+  log.info('Freezing first ' .. layers .. ' layers')
   -- Freeze all needed layers
   for i=1, layers do
     -- Backup previous functions of layers
-    self.frozenLayers[i] = {parameters = self.policyNet.modules[i].parameters, accGradParameters = self.policyNet.modules[i].accGradParameters}
+    local freezableLayer = freezableLayers[i]['layer']
+--    self.frozenLayers[i] = {layer = freezableLayer, parameters = freezableLayer.parameters,
+--      accGradParameters = freezableLayer.accGradParameters}
     -- Set new functions of layers to do nothing
-    self.policyNet.modules[i].parameters = function() return nil end
-    self.policyNet.modules[i].accGradParameters = function() end
+    freezableLayer.parameters = function() return nil end
+    freezableLayer.accGradParameters = function() end
   end
 end
 
 function Agent:unfreeze()
-  if #self.frozenLayers > 0 then
-    for i=1, #self.frozenLayers do
-      self.policyNet.modules[i].parameters = self.frozenLayers[i].parameters
-      self.policyNet.modules[i].accGradParameters = self.frozenLayers[i].accGradParameters
-    end
+  log.info('Unfreezing any previously frozen layers')
+  for i, frozenLayer in pairs(self.frozenLayers) do
+    frozenLayer['layer'].parameters = frozenLayer.parameters
+    frozenLayer['layer'].accGradParameters = frozenLayer.accGradParameters
   end
   self.frozenLayers = {}
+end
+
+function Agent:freezableLayers()
+  local layerNamesToCheck = {'nn.SpatialConvolution', 'cudnn.SpatialConvolution', 'nn.Linear'}
+  local freezeabeLayers = {}
+
+  for _, layerName in pairs(layerNamesToCheck) do
+    for i, layer in pairs(self.policyNet:findModules(layerName)) do
+      freezeabeLayers[#freezeabeLayers + 1] = {layerType = layerName, layerNum = i, layer = layer}
+    end
+  end
+  return freezeabeLayers
 end
 
 return Agent

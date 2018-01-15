@@ -51,7 +51,7 @@ else
 end
 
 for i = 1, opt.num_heads do
-  newHead = nn.Linear(hiddenSize, num_actions)
+  local newHead = nn.Linear(hiddenSize, num_actions)
   if hasCudnn and opt.cudnn then
     newHead:cuda()
   end
