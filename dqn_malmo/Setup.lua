@@ -172,6 +172,7 @@ function Setup:parseOptions(arg)
   cmd:option('-actions', false, 'List of possible actions')
   cmd:option('-port', 10000, 'Port to connect to malmo')
   cmd:option('-slowActions', 'false', 'should be slower')
+  cmd:option('-actionsNum', 4, 'Number of possible actions to do')
   cmd:option('-findReward', '1', 'Reward for finding coal')
   cmd:option('-commandReward', '0', 'Reward for sending command')
   cmd:option('-timeReward', '0', 'Reward for time left')
@@ -306,6 +307,9 @@ function Setup:validateOptions()
 
    abortIf(self.opt.numTasks < 1)
    abortIf(self.opt.task < 1 or self.opt.task > self.opt.numTasks)
+
+  -- Check valid number of tasks
+  abortIf(self.opt.actionsNum > 5 or self.opt.actionsNum < 3, "Actions should only be between 3 and 5")
 end
 
 -- Augments environments with extra methods if missing

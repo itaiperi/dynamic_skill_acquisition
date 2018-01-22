@@ -86,8 +86,8 @@ function DistillMaster:distill()
 
   -- Catch CTRL-C to save
   self:catchSigInt()
---  local loss = nn.MSECriterion():cuda()
-  local loss = nn.DistKLDivCriterion():cuda()
+  local loss = nn.MSECriterion():cuda()
+--  local loss = nn.DistKLDivCriterion():cuda()
 
   -- Prepare student for learning, teacher for evaluating.
   self.student:training()
@@ -98,7 +98,7 @@ function DistillMaster:distill()
   -- Training loop
   local studentErrors, preds, ys, policyAccuracy = {}, {}, {}, {}
   local epoch_length = 1000
-  local min_epochs_for_graphs = 20
+  local min_epochs_for_graphs = 0
   local autosave_interval = 10 * epoch_length
   local lr_decay_interval = 10 * epoch_length
   for i = 1, self.numTasks do
@@ -176,8 +176,18 @@ end
 function DistillMaster:distillTeacherMiniBatch(student, teacher, loss)
   local studentNet = student.policyNet
   local teacherNet = teacher.policyNet
-  local studentSoftmax = nn.SoftMax():cuda()
-  local teacherSoftmax = nn.SoftMax():cuda()
+  local studentSoftmax = nn.Sequential()
+  studentSoftmax:add(nn.Identity())
+  studentSoftmax:add(nn.Transpose({1, 3}))
+  studentSoftmax:add(nn.SoftMax())
+  studentSoftmax:add(nn.Transpose({1, 3}))
+  studentSoftmax = studentSoftmax:cuda()
+  local teacherSoftmax = nn.Sequential()
+  teacherSoftmax:add(nn.Identity())
+  teacherSoftmax:add(nn.Transpose({1, 3}))
+  teacherSoftmax:add(nn.SoftMax())
+  teacherSoftmax:add(nn.Transpose({1, 3}))
+  teacherSoftmax = teacherSoftmax:cuda()
   studentNet:zeroGradParameters()
   local statesIndices = teacher.memory:sample()
   local states, actions, rewards, transitions, terminals = teacher.memory:retrieve(statesIndices)
@@ -192,6 +202,8 @@ function DistillMaster:distillTeacherMiniBatch(student, teacher, loss)
     batchLoss = loss:forward(predSoftmax, ySoftmax)
     gradOutput = loss:backward(predSoftmax, ySoftmax)
     gradOutput = studentSoftmax:backward(pred, gradOutput)
+    pred = predSoftmax
+    y = ySoftmax
   else
     batchLoss = loss:forward(pred, y)
     gradOutput = loss:backward(pred, y)

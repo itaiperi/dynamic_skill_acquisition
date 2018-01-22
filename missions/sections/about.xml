@@ -1,0 +1,6 @@
+<About>
+    <Summary>Cliff walking mission based on Sutton and Barto.</Summary>
+</About>
+<ModSettings>
+<MsPerTick>100</MsPerTick>
+</ModSettings>

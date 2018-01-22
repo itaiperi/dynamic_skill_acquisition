@@ -1,0 +1,8 @@
+<ServerInitialConditions>
+    <Time>
+        <StartTime>6000</StartTime>
+        <AllowPassageOfTime>false</AllowPassageOfTime>
+    </Time>
+    <Weather>clear</Weather>
+    <AllowSpawning>false</AllowSpawning>
+</ServerInitialConditions>

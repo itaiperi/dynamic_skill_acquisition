@@ -1,0 +1,12 @@
+<InventoryCommands/>
+<ObservationFromRay/>
+<DiscreteMovementCommands/>
+<SimpleCraftCommands/>
+<VideoProducer want_depth="false">
+<Width>640</Width>
+<Height>480</Height>
+</VideoProducer>
+<RewardForMissionEnd rewardForDeath="-100">
+<Reward description="found_goal" reward="100"/>
+</RewardForMissionEnd>
+<MissionQuitCommands quitDescription="give_up"/>

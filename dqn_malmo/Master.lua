@@ -62,9 +62,17 @@ function Master:_init(opt)
           log.info('Loading autosaved agent')
           self.agent = torch.load(autosave_path)
         end
+        if self.agent._id ~= opt._id then
+          log.info('Renaming agent to ' .. opt._id)
+          self.agent._id = opt._id
+        end
+        if self.agent.optimParams.learningRate ~= opt.eta then
+          log.info('Updating eta to ' .. opt.eta)
+          self.agent.optimParams.learningRate = opt.eta
+        end
         self.numTasks = self.agent.numTasks
         if self.task > self.numTasks then
-          error('The agent has ' .. self.numTasks ' tasks, but task requested is ' .. self.task)
+          error('The agent has ' .. self.numTasks .. ' tasks, but task requested is ' .. self.task)
         end
         self.agent:switchTask(self.task)
 

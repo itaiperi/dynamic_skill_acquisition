@@ -8,8 +8,6 @@ if not hasSocket then
 end
 -- Do not require libMalmoLua for install
 local hasLibMalmoLua, libMalmoLua = pcall(require, 'libMalmoLua')
--- require('nn.SpatialGlimpse')
--- require 'libMalmoLua'
 
 local Minecraft, super = classic.class('Minecraft', Env)
 
@@ -154,9 +152,16 @@ function Minecraft:_init(opts)
   self.findReward = opts.findReward
   self.randomStart = opts.randomStart
   self.slowActions = opts.slowActions
+  self.actionsNum = opts.actionsNum
 
-  self.actions = opts.actions or {"left", "right", "forward", "swap", "cook"}
---  self.actions = opts.actions or {"left", "right", "forward", "interact"}
+  if self.actionsNum == 5 then
+    self.actions = {"left", "right", "forward", "swap", "cook" }
+  elseif self.actionsNum == 4 then
+    self.actions = {"left", "right", "forward", "interact" }
+  else
+    self.actions = {"left", "right", "forward" }
+  end
+  self.counterAction = "turn 0"
 
   self.agent_host = AgentHost()
 
@@ -173,30 +178,25 @@ function Minecraft:_init(opts)
 end
 
 function Minecraft:getXML()
-  local yaw = math.random(0, 4) * 90
+  local yaw = math.random(0, 3) * 90
   local agent_x = 0
   local agent_z = 0
-  local x = 0
-  local z = 0
   if (self.x_min_limit ~= "0") then
     if (self.randomStart) then
+      math.randomseed(os.time())
       agent_x = math.random(self.x_min_limit + 1,self.x_max_limit - 1)
       agent_z = math.random(self.z_min_limit + 1,self.z_max_limit - 1)
-      print(agent_z)
-      print(agent_x)
     end
-    x = math.random(self.x_min_limit,self.x_max_limit)
-    z = math.random(self.z_min_limit,self.z_max_limit)
-    while agent_x == x and agent_z == z do
-      x = math.random(self.x_min_limit,self.x_max_limit)
-      z = math.random(self.z_min_limit,self.z_max_limit)
+    while (agent_x == -2 and agent_z < 0) or (agent_z == -2 and agent_x < 0) do
+      agent_x = math.random(self.x_min_limit,self.x_max_limit)
+      agent_z = math.random(self.z_min_limit,self.z_max_limit)
     end
   end
   delta = -1
   if self.timeReward == "0" or self.initialReward then
     delta = 0
   end
-  return self.mission_xml_pattern:gsub("%^X", x):gsub("%^Z", z):gsub("%^A_X", agent_x):gsub("%^A_Z", agent_z):gsub("%^YAW", yaw):gsub("%^TIME", self.roundTime):gsub("%^F_R", self.findReward):gsub("%^T_R", self.timeReward):gsub("%^C_R", self.commandReward):gsub("%^DELTA", delta)
+  return self.mission_xml_pattern:gsub("%^A_X", agent_x):gsub("%^A_Z", agent_z):gsub("%^YAW", yaw):gsub("%^TIME", self.roundTime):gsub("%^F_R", self.findReward):gsub("%^T_R", self.timeReward):gsub("%^C_R", self.commandReward):gsub("%^DELTA", delta)
 end
 
 -- returned states are RGB images
@@ -305,12 +305,46 @@ function Minecraft:start()
   return self.proc_frames[1]
 end
 
+
+-- Swap action
+function Minecraft:swapAction()
+    self.agent_host:sendCommand(self.counterAction)
+    return "swapInventoryItems chest:0 1"
+end
+
+-- Cook action
+function Minecraft:cookAction(lookingAtType)
+  if lookingAtType == "furnace" then
+    return "craft cooked_chicken"
+  else
+    return self.counterAction
+  end
+end
+
+-- Interact Action
+function Minecraft:interactAction()
+  local lookingAtType = self:getLookingAt()
+  if lookingAtType == "furnace" then
+    return self:cookAction(lookingAtType)
+  elseif lookingAtType == "chest" then
+    return self:swapAction()
+  end
+  return self.counterAction
+end
+
+-- Get The type of object the agent is looking at
+function Minecraft:getLookingAt()
+  if self.world_state and self.world_state.observations() then
+    return json.decode(self.world_state.observations().text).LineOfSight.type
+  end
+  return ""
+end
+
 -- Select an action
 function Minecraft:step(action)
 
   -- Do something
   local action = self.actions[action]
-  local counterAction = "turn 0"
 --  print(action)
 
   value = "1"
@@ -321,24 +355,13 @@ function Minecraft:step(action)
   elseif action == "forward" then
     action = "move " .. value
   elseif action == "swap" then
-    self.agent_host:sendCommand(counterAction)
-    action = "swapInventoryItems chest:0 1"
+    action = self:swapAction()
   elseif action == "cook" then
-    if self.world_state and self.world_state.observations() then
-      local lookingAtType = json.decode(self.world_state.observations().text).LineOfSight.type
-      if lookingAtType == "furnace" then
-        action = "craft cooked_chicken"
-      else
-        action = counterAction
-      end
-    else
-      action = counterAction
-      if not self.firstStep then
-        log.info("Failed to get observation when trying to cook")
-      end
-    end
+    action = self:cookAction(self:getLookingAt())
+  elseif action == "interact" then
+    action = self:interactAction()
   else
-    action = counterAction
+    action = self.counterAction
   end
 
   self.agent_host:sendCommand(action)
