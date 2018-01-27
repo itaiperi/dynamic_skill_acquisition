@@ -126,6 +126,8 @@ function Setup:parseOptions(arg)
   -- Training options
   cmd:option('-optimiser', 'rmspropm', 'Training algorithm') -- RMSProp with momentum as found in "Generating Sequences With Recurrent Neural Networks"
   cmd:option('-eta', 0.0000625, 'Learning rate η') -- Prioritied experience replay learning rate (1/4 that of DQN; does not account for Duel as well)
+  cmd:option('-lrDecay', 1, 'Learning rate decay rate')
+  cmd:option('-etaFinal', 0, 'Value which learning rate decays to')
   cmd:option('-momentum', 0.95, 'Gradient descent momentum')
   cmd:option('-batchSize', 32, 'Minibatch size')
   cmd:option('-steps', 5e7, 'Training iterations (steps)') -- Frame := step in ALE; Time step := consecutive frames treated atomically by the agent
@@ -179,6 +181,7 @@ function Setup:parseOptions(arg)
   cmd:option('-roundTime', '10000', 'length of round in ms')
   cmd:option('-randomStart', 'false', 'should start in random spot')
   cmd:option('-initialReward', 'false', 'time does not reduce final reward')
+  cmd:option('-taskHeadDepth', 1, 'Number of layers associated with head of a single task')
 
   local opt = cmd:parse(arg)
   -- Split teachers
@@ -310,6 +313,7 @@ function Setup:validateOptions()
 
   -- Check valid number of tasks
   abortIf(self.opt.actionsNum > 5 or self.opt.actionsNum < 3, "Actions should only be between 3 and 5")
+  abortIf(self.opt.lrDecay > 1 or self.opt.lrDecay < 0, 'Decay should be between 0 and 1')
 end
 
 -- Augments environments with extra methods if missing

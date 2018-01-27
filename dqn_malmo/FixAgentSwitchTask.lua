@@ -1,5 +1,7 @@
 local Agent = require 'Agent'
 
+-- THIS FILE WAS NOT ACCOMODATED TO HANDLE MULTIPLE LAYERS PER TASK HEAD!
+
 local cmd = torch.CmdLine()
 cmd:option('-agent', '', 'Path to agent')
 local opt = cmd:parse(arg)

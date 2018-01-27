@@ -43,10 +43,15 @@ function Agent:_init(opt)
   -- Distillation. Create heads for different tasks, and initiate to be like the policyNet's initial head weights.
   self.numTasks = opt.numTasks
   self.currentTask = opt.task
-  local headLayer = self.policyNet:findModules('nn.Linear')[2]
+  self.taskHeadDepth = opt.taskHeadDepth
+  local trainableLayers = self:trainableLayers()
   self.tasksHeads = {}
   for i = 1, self.numTasks do
-    self.tasksHeads[i] = {weight = headLayer.weight:clone(), bias = headLayer.bias:clone()}
+    self.tasksHeads[i] = {}
+    for j = #trainableLayers - self.taskHeadDepth + 1, #trainableLayers do
+      self.tasksHeads[i][j] = {weight = trainableLayers[j].layer.weight:clone(),
+        bias = trainableLayers[j].layer.bias:clone()}
+    end
   end
 
   -- Freeze layers functionality initiations
@@ -90,7 +95,9 @@ function Agent:_init(opt)
   self.optimiser = opt.optimiser
   self.optimParams = {
     learningRate = opt.eta,
-    momentum = opt.momentum
+    momentum = opt.momentum,
+    lrDecay = opt.lrDecay,
+    etaFinal = opt.etaFinal
   }
 
   -- Q-learning variables (per head)
@@ -549,6 +556,13 @@ function Agent:report()
     'Weight gradient max: ' .. _.reduce(wGradMaxima, pprintArr)
   }
 
+  -- Experimenting with learning decay:
+--  if self.optimParams.etaFinal < self.optimParams.learningRate and self.globals.step > self.learnStart then
+--    self.optimParams.learningRate = self.optimParams.learningRate - 0.02475 / 18
+--    self.optimParams.learningRate = self.optimParams.learningRate * self.optimParams.lrDecay
+--    reports[#reports + 1] = 'Updated eta to ' .. self.optimParams.learningRate
+--  end
+
   return reports
 end
 
@@ -690,15 +704,13 @@ end
 
 -- Special functions added for distillation!
 function Agent:switchTask(nextTask)
-  -- log.info('Switching from task ' .. self.currentTask .. ' to task ' .. nextTask)
-  local headLayer = self.policyNet:findModules('nn.Linear')[2]
-
-  -- Save previous task's head
-  self.tasksHeads[self.currentTask].weight:copy(headLayer.weight)
-  self.tasksHeads[self.currentTask].bias:copy(headLayer.bias)
-  -- Load next task's head
-  headLayer.weight:copy(self.tasksHeads[nextTask].weight)
-  headLayer.bias:copy(self.tasksHeads[nextTask].bias)
+  local trainableLayers = self:trainableLayers()
+  for j = #trainableLayers - self.taskHeadDepth + 1, #trainableLayers do
+    self.tasksHeads[self.currentTask][j].weight:copy(trainableLayers[j].layer.weight)
+    self.tasksHeads[self.currentTask][j].bias:copy(trainableLayers[j].layer.bias)
+    trainableLayers[j].layer.weight:copy(self.tasksHeads[nextTask][j].weight)
+    trainableLayers[j].layer.bias:copy(self.tasksHeads[nextTask][j].bias)
+  end
   self.currentTask = nextTask
   -- Reset gradients, prepare for new learning.
   self.policyNet:zeroGradParameters()
@@ -708,7 +720,7 @@ function Agent:freeze(layers)
   -- Methods 'frozen' are taken from here: https://gist.github.com/farrajota/415e889fe78b476167781d01df9cfe98
   -- First, we unfreeze any accidentally frozen layers
   self:unfreeze()
-  local freezableLayers = self:freezableLayers()
+  local freezableLayers = self:trainableLayers()
   layers = math.min(layers, #freezableLayers)
   log.info('Freezing first ' .. layers .. ' layers')
   -- Freeze all needed layers
@@ -732,16 +744,16 @@ function Agent:unfreeze()
   self.frozenLayers = {}
 end
 
-function Agent:freezableLayers()
+function Agent:trainableLayers()
   local layerNamesToCheck = {'nn.SpatialConvolution', 'cudnn.SpatialConvolution', 'nn.Linear'}
-  local freezeabeLayers = {}
+  local layers = {}
 
   for _, layerName in pairs(layerNamesToCheck) do
     for i, layer in pairs(self.policyNet:findModules(layerName)) do
-      freezeabeLayers[#freezeabeLayers + 1] = {layerType = layerName, layerNum = i, layer = layer}
+      layers[#layers + 1] = {layerType = layerName, layerNum = i, layer = layer}
     end
   end
-  return freezeabeLayers
+  return layers
 end
 
 return Agent
