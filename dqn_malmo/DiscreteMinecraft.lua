@@ -199,6 +199,13 @@ function Minecraft:getXML()
   return self.mission_xml_pattern:gsub("%^A_X", agent_x):gsub("%^A_Z", agent_z):gsub("%^YAW", yaw):gsub("%^TIME", self.roundTime):gsub("%^F_R", self.findReward):gsub("%^T_R", self.timeReward):gsub("%^C_R", self.commandReward):gsub("%^DELTA", delta)
 end
 
+function Minecraft:changeXML(xml_path)
+  if xml_path ~= "" then
+    print(xml_path)
+    local f = assert(io.open(xml_path, "r"), "Error loading mission")
+    self.mission_xml_pattern = f:read("*a")
+  end
+end
 -- returned states are RGB images
 function Minecraft:getStateSpec()
   return {'real', {3, self.height, self.width}, {0, 1}}

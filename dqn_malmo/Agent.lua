@@ -7,6 +7,7 @@ local Experience = require 'Experience'
 local CircularQueue = require 'structures/CircularQueue'
 local Singleton = require 'structures/Singleton'
 local AbstractAgent = require 'async/AbstractAgent'
+local ScoreKeeper = require 'ScoreKeeper'
 require 'classic.torch' -- Enables serialisation
 require 'modules/rmspropm' -- Add RMSProp with momentum
 
@@ -54,6 +55,9 @@ function Agent:_init(opt)
     end
   end
 
+  -- Initiate score keeper
+  self:setScoreKeeper(opt)
+
   -- Freeze layers functionality initiations
   self.frozenLayers = {}
 
@@ -97,7 +101,9 @@ function Agent:_init(opt)
     learningRate = opt.eta,
     momentum = opt.momentum,
     lrDecay = opt.lrDecay,
-    etaFinal = opt.etaFinal
+    etaFinal = opt.etaFinal,
+    etaStart = opt.eta,
+    lrDecayFreq = opt.lrDecayFreq
   }
 
   -- Q-learning variables (per head)
@@ -166,12 +172,20 @@ function Agent:evaluate()
   end
 end
 
+function Agent:setScoreKeeper(opt)
+  self.scoreKeeper = ScoreKeeper(opt)
+end
+
 -- Observes the results of the previous transition and chooses the next action to perform
 function Agent:observe(reward, rawObservation, terminal)
   -- Clip reward for stability
   if self.rewardClip > 0 then
     reward = math.max(reward, -self.rewardClip)
     reward = math.min(reward, self.rewardClip)
+  end
+
+  if terminal then
+    self.scoreKeeper:addScore(reward)
   end
 
   -- Process observation of current state
@@ -259,6 +273,21 @@ function Agent:observe(reward, rawObservation, terminal)
 
   -- If training
   if self.isTraining then
+
+    -- Learning rate decay
+    if self.globals.step > self.learnStart then
+      if self.optimParams.isFreq then
+        if self.optimParams.lrDecay ~= 1 and self.optimParams.etaFinal <= self.optimParams.learningRate and self.globals.step % self.optimParams.lrDecayFreq == 0 then
+          self:updateEta()
+        end
+      else
+        if self.scoreKeeper:hasImproved() then
+          self:updateEta()
+          self.scoreKeeper:keepScore()
+        end
+      end
+    end
+
     -- Store experience tuple parts (including pre-emptive action)
     self.memory:store(reward, observation, terminal, aIndex) -- TODO: Sample independent Bernoulli(p) bootstrap masks for all heads; p = 1 means no masks needed
 
@@ -305,6 +334,13 @@ function Agent:observe(reward, rawObservation, terminal)
 
   -- Return action index with offset applied
   return aIndex - self.actionOffset
+end
+
+-- Update eta
+function Agent:updateEta()
+  self.optimParams.learningRate = math.max(self.optimParams.learningRate * self.optimParams.lrDecay,
+                                            self.optimParams.etaFinal)
+  log.info('Updating eta to ' .. self.optimParams.learningRate)
 end
 
 -- Learns from experience
@@ -555,13 +591,6 @@ function Agent:report()
     'Weight gradient norms: ' .. _.reduce(wGradNorms, pprintArr),
     'Weight gradient max: ' .. _.reduce(wGradMaxima, pprintArr)
   }
-
-  -- Experimenting with learning decay:
---  if self.optimParams.etaFinal < self.optimParams.learningRate and self.globals.step > self.learnStart then
---    self.optimParams.learningRate = self.optimParams.learningRate - 0.02475 / 18
---    self.optimParams.learningRate = self.optimParams.learningRate * self.optimParams.lrDecay
---    reports[#reports + 1] = 'Updated eta to ' .. self.optimParams.learningRate
---  end
 
   return reports
 end

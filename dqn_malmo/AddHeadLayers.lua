@@ -27,7 +27,7 @@ end
 
 local cmd = torch.CmdLine()
 cmd:option('-agent', '', 'Agent to add head layers to')
-cmd:option('-numHeads', 0, 'Number of heads to add to agent')
+cmd:option('-numHeads', 1, 'Number of heads to add to agent')
 cmd:option('-cudnn', 'true', 'Whether to use cudnn or not')
 local opt = cmd:parse(arg)
 opt.cudnn = opt.cudnn == 'true'
@@ -56,12 +56,12 @@ for i = 1 + #agent.tasksHeads, opt.numHeads + #agent.tasksHeads do
   agent.tasksHeads[i] = {}
   for j, _ in pairs(agent.tasksHeads[1]) do
     local newHead = nil
+    local layer = trainableLayers[j].layer
     if trainableLayers[j].layerType == 'nn.Linear' then
-      local inputSize = trainableLayers[j].layer.weight:size(2)
-      local outputSize = trainableLayers[j].layer.weight:size(1)
+      local inputSize = layer.weight:size(2)
+      local outputSize = layer.weight:size(1)
       newHead = nn.Linear(inputSize, outputSize)
     elseif trainableLayers[j].layerType == 'nn.SpatialConvolution' or trainableLayers[j].layerType == 'cudnn.SpatialConvolution' then
-      local layer = trainableLayers[j].layer
       newHead = nn.SpatialConvolution(layer.nInputPlane, layer.nOutputPlane, layer.kW, layer.kH, layer.dW,
         layer.dH, layer.padW, layer.padH)
     end
@@ -71,8 +71,6 @@ for i = 1 + #agent.tasksHeads, opt.numHeads + #agent.tasksHeads do
     agent.tasksHeads[i][j] = {weight = newHead.weight:clone(), bias = newHead.bias:clone()}
   end
 end
-print(agent.tasksHeads)
-error('')
 --  local newHead = nn.Linear(hiddenSize, num_actions)
 --  if hasCudnn and opt.cudnn then
 --    newHead:cuda()

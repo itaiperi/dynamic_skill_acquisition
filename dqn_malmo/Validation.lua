@@ -119,7 +119,7 @@ function Validation:evaluate()
 
   -- Play a number of episodes
   local episode = 1
-  
+  local evalScores = {}
   for valStep = 1, self.opt.valSteps do
     local reward, state, terminal = 0, self.env:start(), false
     -- Report episode score
@@ -131,10 +131,13 @@ function Validation:evaluate()
       reward, state, terminal = self.env:step(action)
       episodeScore = episodeScore + reward
     end
+    evalScores[episode] = episodeScore
     log.info('Episode ' .. episode .. ' final Score: ' .. episodeScore)
     -- Increment episode counter
     episode = episode + 1
+    torch.save(paths.concat(self.opt.experiments, self.opt._id, 'eval_scores.t7'), evalScores)
   end
+  return evalScores
 end
 
 

@@ -34,58 +34,76 @@ function Master:_init(opt)
 
   -- Create DQN agent
   log.info('Creating DQN')
-  self.agent = Agent(opt)
-  if paths.filep(opt.network) then
-    -- Load saved agent if specified
-    log.info('Loading pretrained network weights')
-    self.agent:loadWeights(opt.network)
-  else
-    local save_date = 0
-    local autosave_date = 0
-    local save_path = paths.concat(opt.experiments, opt._id, 'agent.t7')
-    local autosave_path = paths.concat(opt.experiments, opt._id, 'agent_autosave.t7')
-    if paths.filep(save_path) then
-      save_date = tonumber(io.popen('stat -c %Y ' .. save_path):read())
-    end
-    if paths.filep(autosave_path) then
-      autosave_date = tonumber(io.popen('stat -c %Y ' .. autosave_path):read())
-    end
-    if save_date ~= 0 or autosave_date ~= 0 then
-      -- Ask to load saved agent if found in experiment folder (resuming training)
-      log.info('Saved agent found - load (y/n)?')
-      if io.read() == 'y' then
-        -- Load the model which is more updated, among save and autosave)
-        if save_date > autosave_date then
-          log.info('Loading saved agent')
-          self.agent = torch.load(save_path)
-        else
-          log.info('Loading autosaved agent')
-          self.agent = torch.load(autosave_path)
-        end
-        if self.agent._id ~= opt._id then
-          log.info('Renaming agent to ' .. opt._id)
-          self.agent._id = opt._id
-        end
-        if self.agent.optimParams.learningRate ~= opt.eta then
-          log.info('Updating eta to ' .. opt.eta)
-          self.agent.optimParams.learningRate = opt.eta
-        end
-        self.numTasks = self.agent.numTasks
-        if self.task > self.numTasks then
-          error('The agent has ' .. self.numTasks .. ' tasks, but task requested is ' .. self.task)
-        end
-        self.agent:switchTask(self.task)
+  local save_date = 0
+  local autosave_date = 0
+  local save_path = paths.concat(opt.experiments, opt._id, 'agent.t7')
+  local autosave_path = paths.concat(opt.experiments, opt._id, 'agent_autosave.t7')
+  if paths.filep(save_path) then
+    save_date = tonumber(io.popen('stat -c %Y ' .. save_path):read())
+  end
+  if paths.filep(autosave_path) then
+    autosave_date = tonumber(io.popen('stat -c %Y ' .. autosave_path):read())
+  end
+  if save_date ~= 0 or autosave_date ~= 0 then
+    -- Ask to load saved agent if found in experiment folder (resuming training)
+    log.info('Saved agent found - load (y/n)?')
+    if io.read() == 'y' then
+      -- Load the model which is more updated, among save and autosave)
+      if save_date > autosave_date then
+        log.info('Loading saved agent')
+        self.agent = torch.load(save_path)
+      else
+        log.info('Loading autosaved agent')
+        self.agent = torch.load(autosave_path)
+      end
+      if self.agent._id ~= opt._id then
+        log.info('Renaming agent to ' .. opt._id)
+        self.agent._id = opt._id
+      end
+      if not self.agent.scoreKeeper then
+        self.agent:setScoreKeeper(opt)
+        self.agent.optimParams.isFreq = opt.isFreq
+      end
+      if self.agent.optimParams.etaStart ~= opt.eta or
+              self.agent.optimParams.lrDecay ~= opt.lrDecay or
+              self.agent.optimParams.lrDecayFreq ~= opt.lrDecayFreq or
+              self.agent.optimParams.etaFinal ~= opt.etaFinal then
+        self.agent.optimParams.learningRate = opt.eta
+        log.info('Updating eta to ' .. self.agent.optimParams.learningRate)
+        self.agent.optimParams.etaFinal = opt.etaFinal
+        self.agent.optimParams.etaStart = opt.learningRate
+        self.agent.optimParams.lrDecay = opt.lrDecay
+        self.agent.optimParams.lrDecayFreq = opt.lrDecayFreq
+      end
+      self.numTasks = self.agent.numTasks
+      if self.task > self.numTasks then
+        error('The agent has ' .. self.numTasks .. ' tasks, but task requested is ' .. self.task)
+      end
+      self.agent:switchTask(self.task)
 
-        -- Reset globals (step) from agent
-        Singleton.setInstance(self.agent.globals)
-        self.globals = Singleton.getInstance()
+      -- Reset globals (step) from agent
+      Singleton.setInstance(self.agent.globals)
+      self.globals = Singleton.getInstance()
 
-        -- Switch saliency style
-        self.agent:setSaliency(opt.saliency)
+      -- Switch saliency style
+      self.agent:setSaliency(opt.saliency)
+    else
+      self.agent = Agent(opt)
+      if paths.filep(opt.network) then
+        -- Load saved agent if specified
+        log.info('Loading pretrained network weights')
+        self.agent:loadWeights(opt.network)
       end
     end
-  self.agent:freeze(self.freezeLayers)
+  else
+    self.agent = Agent(opt)
+    if paths.filep(opt.network) then
+      -- Load saved agent if specified
+      log.info('Loading pretrained network weights')
+      self.agent:loadWeights(opt.network)
+    end
   end
+  self.agent:freeze(self.freezeLayers)
 
   -- Start gaming
   log.info('Starting ' .. opt.env)

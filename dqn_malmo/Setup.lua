@@ -127,6 +127,10 @@ function Setup:parseOptions(arg)
   cmd:option('-optimiser', 'rmspropm', 'Training algorithm') -- RMSProp with momentum as found in "Generating Sequences With Recurrent Neural Networks"
   cmd:option('-eta', 0.0000625, 'Learning rate η') -- Prioritied experience replay learning rate (1/4 that of DQN; does not account for Duel as well)
   cmd:option('-lrDecay', 1, 'Learning rate decay rate')
+  cmd:option('-isFreq', 'true', 'Is decay from frequency or score')
+  cmd:option('-scoresToKeep', 200, 'Number of scores to keep')
+  cmd:option('-improvement', 200, 'The needed difference to show improvment')
+  cmd:option('-lrDecayFreq', 10000, 'Interval of steps beween decaying the learning rate')
   cmd:option('-etaFinal', 0, 'Value which learning rate decays to')
   cmd:option('-momentum', 0.95, 'Gradient descent momentum')
   cmd:option('-batchSize', 32, 'Minibatch size')
@@ -208,6 +212,7 @@ function Setup:parseOptions(arg)
   opt.randomStart = opt.randomStart == 'true'
   opt.slowActions = opt.slowActions == 'true'
   opt.initialReward = opt.initialReward == 'true'
+  opt.isFreq = opt.isFreq == 'true'
 
   -- Process boolean/enum options
   if opt.colorSpace == '' then opt.colorSpace = false end

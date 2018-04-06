@@ -6,9 +6,11 @@ local Model = require 'Model'
 local nn = require 'nn'
 local cunn = require "cunn"
 local gnuplot = require 'gnuplot'
+local Display = require 'Display'
+local Validation = require 'Validation'
+local ScoreKeeper = require 'ScoreKeeper'
 
 local DistillMaster = classic.class('DistillMaster')
-
 
 -- Sets up environment and agent
 function DistillMaster:_init(opt)
@@ -21,9 +23,14 @@ function DistillMaster:_init(opt)
   self.learningRate = opt.eta
   self.distillLossThreshold = opt.distillLossThreshold
   self.round = 1
+  self.epochsToKeep = 30
+  self.scoreKeeper = ScoreKeeper({scoresToKeep = self.epochsToKeep * self.numTasks, improvement = 1})
 
   -- Set up singleton global object for transferring step
-  self.globals = Singleton({step = 1}) -- Initial step
+  self.globals = Singleton({step = 1, distillStep = 0, studentErrors = {}, preds = {}, ys = {}, policyAccuracy = {}}) -- Initial step
+  for i = 1, self.numTasks do
+      self.globals.studentErrors[i], self.globals.preds[i], self.globals.ys[i], self.globals.policyAccuracy[i] = {}, {}, {}, {}
+  end
 
   -- Create DQN Teachers
   torch.save(paths.concat(opt.experiments, opt._id, 'metadata.t7'), opt)
@@ -35,13 +42,20 @@ function DistillMaster:_init(opt)
     if paths.filep(path) then
       log.info('Loading teacher ' .. i .. " from " .. path)
       self.teachers[i] = torch.load(path)
-      -- change teachers' batchSize for the sake of student training (memory sampling of teachers)
-      -- self.teachers[i].memory.batchSize = self.batchSize
-      -- self.teachers[i].batchSize = self.batchSize
     else
       error('Teacher ' .. self.opt.teachers[i] .. ' doesn\'t exist')
     end
   end
+
+  -- Initialise environment
+  self.mission_xmls = {
+    '/home/deep1/Itai_Asaf/minecraft_lifelong_learning/missions/miner.xml',
+    '/home/deep1/Itai_Asaf/minecraft_lifelong_learning/missions/hunter.xml',
+  }
+--  log.info('Setting up ' .. opt.env)
+--  local Env = require(opt.env)
+--  opt.mission_xml = self.mission_xmls[1]
+--  self.env = Env(opt) -- Environment instantiation
 
   -- Create DQN student
   log.info('Creating Student DQN')
@@ -67,6 +81,9 @@ function DistillMaster:_init(opt)
         log.info('Loading autosaved agent')
         self.student = torch.load(autosave_path)
       end
+      Singleton.setInstance(self.student.globals)
+      self.globals = Singleton.getInstance()
+
     else
       self.student = Agent(opt)
     end
@@ -74,6 +91,23 @@ function DistillMaster:_init(opt)
     -- Create student network in the same form of teachers' networks, so it can be saved as an agent after training.
     self.student = Agent(opt)
   end
+
+  -- Start gaming
+  log.info('Starting ' .. opt.env)
+  if opt.game ~= '' then
+    log.info('Starting game: ' .. opt.game)
+  end
+--  local state = self.env:start()
+
+  -- Set up display (if available)
+  self.hasDisplay = false
+  if opt.displaySpec then
+    self.hasDisplay = true
+--    self.display = Display(opt, self.env:getDisplay())
+  end
+
+  -- Set up validation (with display if available)
+--  self.validation = Validation(opt, self.student, self.env, self.display)
 
   log.info('Starting distillation process with ' .. self.numTasks .. ' teachers')
 
@@ -85,7 +119,7 @@ function DistillMaster:distill()
   log.info('Distilling...')
 
   -- Catch CTRL-C to save
-  self:catchSigInt()
+--  self:catchSigInt()
   local loss = nn.MSECriterion():cuda()
 --  local loss = nn.DistKLDivCriterion():cuda()
 
@@ -96,18 +130,22 @@ function DistillMaster:distill()
   end
 
   -- Training loop
-  local studentErrors, preds, ys, policyAccuracy = {}, {}, {}, {}
-  local epoch_length = 1000
-  local min_epochs_for_graphs = 0
-  local autosave_interval = 10 * epoch_length
-  local lr_decay_interval = 10 * epoch_length
-  for i = 1, self.numTasks do
-    studentErrors[i], preds[i], ys[i], policyAccuracy[i] = {}, {}, {}, {}
-  end
+  local studentErrors, preds, ys, policyAccuracy = self.globals.studentErrors, self.globals.preds, self.globals.ys, self.globals.policyAccuracy
+  local epochLength = 1000
+  local minEpochsForGraphs = self.epochsToKeep
+  local minEpochsForEval = 200
+  local valFrequency = 10 * epochLength
+  local autosaveInterval = 10 * epochLength
+  local lr_decay_interval = 10 * epochLength
 
   local lossPerTeacher = self.opt.Tensor(self.numTasks):fill(0)
-  while true do
-    if self.round % 100 == 0 then
+  local bestEvaluationScores = self.opt.Tensor(self.numTasks):fill(-100)
+  local initStep = self.globals.distillStep + 1 -- Extract step
+  for step = initStep, self.opt.steps do
+    self.globals.distillStep = step -- Pass step number to globals for use in other modules
+    self.round = step
+--  while true do
+    if self.round % epochLength == 0 then
       print('Distillation step ' .. self.round .. '...')
     end
     -- Iterate over teachers every epoch, and do a mini-batch update for every teacher
@@ -117,17 +155,20 @@ function DistillMaster:distill()
       -- TODO Need to check about the validateTransition function which checks that the states sampled are not terminal,
       -- whether that's a good thing or not...
       lossPerTeacher[currentTask], pred_mean, y_mean, pred_maxQs, y_maxQs = self:distillTeacherMiniBatch(self.student, teacher, loss)
-      if self.round % epoch_length == 0 and self.round > epoch_length * min_epochs_for_graphs then
+      if self.round % epochLength == 0 and self.round > epochLength * minEpochsForGraphs then
         local current_index = #studentErrors[currentTask] + 1
         studentErrors[currentTask][current_index] = lossPerTeacher[currentTask]
         preds[currentTask][current_index] = pred_mean
         ys[currentTask][current_index] = y_mean
         policyAccuracy[currentTask][current_index] = torch.eq(pred_maxQs, y_maxQs):sum() / self.batchSize
+        self.scoreKeeper:addScore(policyAccuracy[currentTask][current_index])
       end
-      -- print('\tTeacher ' .. currentTask .. ', mini-batch MSE: ' .. lossPerTeacher[currentTask])
     end
 
-    if self.round % epoch_length == 0 and self.round > epoch_length * min_epochs_for_graphs then
+    if self.round % epochLength == 0 and self.round > epochLength * minEpochsForGraphs then
+      if self.round % (epochLength * 10) == 0 then
+        print("Mean policy accuracy of last 5 epochs: " .. self.scoreKeeper:getMeanScore())
+      end
       local indices = torch.linspace(1, #studentErrors[1], #studentErrors[1])
       local multilines_error = {}
       local multilines_pred_y = {}
@@ -151,14 +192,10 @@ function DistillMaster:distill()
       gnuplot.closeall()
       self.student:report()
     end
-    if self.round % (autosave_interval) == 0 then
+    self.globals.studentErrors, self.globals.preds, self.globals.ys, self.globals.policyAccuracy = studentErrors, preds, ys, policyAccuracy
+    if self.round % (autosaveInterval) == 0 then
       print('Autosaving backup of agent at distillation step ' .. self.round)
       torch.save(paths.concat(self.experiments, self._id, 'agent_autosave.t7'), self.student)
-      -- graph_count = graph_count + 1
-    end
-    if lossPerTeacher:abs():le(self.distillLossThreshold):all() then
-      print('MSE distances are below threshold. You can stop training now...')
-      break -- TODO Should consider if we want to break, or just let the user stop with Ctrl+C.
     end
 
 --    if self.round % lr_decay_interval == 0 then
@@ -166,8 +203,43 @@ function DistillMaster:distill()
 --      print('Learning rate reduced to ' .. self.learningRate)
 --    end
 
+--    if self.round % valFrequency == 0 then
+    if self.round % valFrequency == 0 and self.round > epochLength * minEpochsForEval then
+      if self.scoreKeeper:getMeanScore() > 1.1 then
+--      if self.scoreKeeper:getMeanScore() > 0.998 then
+        local evaluationScores = self.opt.Tensor(self.numTasks)
+        local scoresThreshold = self.opt.Tensor(self.numTasks):fill(930)
+        for currentTask = 1, self.numTasks do
+          self.student:switchTask(currentTask)
+          self.env:changeXML(self.mission_xmls[currentTask])
+          local currentEvaluation = self.opt.Tensor(self.validation:evaluate())
+          for i = 1, currentEvaluation:size(1) do
+            if 0 >= currentEvaluation[i] and currentEvaluation[i] >= -25 then
+              currentEvaluation[i] = currentEvaluation[i] + 1000
+            end
+          end
+          evaluationScores[currentTask] = currentEvaluation:mean()
+        end
+
+
+        for currentTask = 1, self.numTasks do
+          print('Round ' .. self.round .. ' XML ' .. self.mission_xmls[currentTask] .. ':\nAverage Score ' ..
+                  evaluationScores[currentTask] .. ', Best Score until now ' .. bestEvaluationScores[currentTask])
+        end
+        if evaluationScores:mean() > bestEvaluationScores:mean() - 10 then
+          print('New best average distilled agent, saving!')
+          bestEvaluationScores:copy(evaluationScores)
+          torch.save(paths.concat(self.experiments, self._id, 'agent.t7'), self.student)
+        end
+--        if torch.all(evaluationScores:ge(scoresThreshold)) then
+--          break
+--        end
+      end
+    end
+
     self.round = self.round + 1
   end
+
   torch.save(paths.concat(self.experiments, self._id, 'agent.t7'), self.student)
   log.info('Finished distilling')
 end

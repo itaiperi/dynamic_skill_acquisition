@@ -6,23 +6,17 @@ local cmd = torch.CmdLine()
 cmd:option('-agent', '', 'Path to agent')
 local opt = cmd:parse(arg)
 
-local agent_path = opt.agent
+local agentPath = opt.agent
 
-local agent = torch.load(agent_path)
-if agent.numTasks > 1 then
-    error('Do not do this for distilled / multi-task agents!')
+local agent = torch.load(agentPath)
+agent.taskHeadDepth = 1
+for i = 1, agent.numTasks do
+  local taskHead = agent.tasksHeads[i]
+  if taskHead.weight == nil then
+    error('Already fixed')
+  end
+  agent.tasksHeads[i] = {}
+  agent.tasksHeads[i][4] = {weight=taskHead.weight, bias=taskHead.bias}
 end
-local headLayer = agent.policyNet:findModules('nn.Linear')[2]
-agent.tasksHeads[1] = {weight=headLayer.weight:clone(), bias=headLayer.bias:clone()}
 
-print('Original and copied weights are the same: ' .. tostring(torch.all(agent.tasksHeads[1].weight:eq(headLayer.weight))))
-print('Original and copied biases are the same: ' .. tostring(torch.all(agent.tasksHeads[1].bias:eq(headLayer.bias))))
-
-torch.save(agent_path, agent)
-saved_agent = torch.load(agent_path)
-
-if torch.all(saved_agent.tasksHeads[1].weight:eq(headLayer.weight)) and torch.all(saved_agent.tasksHeads[1].bias:eq(headLayer.bias)) then
-    print('SUCCESS! Loaded agent has same weights and biases!')
-else
-    print('SOMETHING WENT WRONG! weights and/or biases of loaded agent are incorrect!')
-end
+torch.save(agentPath, agent)

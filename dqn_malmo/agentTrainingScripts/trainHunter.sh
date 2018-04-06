@@ -1,3 +1,3 @@
 #!/bin/bash
 
-agentTrainingScripts/trainAgent.sh hunter.4actions.longRun hunter.xml 4 $1 1 0 0.00025
+agentTrainingScripts/trainAgent.sh hunter.$1 hunter.xml 4 $2 1 0 0.00025
