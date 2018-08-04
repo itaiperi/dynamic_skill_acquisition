@@ -7,12 +7,13 @@ from torch.utils.serialization import load_lua
 def read_agent_instances_file(file_path, file_name):
     files_data = [load_lua(os.path.join(file_path + ('.%d' % i), file_name)) for i in range(3)]
     # files_data = [load_lua(os.path.join(file_path + ('.%d' % i), file_name)) for i in range(2)]
+    # files_data = [load_lua(os.path.join(file_path + ('.%d' % i), file_name)) for i in range(1)]
     for file_data in files_data:
         for i in range(len(file_data)):
             if 0 >= file_data[i] >= -40:
                 # print file_path
                 file_data[i] += 1000
-    min_length = min([len(data) for data in files_data])
+    min_length = min(min([len(data) for data in files_data]), 50)
     files_data = [data[:min_length] for data in files_data]
 
     return np.stack(files_data, axis=0)
@@ -23,6 +24,7 @@ base_dir = os.path.join(os.environ['DQNF'], 'experiments')
 cookers_paths = [
     os.path.join(base_dir, 'd-miner-hunter-depth1-no-gs'),
     os.path.join(base_dir, 'd-miner-hunter-depth2-no-gs'),
+    # os.path.join(base_dir, 'distilled.depth1'),
     os.path.join(base_dir, 'd-miner-hunter-depth1'),
     os.path.join(base_dir, 'd-miner-hunter-depth2'),
     os.path.join(base_dir, 'cooker')

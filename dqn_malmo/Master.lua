@@ -211,7 +211,13 @@ function Master:train()
 end
 
 function Master:evaluate()
-  self.validation:evaluate() -- Sets env and agent to evaluation mode
+  local currentEvaluation = self.opt.Tensor(self.validation:evaluate()) -- Sets env and agent to evaluation mode
+  for i = 1, currentEvaluation:size(1) do
+    if 0 >= currentEvaluation[i] and currentEvaluation[i] >= -25 then
+      currentEvaluation[i] = currentEvaluation[i] + 1000
+    end
+  end
+  print('Average score of evaluation: ' .. currentEvaluation:mean())
 end
 
 -- Sets up SIGINT (Ctrl+C) handler to save network before quitting

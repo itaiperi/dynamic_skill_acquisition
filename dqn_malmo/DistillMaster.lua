@@ -12,6 +12,7 @@ local ScoreKeeper = require 'ScoreKeeper'
 
 local DistillMaster = classic.class('DistillMaster')
 
+
 -- Sets up environment and agent
 function DistillMaster:_init(opt)
   self.opt = opt
@@ -24,12 +25,16 @@ function DistillMaster:_init(opt)
   self.distillLossThreshold = opt.distillLossThreshold
   self.round = 1
   self.epochsToKeep = 30
-  self.scoreKeeper = ScoreKeeper({scoresToKeep = self.epochsToKeep * self.numTasks, improvement = 1})
+  self.accuracyKeeper = ScoreKeeper({scoresToKeep = self.epochsToKeep * self.numTasks, improvement = 1})
+
+  -- Initiate score keeper
+  self.accuracyKeeper = ScoreKeeper({scoresToKeep = self.epochsToKeep * self.numTasks, improvement = 1})
+  self:setScoreKeeper(opt)
 
   -- Set up singleton global object for transferring step
-  self.globals = Singleton({step = 1, distillStep = 0, studentErrors = {}, preds = {}, ys = {}, policyAccuracy = {}}) -- Initial step
+  self.globals = Singleton({step = 1, distillStep = 0, studentErrors = {}, preds = {}, ys = {}, policyAccuracy = {}, distillEvaluationResults = {}}) -- Initial step
   for i = 1, self.numTasks do
-      self.globals.studentErrors[i], self.globals.preds[i], self.globals.ys[i], self.globals.policyAccuracy[i] = {}, {}, {}, {}
+      self.globals.studentErrors[i], self.globals.preds[i], self.globals.ys[i], self.globals.policyAccuracy[i], self.globals.distillEvaluationResults[i] = {}, {}, {}, {}, {}
   end
 
   -- Create DQN Teachers
@@ -51,11 +56,12 @@ function DistillMaster:_init(opt)
   self.mission_xmls = {
     '/home/deep1/Itai_Asaf/minecraft_lifelong_learning/missions/miner.xml',
     '/home/deep1/Itai_Asaf/minecraft_lifelong_learning/missions/hunter.xml',
+    '/home/deep1/Itai_Asaf/minecraft_lifelong_learning/missions/cooker.xml',
   }
 --  log.info('Setting up ' .. opt.env)
---  local Env = require(opt.env)
---  opt.mission_xml = self.mission_xmls[1]
---  self.env = Env(opt) -- Environment instantiation
+  local Env = require(opt.env)
+  opt.mission_xml = self.mission_xmls[1]
+  self.env = Env(opt) -- Environment instantiation
 
   -- Create DQN student
   log.info('Creating Student DQN')
@@ -97,17 +103,17 @@ function DistillMaster:_init(opt)
   if opt.game ~= '' then
     log.info('Starting game: ' .. opt.game)
   end
---  local state = self.env:start()
+  local state = self.env:start()
 
   -- Set up display (if available)
   self.hasDisplay = false
   if opt.displaySpec then
     self.hasDisplay = true
---    self.display = Display(opt, self.env:getDisplay())
+    self.display = Display(opt, self.env:getDisplay())
   end
 
   -- Set up validation (with display if available)
---  self.validation = Validation(opt, self.student, self.env, self.display)
+  self.validation = Validation(opt, self.student, self.env, self.display)
 
   log.info('Starting distillation process with ' .. self.numTasks .. ' teachers')
 
@@ -130,11 +136,11 @@ function DistillMaster:distill()
   end
 
   -- Training loop
-  local studentErrors, preds, ys, policyAccuracy = self.globals.studentErrors, self.globals.preds, self.globals.ys, self.globals.policyAccuracy
+  local studentErrors, preds, ys, policyAccuracy, distillEvaluationResults = self.globals.studentErrors, self.globals.preds, self.globals.ys, self.globals.policyAccuracy, self.globals.distillEvaluationResults
   local epochLength = 1000
   local minEpochsForGraphs = self.epochsToKeep
-  local minEpochsForEval = 200
-  local valFrequency = 10 * epochLength
+  local minEpochsForEval = 5
+  local valFrequency = 30 * epochLength
   local autosaveInterval = 10 * epochLength
   local lr_decay_interval = 10 * epochLength
 
@@ -155,19 +161,19 @@ function DistillMaster:distill()
       -- TODO Need to check about the validateTransition function which checks that the states sampled are not terminal,
       -- whether that's a good thing or not...
       lossPerTeacher[currentTask], pred_mean, y_mean, pred_maxQs, y_maxQs = self:distillTeacherMiniBatch(self.student, teacher, loss)
-      if self.round % epochLength == 0 and self.round > epochLength * minEpochsForGraphs then
+      if self.round % epochLength == 0 and self.round >= epochLength * minEpochsForGraphs then
         local current_index = #studentErrors[currentTask] + 1
         studentErrors[currentTask][current_index] = lossPerTeacher[currentTask]
         preds[currentTask][current_index] = pred_mean
         ys[currentTask][current_index] = y_mean
         policyAccuracy[currentTask][current_index] = torch.eq(pred_maxQs, y_maxQs):sum() / self.batchSize
-        self.scoreKeeper:addScore(policyAccuracy[currentTask][current_index])
+        self.accuracyKeeper:addScore(policyAccuracy[currentTask][current_index])
       end
     end
 
-    if self.round % epochLength == 0 and self.round > epochLength * minEpochsForGraphs then
+    if self.round % epochLength == 0 and self.round >= epochLength * minEpochsForGraphs then
       if self.round % (epochLength * 10) == 0 then
-        print("Mean policy accuracy of last 5 epochs: " .. self.scoreKeeper:getMeanScore())
+        print("Mean policy accuracy of last 5 epochs: " .. self.accuracyKeeper:getMeanScore())
       end
       local indices = torch.linspace(1, #studentErrors[1], #studentErrors[1])
       local multilines_error = {}
@@ -204,11 +210,12 @@ function DistillMaster:distill()
 --    end
 
 --    if self.round % valFrequency == 0 then
-    if self.round % valFrequency == 0 and self.round > epochLength * minEpochsForEval then
-      if self.scoreKeeper:getMeanScore() > 1.1 then
---      if self.scoreKeeper:getMeanScore() > 0.998 then
+    if (self.round % valFrequency == 0 and self.round >= epochLength * minEpochsForEval) or (self.accuracyKeeper:getMeanScore() > 0.999 and self.round % (epochLength * 10) == 0) then
+--      if self.accuracyKeeper:getMeanScore() > 1.1 then
+--      if self.accuracyKeeper:getMeanScore() > 0.995 then
         local evaluationScores = self.opt.Tensor(self.numTasks)
-        local scoresThreshold = self.opt.Tensor(self.numTasks):fill(930)
+        local scoresThreshold = self.opt.Tensor(self.numTasks):fill(960)
+        local multilines_distillEvaluationResults = {}
         for currentTask = 1, self.numTasks do
           self.student:switchTask(currentTask)
           self.env:changeXML(self.mission_xmls[currentTask])
@@ -217,9 +224,25 @@ function DistillMaster:distill()
             if 0 >= currentEvaluation[i] and currentEvaluation[i] >= -25 then
               currentEvaluation[i] = currentEvaluation[i] + 1000
             end
+            self.scoreKeeper:addScore(currentEvaluation[i])
           end
+          --if self.scoreKeeper:hasImproved() and self.round > epochLength * minEpochsForEval * 2 then
+            --self.learningRate = self.learningRate / 2
+            --print('Learning rate reduced to ' .. self.learningRate)
+            --self.scoreKeeper:keepScore()
+          --end
           evaluationScores[currentTask] = currentEvaluation:mean()
+          local currentIndex = #distillEvaluationResults[currentTask] + 1
+          distillEvaluationResults[currentTask][currentIndex] = currentEvaluation:mean()
+
+          local indices = torch.linspace(1, #distillEvaluationResults[1], #distillEvaluationResults[1])
+          multilines_distillEvaluationResults[#multilines_distillEvaluationResults + 1] = {'Evaluation result task ' .. currentTask, indices, self.opt.Tensor(distillEvaluationResults[currentTask]) }
         end
+
+        gnuplot.pngfigure(paths.concat('experiments', self._id, 'distill_evaluation.png'))
+        gnuplot.plot(multilines_distillEvaluationResults)
+        gnuplot.plotflush()
+        gnuplot.closeall()
 
 
         for currentTask = 1, self.numTasks do
@@ -228,13 +251,15 @@ function DistillMaster:distill()
         end
         if evaluationScores:mean() > bestEvaluationScores:mean() - 10 then
           print('New best average distilled agent, saving!')
-          bestEvaluationScores:copy(evaluationScores)
+          if evaluationScores:mean() > bestEvaluationScores:mean() then
+            bestEvaluationScores:copy(evaluationScores)
+          end
           torch.save(paths.concat(self.experiments, self._id, 'agent.t7'), self.student)
         end
---        if torch.all(evaluationScores:ge(scoresThreshold)) then
---          break
---        end
-      end
+        if torch.all(evaluationScores:ge(scoresThreshold)) then
+          break
+        end
+--      end
     end
 
     self.round = self.round + 1
@@ -303,6 +328,10 @@ function DistillMaster:catchSigInt()
     log.warn('Exiting')
     os.exit(128 + signum)
   end)
+end
+
+function DistillMaster:setScoreKeeper(opt)
+  self.scoreKeeper = ScoreKeeper({scoresToKeep = 200, improvement = 300})
 end
 
 return DistillMaster

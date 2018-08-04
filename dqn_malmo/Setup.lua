@@ -45,12 +45,12 @@ function Setup:_init(arg)
   -- Set default Tensor type (float is more efficient than double)
   torch.setdefaulttensortype(self.opt.tensorType)
   -- Set manual seed
---  if self.opt.seed == 1 then
---    math.randomseed(os.time())
---    -- Pop some random numbers, in order to get a real random number. See http://lua-users.org/wiki/MathLibraryTutorial
---    math.random(); math.random(); math.random()
---    self.opt.seed = math.random() * 1000
---  end
+  if self.opt.seed == 1 then
+    math.randomseed(os.time())
+    -- Pop some random numbers, in order to get a real random number. See http://lua-users.org/wiki/MathLibraryTutorial
+    math.random(); math.random(); math.random()
+    self.opt.seed = math.random() * 1000
+  end
   torch.manualSeed(self.opt.seed)
 
   -- Tensor creation function for removing need to cast to CUDA if GPU is enabled
