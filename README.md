@@ -1,0 +1,7 @@
+# Dynamic Skill Acquisition in Multi-Task Policy-Distilled Agents
+### TL;DR
+This project suggests a mechanism that enables multi-task, policy-distilled agents to learn to perform new tasks in the traditional RL agent-environment methodology, as opposed to having to go through the offline distillation process for each new task, using an expert agent for each task.
+### Abstract
+We propose a lifelong learning system that utilizes knowledge obtained from previously learned skills in order to help and accelerate the learning of new skills. A skill a strategy learned by the agent in order to perform a certain task. We focus on skill learning in the domain of Minecraft, a popular video game which is an unsolved and high-dimensional lifelong learning problem. We accumulate knowledge in the form of skills and enable the learning of new skills, using our online form of policy distillation, eliminating the need for a domain expert required in traditional distillation setups, and speeding up the training process. Moreover, when learning new skills, we enable knowledge retention of previously learned skills, i.e., overcoming catastrophic forgetting. We provide an ablative analysis that details the conditions under which the learning system can mitigate catastrophic forgetting whilst learning new skills.
+### Further information
+for further information and results, please see the [paper](Dynamic Skill Acquisition in Multi-Task Policy-Distilled Agents.pdf) included in the project.
